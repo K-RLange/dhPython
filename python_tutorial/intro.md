@@ -1,11 +1,15 @@
-# Welcome to your Jupyter Book
+# Python for digital humanities @UA Ruhr
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This is a small Python Tutorial, which will teach you the basics of the Python 
+programming language.
 
-Check out the content pages bundled with this sample book to see more.
+We will first teach you, how to install Python and an IDE (Integrated 
+Development Environment) on your personal system and will then teach you the 
+basics of the language, its syntax and most common packages.
+
+If you are interested in learning about corpus linguistics, we suggest you to
+first complete this little course and then take a look at 
+[this NLP-course](https://github.com/K-RLange/dhNLP).
 
 ```{tableofcontents}
 ```
