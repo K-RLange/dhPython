@@ -1,5 +1,5 @@
-python_tutorial/_build/*
-python_tutorial/_build
+# python_tutorial/_build/*
+# python_tutorial/_build
 .idea/*
 .idea
 
