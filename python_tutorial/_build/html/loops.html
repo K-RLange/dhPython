@@ -456,6 +456,23 @@ In Python, the colon “:” is used to indicate the start of a block of code. A
 This structure - a colon followed by intended lines - happens whenever you want to check for a condition, loop over something, create a function or a class.
 How these other blocks of code work will be explained in later sections, but it is important to remember that they always follow this simple structure.</p>
 </div>
+<p>We check for conditions using the “if” keyword and create an intended code block that is executed if and only if the condition is met.</p>
+<p>In the following cell, we define a boolean and check whether it is true or not. If it is true, we print “The boolean is true”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boolean</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">boolean</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The boolean is true&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The boolean is true
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also define what happens, if the condition is not met. We can do this by using the “else” keyword directly after the “if”-code block has ended.</p>
 <p>The following code cell checks if a certain number is larger than 5. If this is the case, it prints “The number is larger than 5”. If the number is not larger than 5, it prints “The number is not larger than 5”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -469,6 +486,29 @@ How these other blocks of code work will be explained in later sections, but it 
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number is larger than 5
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can even go further and check multiple conditions. We can do this by using the “elif” keyword. This keyword is short for “else if” and is used to check another condition if the first condition is not met.
+It is different from “else”, because it does not always execute its code block, if the original “if” condition wasn’t met, but only if an additional condition is met..</p>
+<p>In the following cell, we check if a number is larger than 0, larger than 5 or larger than 10. We print the result of each check.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number is larger than 10&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number is larger than 5 but smaller or equal to 10&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number is larger than 0 but smaller than 5&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number is smaller or equal to 0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number is larger than 5 but smaller or equal to 10
 </pre></div>
 </div>
 </div>
