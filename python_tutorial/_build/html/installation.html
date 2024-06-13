@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Notebooks with MyST Markdown &#8212; Digital Humanities Python Tutorial</title>
+    <title>0. Installing Python, an IDE and packages &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'installation';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Notebooks with MyST Markdown" href="arithmetics.html" />
+    <link rel="next" title="1. Arithmetics and variables" href="arithmetics.html" />
     <link rel="prev" title="Python for digital humanities @UA Ruhr" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,10 +178,11 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">Notebooks with MyST Markdown</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">0. Installing Python, an IDE and packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas.html">Notebooks with MyST Markdown</a></li>
 </ul>
@@ -238,19 +239,19 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/docs/installation.md" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
-  
-    <img src="_static/images/logo_colab.png">
+  <i class="fas fa-play"></i>
   </span>
-<span class="btn__text-container">Colab</span>
-</a>
+<span class="btn__text-container">Live Code</span>
+</button>
 </li>
       
   </ul>
@@ -269,7 +270,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/K-RLange/dhPython" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +287,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Finstallation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/K-RLange/dhPython/issues/new?title=Issue%20on%20page%20%2Finstallation.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -417,7 +418,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Notebooks with MyST Markdown</h1>
+    <h1>0. Installing Python, an IDE and packages</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -427,9 +428,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">Installing Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-recommended">1) Using conda (recommended)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-official-installer">2) Using the official installer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip">1) Using pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda">2) Using conda</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-an-ide">Installing an IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1) Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">2) PyCharm</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -441,50 +454,89 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="notebooks-with-myst-markdown">
-<h1>Notebooks with MyST Markdown<a class="headerlink" href="#notebooks-with-myst-markdown" title="Link to this heading">#</a></h1>
-<p>Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See <a class="reference external" href="https://jupyterbook.org/file-types/myst-notebooks.html">the Notebooks with MyST Markdown documentation</a> for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.</p>
-<section id="an-example-cell">
-<h2>An example cell<a class="headerlink" href="#an-example-cell" title="Link to this heading">#</a></h2>
-<p>With MyST Markdown, you can define code cells with a directive like so:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="installing-python-an-ide-and-packages">
+<h1>0. Installing Python, an IDE and packages<a class="headerlink" href="#installing-python-an-ide-and-packages" title="Link to this heading">#</a></h1>
+<section id="installing-python">
+<h2>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">#</a></h2>
+<p>To install Python on your local machine, you can either download the installer
+from the official website or install conda, which is a version manager for
+Python and other programming languages (like R).</p>
+<p>To complete this tutorial, you will <strong>not</strong> need to install Python or an IDE, as the code can be run in your browser.
+If you would like to work with Python after completing this course however, we suggest you install Python and an IDE on your local machine.</p>
+<section id="using-conda-recommended">
+<h3>1) Using conda (recommended)<a class="headerlink" href="#using-conda-recommended" title="Link to this heading">#</a></h3>
+<p>To download conda, please visit the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">official conda website</a>.
+You can choose to either install miniconda or Anaconda distribution (recommended). Miniconda is a barebone installation, while Anaconda distribution provides additional pre-installed features, which might be useful for you.
+Follow the download instructions on the website and install the version of conda that you prefer.</p>
+<p>After conda is installed, you can, at any time, create a new programming environment for Python. Thus, if you have different projects that require different Python versions of packages, you can simply use conda to create a new environment. This is recommended to avoid conflicts between different packages and their versions.</p>
+<p>To create a Python environment, open a terminal and run the following command in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<p>In this case, we create a new environment called <code class="docutils literal notranslate"><span class="pre">myenv</span></code> with Python version 3.11. You can choose any name for your environment and any Python version that you need. The latest Python version, as of writing this tutorial, is Python 3.11.</p>
+<p>Within the terminal, you can then type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>myenv
 </pre></div>
 </div>
+<p>to activate your environment. You can then install any packages that you need for your project.</p>
+</section>
+<section id="using-the-official-installer">
+<h3>2) Using the official installer<a class="headerlink" href="#using-the-official-installer" title="Link to this heading">#</a></h3>
+<p>To install Python using the official installer, please visit the <a class="reference external" href="https://www.python.org/downloads/">official Python website</a> and install the version that you would like to use.
+Please note that it is recommended to use the conda installer, because this will make it easier for you to manage different Python versions and packages later on.</p>
+</section>
+</section>
+<section id="installing-packages">
+<h2>Installing packages<a class="headerlink" href="#installing-packages" title="Link to this heading">#</a></h2>
+<p>Python has two major package managers: conda and pip. Conda is the package manager that comes with the Anaconda distribution, while pip is the package manager that comes with every Python installation by default.</p>
+<p>Please note that these two package managers are not always compatible with each other. If you are using conda, it is recommended to install packages using conda. If you need to use both managers for the same Python environment, please make sure to first install as many packages as possible using conda and then install the rest using pip.</p>
+<p>For the most purposes, pip should suffice.</p>
+<section id="using-pip">
+<h3>1) Using pip<a class="headerlink" href="#using-pip" title="Link to this heading">#</a></h3>
+<p>To install a package using pip, you can simply open a terminal and type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>package_name
+</pre></div>
 </div>
-</div>
-<p>When your book is built, the contents of any <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>Jupyter Book uses <a class="reference external" href="https://jupytext.readthedocs.io/en/latest/">Jupytext</a> to convert text-based files to notebooks, and can support <a class="reference external" href="https://jupyterbook.org/file-types/jupytext.html">many other text-based notebook files</a>.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">package_name</span></code> is the name of the package that you would like to install. For example, to install the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, you can type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+</pre></div>
 </div>
 </section>
-<section id="create-a-notebook-with-myst-markdown">
-<h2>Create a notebook with MyST Markdown<a class="headerlink" href="#create-a-notebook-with-myst-markdown" title="Link to this heading">#</a></h2>
-<p>MyST Markdown notebooks are defined by two things:</p>
-<ol class="arabic simple">
-<li><p>YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-See the YAML at the top of this page for example.</p></li>
-<li><p>The presence of <code class="docutils literal notranslate"><span class="pre">{code-cell}</span></code> directives, which will be executed with your book.</p></li>
-</ol>
-<p>That’s all that is needed to get started!</p>
-</section>
-<section id="quickly-add-yaml-metadata-for-myst-notebooks">
-<h2>Quickly add YAML metadata for MyST Notebooks<a class="headerlink" href="#quickly-add-yaml-metadata-for-myst-notebooks" title="Link to this heading">#</a></h2>
-<p>If you have a markdown file and you’d like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">myst</span> <span class="n">init</span> <span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">markdownfile</span><span class="o">.</span><span class="n">md</span>
+<section id="using-conda">
+<h3>2) Using conda<a class="headerlink" href="#using-conda" title="Link to this heading">#</a></h3>
+<p>To install a package using conda, you can simply open a terminal and type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>package_name
 </pre></div>
 </div>
+<p>where <code class="docutils literal notranslate"><span class="pre">package_name</span></code> is the name of the package that you would like to install. For example, to install the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, you can type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>numpy
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installing-an-ide">
+<h2>Installing an IDE<a class="headerlink" href="#installing-an-ide" title="Link to this heading">#</a></h2>
+<p>An IDE (Integrated Development Environment) is a software that provides you with a graphical user interface to write and run your code. There are many different IDEs available for Python, but we recommend using either Jupyter Notebook or PyCharm.</p>
+<section id="jupyter-notebook">
+<h3>1) Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
+<p>Jupyter Notebook is designed to work with interactive Jupyter Notebooks. It is organized in individual code blocks, which can be executed one at a time.
+This is often used for teaching or demonstration purposes. E.g. this project is organized using Jupyter notebook-esque code blocks.
+The downside of this IDE is that it is not very well suited for larger projects, as it is not designed to work with multiple files. For larger projects, we recommend using PyCharm.</p>
+<p>The installation of Jupyter Notebook is included in the Anaconda distribution, so if you have installed Anaconda, you can simply open a terminal and type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
+</pre></div>
+</div>
+<p>to start the Jupyter Notebook server.</p>
+</section>
+<section id="pycharm">
+<h3>2) PyCharm<a class="headerlink" href="#pycharm" title="Link to this heading">#</a></h3>
+<p>PyCharm is a professional IDE, which is designed to work with larger projects. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
+It has an integrated debugger, which allows you to easily find and fix errors in your code.
+It is however not as beginner friendly, as it provides many expert features, which might be overwhelming for beginners.</p>
+<p>To install PyCharm, please visit the <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">official PyCharm website</a> and download the version that you would like to use. You can choose between the free community edition and the professional edition.
+When logging into the jetbrains-website and linking it to your university account, you can use the professional edition for free.</p>
+<p>For a tutorial, on how to use PyCharm, please visit the <a class="reference external" href="https://www.jetbrains.com/help/pycharm/quick-start-guide.html">official PyCharm tutorial</a>.</p>
+</section>
 </section>
 </section>
 
@@ -492,7 +544,7 @@ See the YAML at the top of this page for example.</p></li>
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
+            repo: "K-RLange/dhPython",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -532,7 +584,7 @@ See the YAML at the top of this page for example.</p></li>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notebooks with MyST Markdown</p>
+        <p class="prev-next-title">1. Arithmetics and variables</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -552,9 +604,21 @@ See the YAML at the top of this page for example.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-cell">An example cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-notebook-with-myst-markdown">Create a notebook with MyST Markdown</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quickly-add-yaml-metadata-for-myst-notebooks">Quickly add YAML metadata for MyST Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">Installing Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-recommended">1) Using conda (recommended)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-official-installer">2) Using the official installer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip">1) Using pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda">2) Using conda</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-an-ide">Installing an IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1) Jupyter Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">2) PyCharm</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

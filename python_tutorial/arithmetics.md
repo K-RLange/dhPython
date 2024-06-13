@@ -12,42 +12,104 @@ kernelspec:
   name: python3
 ---
 
-# Notebooks with MyST Markdown
+# 1. Arithmetics and variables
 
-Jupyter Book also lets you write text-based notebooks using MyST Markdown.
-See [the Notebooks with MyST Markdown documentation](https://jupyterbook.org/file-types/myst-notebooks.html) for more detailed instructions.
-This page shows off a notebook written in MyST Markdown.
+## Arithmetics
+In its most basic form, Python can simply be used as a calculator. You can use it to, among others, add, subtract, multiply, and divide numbers.
 
-## An example cell
-
-With MyST Markdown, you can define code cells with a directive like so:
-
+The following cell shows how to add two numbers in Python:
 ```{code-cell}
 print(2 + 2)
 ```
+To show any object within Python in your console, you can use the print(...) command, in which you can replace "..." with the object that you want to display. In this case, it is the answer of 2+2.
 
-When your book is built, the contents of any `{code-cell}` blocks will be
-executed with your default Jupyter kernel, and their outputs will be displayed
-in-line with the rest of your content.
+Other numeric calculations can be performed like this:
+```{code-cell}
+print(3 * 4)  # Multiplication
+print(3 - 2)  # Subtraction
+print(10 / 2)  # Division
+print(10 ** 2)  # Exponentiation
+print(10 % 3)  # Modulo
+```
+The "#" symbol is used to comment out code. This means that the code following the # symbol will not be executed. Comments are useful to explain what the code does.
+## Variables
+````{margin}
+```{note}
+When naming variables, you should take care to not overwrite existing names. You should, for instance, not name a variable "print", because it would overwrite the meaning of the print function. This would lead to an error, when you try to use the print function later on.
+```
+````
+In Python, you can also store values in variables. This is useful when you want to use a value multiple times in your code. You can assign a value to a variable using the = operator. 
+Variables can take any name. In a practical analysis, it is suggested to use meaningful names for your variables. This makes it easier for you and others to understand the code.
 
-```{seealso}
-Jupyter Book uses [Jupytext](https://jupytext.readthedocs.io/en/latest/) to convert text-based files to notebooks, and can support [many other text-based notebook files](https://jupyterbook.org/file-types/jupytext.html).
+The following cell shows how to assign a value to a variable and then print it:
+```{code-cell}
+x = 5
+print(x)
 ```
 
-## Create a notebook with MyST Markdown
-
-MyST Markdown notebooks are defined by two things:
-
-1. YAML metadata that is needed to understand if / how it should convert text files to notebooks (including information about the kernel needed).
-   See the YAML at the top of this page for example.
-2. The presence of `{code-cell}` directives, which will be executed with your book.
-
-That's all that is needed to get started!
-
-## Quickly add YAML metadata for MyST Notebooks
-
-If you have a markdown file and you'd like to quickly add YAML metadata to it, so that Jupyter Book will treat it as a MyST Markdown Notebook, run the following command:
-
+If you want to alter the variable, you can also do this using the "=" operator:
+```{code-cell}
+x = 5
+print(x)
+x = x + 5
+print(x)
 ```
-jupyter-book myst init path/to/markdownfile.md
+
+You can thus use variables as placeholders for objects. In this case, x is assigned to be an integer (a whole number). If we define another variable y to be an integer as well, we can perform calculations with these variables:
+```{code-cell}
+x = 5
+x = x + 2
+y = 10
+z = x + y
+print(z)
+```
+
+## Exercise
+Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.
+
+### Exercise 1
+Calculate the sum of 5 and 7 and store the result in a variable called "var1". Then multiply this variable with itself and store the result in a variable called "var2". Finally, print the result of "var2". 
+```{code-cell}
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+var1 = 5 + 7
+var2 = var1 * var1
+print(var2)
+```
+
+### Exercise 2
+```{code-cell}
+:tags: ["remove-input"]
+example=[{
+        "question": "What is the correct syntax for multiplying 3 with 7, storing the result in a variable and printing that variable?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "code": """x = 3 * 7
+print(x)""",
+                "correct": True,
+                "feedback": "Correct." 
+            },
+            {
+                "code": """3 * 7
+print(x)""",
+                "correct": False,
+                "feedback": "x would not be defined here, so there is nothing to print."
+            },
+            {
+                "code": "print(3 * 7)",
+                "correct": False,
+                "feedback": "This does print the result of 3 * 7, but does not store it in a variable for later use."
+            },
+            {
+                "code": "print(x = 3 * 7)",
+                "correct": False,
+                "feedback": "The print function would be confused, because you are trying to assign a value to x and print it at the same time. Try to separate these two steps."
+            }
+        ]
+    }]
+from jupyterquiz import display_quiz
+display_quiz(example)
 ```

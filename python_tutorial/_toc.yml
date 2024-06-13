@@ -8,5 +8,6 @@ chapters:
 - file: arithmetics
 - file: structures
 - file: loops
+- file: functions
 - file: modules
 - file: pandas

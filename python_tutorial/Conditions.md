@@ -12,5 +12,5 @@ kernelspec:
   name: python3
 ---
 
-# 3. Conditions and Loops
-Programming
+# 3. Conditions and loops
+Instead 
