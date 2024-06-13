@@ -40,7 +40,7 @@ jobs:
     - name: cache executed notebooks
       uses: actions/cache@v3
       with:
-        path: _build/.jupyter_cache
+        path: python_tutorial/_build/.jupyter_cache
         key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
 
     # Build the book
@@ -52,7 +52,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
       with:
-        path: "_build/html"
+        path: "python_tutorial/_build/html"
 
     # Deploy the book's HTML to GitHub Pages
     - name: Deploy to GitHub Pages
