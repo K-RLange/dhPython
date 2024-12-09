@@ -2,13 +2,14 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Digital Humanities Python Tutorial
-author: Kai-Robin Lange
+author: Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
 logo: logo.png
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", ]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: auto
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -16,16 +17,23 @@ latex:
     targetname: book.tex
 
 launch_buttons:
-  #colab_url: "https://colab.research.google.com"
+  colab_url: "https://deepnote.com" #"https://colab.research.google.com"
   thebe: true
-#  notebook_interface: "jupyterlab"
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+  binderhub_url: "https://mybinder.org/"
+  jupyterhub_url: "https://jupyterhub.uni-muenster.de"
+  
+
+sphinx:
+  config:
+    html_js_files:
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+    thebe_config:
+      use_thebe_lite: true
+      exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/K-RLange/dhPython  # Online location of your book
+  url: https://github.com/K-RLange/dhPython #https://github.com/K-RLange/dhPython  # Online location of your book
   path_to_book: python_tutorial  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 

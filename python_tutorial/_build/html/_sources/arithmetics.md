@@ -110,6 +110,4 @@ print(x)""",
             }
         ]
     }]
-from jupyterquiz import display_quiz
-display_quiz(example)
 ```
