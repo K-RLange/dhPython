@@ -34,6 +34,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/thebe.css?v=9bca0c2f" />
+    <link rel="stylesheet" type="text/css" href="_static/code.css?v=4bf7ba55" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -53,10 +55,17 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script defer="defer" src="_static/refresh.js?v=9bea9b76"></script>
+    <script>const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script defer="defer" src="_static/sphinx-thebe-lite.js?v=2a71eeb1"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'arithmetics';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -639,31 +648,62 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
 </section>
 <section id="exercise-2">
 <h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
-<div class="cell tag_remove-input docutils container">
+<div class="cell tag_thebe-remove-input-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span><span class="o">=</span><span class="p">[{</span>
+        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the correct syntax for multiplying 3 with 7, storing the result in a variable and printing that variable?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;multiple_choice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;answers&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;x = 3 * 7</span>
+<span class="s2">print(x)&quot;&quot;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct.&quot;</span> 
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;3 * 7</span>
+<span class="s2">print(x)&quot;&quot;&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;x would not be defined here, so there is nothing to print.&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;print(3 * 7)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;This does print the result of 3 * 7, but does not store it in a variable for later use.&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;print(x = 3 * 7)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;The print function would be confused, because you are trying to assign a value to x and print it at the same time. Try to separate these two steps.&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}]</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
 </section>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "K-RLange/dhPython",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            name: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
+        <script type="text/x-thebe-config">
+        {
+            "rootPath": "./",
+            "requestKernel": true,
+            "useJupyterLite": true,
+            "useBinder": false,
+            "kernelOptions": {
+                "path": "/"
+            },
+            "codeMirrorConfig": {
+                "theme": "default",
+                "mode": "python"
+            },
+            "mountRestartButton": false,
+            "mountRestartallButton": false
+        }
+        </script>
+        <script>kernelName = 'python3'</script>
 
                 </article>
               

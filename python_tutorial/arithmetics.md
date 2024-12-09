@@ -81,7 +81,7 @@ print(var2)
 
 ### Exercise 2
 ```{code-cell}
-:tags: ["remove-input"]
+:tags: ["thebe-remove-input-init"]
 example=[{
         "question": "What is the correct syntax for multiplying 3 with 7, storing the result in a variable and printing that variable?",
         "type": "multiple_choice",
