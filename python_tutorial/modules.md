@@ -62,7 +62,7 @@ To install libraries from PyPi, you can use **pip**, which comes pre-installed w
 You can call pip to install a certain package within Python, but it is generally recommended to call it outside of Python in a terminal.
 
 Let's say, we want to install the very popular "pandas" package. To install it directly from Python, you can call the "main" function of the pip library. This function takes a list as an input. The first object of this list is the string "install", denoting that we want to install a library. The second is the name of the library you want to install:
-```{code-cell}
+```{code-block}
 import pip
 pip.main(["install", "pandas"])
 ```

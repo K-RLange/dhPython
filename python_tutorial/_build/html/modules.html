@@ -567,35 +567,9 @@ document.write(`
 <p>To install libraries from PyPi, you can use <strong>pip</strong>, which comes pre-installed with every Python version from Python 3.0 onwards.</p>
 <p>You can call pip to install a certain package within Python, but it is generally recommended to call it outside of Python in a terminal.</p>
 <p>Let’s say, we want to install the very popular “pandas” package. To install it directly from Python, you can call the “main” function of the pip library. This function takes a list as an input. The first object of this list is the string “install”, denoting that we want to install a library. The second is the name of the library you want to install:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
 <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;pandas&quot;</span><span class="p">])</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: pip is being invoked by an old script wrapper. This will fail in a future version of pip.
-Please see https://github.com/pypa/pip/issues/5599 for advice on fixing the underlying issue.
-To avoid this problem you can invoke Python with &#39;-m pip&#39; instead of running pip directly.
-</pre></div>
-</div>
-<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Requirement already satisfied: pandas in c:\users\kalange\anaconda3\envs\pythontutorial\lib\site-packages (2.2.2)
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Requirement already satisfied: numpy&gt;=1.23.2 in c:\users\kalange\anaconda3\envs\pythontutorial\lib\site-packages (from pandas) (1.26.4)
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\kalange\anaconda3\envs\pythontutorial\lib\site-packages (from pandas) (2.9.0.post0)
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Requirement already satisfied: pytz&gt;=2020.1 in c:\users\kalange\anaconda3\envs\pythontutorial\lib\site-packages (from pandas) (2024.1)
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\kalange\anaconda3\envs\pythontutorial\lib\site-packages (from pandas) (2024.1)
-</pre>
-</div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">Requirement already satisfied: six&gt;=1.5 in c:\users\kalange\anaconda3\envs\pythontutorial\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.16.0)
-</pre>
-</div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
 </div>
 <p>If you are in a terminal instead (which is what I would recommend), you can use the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pandas
