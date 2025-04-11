@@ -610,6 +610,35 @@ dtype: int64
 <img alt="_images/28c91b4a74a929871b0d6fe47c84f4592affc7a4d0b0384d02e296034833249a.png" src="_images/28c91b4a74a929871b0d6fe47c84f4592affc7a4d0b0384d02e296034833249a.png" />
 </div>
 </div>
+<p>If we only want to see the data for a specific time period, we can filter the DataFrame by using the “loc” function. In this case, we want to see the data from 2023-01-01 to 2023-01-31:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2022-02-01&quot;</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="s2">&quot;2023-09-01&quot;</span>
+<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">price_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">price_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">start_date</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">price_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end_date</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filtered_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     timestamp  difference
+31  2022-02-01      503.88
+32  2022-02-02      317.67
+33  2022-02-03    -1836.18
+34  2022-02-04      337.87
+35  2022-02-05     4293.08
+..         ...         ...
+360 2022-12-27      112.44
+361 2022-12-28     -242.95
+362 2022-12-29     -154.67
+363 2022-12-30       86.83
+364 2022-12-31      -21.54
+
+[334 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 
         <script type="text/x-thebe-config">

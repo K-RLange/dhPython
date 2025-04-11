@@ -54,3 +54,11 @@ price_data["timestamp"] = pd.to_datetime(price_data["timestamp"])
 price_data.plot(x="timestamp", y="difference")
 plt.show()
 ```
+
+If we only want to see the data for a specific time period, we can filter the DataFrame by using the "loc" function. In this case, we want to see the data from 2023-01-01 to 2023-01-31:
+```{code-cell}
+start_date = "2022-02-01"
+end_date = "2023-09-01"
+filtered_data = price_data.loc[(price_data["timestamp"] >= start_date) & (price_data["timestamp"] <= end_date)]
+print(filtered_data)
+```
