@@ -33,3 +33,4 @@ data = {"Name": names, "Age": ages, "Hobby": hobby}
 df = pd.DataFrame(data)
 print(df)
 ```
+As you can see, pandas allows us to neatly organize our data into a table.
