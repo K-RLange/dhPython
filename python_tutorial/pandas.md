@@ -62,3 +62,5 @@ end_date = "2023-09-01"
 filtered_data = price_data.loc[(price_data["timestamp"] >= start_date) & (price_data["timestamp"] <= end_date)]
 print(filtered_data)
 ```
+
+## numpy
