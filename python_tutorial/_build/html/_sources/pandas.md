@@ -34,3 +34,9 @@ df = pd.DataFrame(data)
 print(df)
 ```
 As you can see, pandas allows us to neatly organize our data into a table.
+
+We can now use pandas group_by function to group our data by a certain column and then apply another function to each group. In this case, we will group by the "Hobby" column and check how many people have the same hobby:
+```{code-cell}
+df_grouped = df.groupby("Hobby").size()
+print(df_grouped)
+```
