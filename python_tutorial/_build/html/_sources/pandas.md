@@ -15,7 +15,7 @@ kernelspec:
 # 6. pandas and numpy
 ```{code-cell}
 #:tags: [remove-cell]
-!pip install pandas numpy
+!pip install pandas numpy matplotlib
 #import pip
 #pip.main(["install", "pandas"])
 import pandas
@@ -39,4 +39,18 @@ We can now use pandas group_by function to group our data by a certain column an
 ```{code-cell}
 df_grouped = df.groupby("Hobby").size()
 print(df_grouped)
+```
+
+Now, lets say we have a csv-file called "prices.csv" that we would normally open in Microsoft Excel that contains data we want to analyze. pandas allows us to read Excel files and turn them into a pandas DataFrame in just one line.
+```{code-cell}
+price_data = pd.read_csv("prices.csv")
+print(price_data)
+```
+
+It contains timestamps and the differences in a stock course that happened between the timestamps. To plot this time-dependent data, we can first turn the timestamp-column into a date format and then plot it.
+```{code-cell}
+import matplotlib.pyplot as plt
+price_data["timestamp"] = pd.to_datetime(price_data["timestamp"])
+price_data.plot(x="timestamp", y="difference")
+plt.show()#
 ```
