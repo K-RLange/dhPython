@@ -52,5 +52,5 @@ It contains timestamps and the differences in a stock course that happened betwe
 import matplotlib.pyplot as plt
 price_data["timestamp"] = pd.to_datetime(price_data["timestamp"])
 price_data.plot(x="timestamp", y="difference")
-plt.show()#
+plt.show()
 ```
