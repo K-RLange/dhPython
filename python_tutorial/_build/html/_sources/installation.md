@@ -18,7 +18,7 @@ To install Python on your local machine, you can either download the installer
 from the official website or install conda, which is a version manager for
 Python and other programming languages (like R).
 
-To complete this tutorial, you will **not** need to install Python or an IDE, as the code can be run in your browser.
+To complete this tutorial, you will **not** need to install Python or an Integrated Development Engine (IDE, basically a graphical interface), as the code can be run in your browser.
 If you would like to work with Python after completing this course however, we suggest you install Python and an IDE on your local machine.
 ### 1) Using conda (recommended)
 To download conda, please visit the [official conda website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
@@ -26,6 +26,21 @@ You can choose to either install miniconda or Anaconda distribution (recommended
 Follow the download instructions on the website and install the version of conda that you prefer.
 
 After conda is installed, you can, at any time, create a new programming environment for Python. Thus, if you have different projects that require different Python versions of packages, you can simply use conda to create a new environment. This is recommended to avoid conflicts between different packages and their versions.
+
+You can call conda from your terminal by entering 
+```bash
+conda
+```
+If it is correctly installed, it should respond with a list of possible commands. If you get an error and you are using Windows, you might need to run the command 
+```bash
+activate
+```
+or 
+```bash
+conda activate
+```
+first. 
+
 
 To create a Python environment, open a terminal and run the following command in your terminal:
 
@@ -70,7 +85,9 @@ conda install numpy
 ```
 
 ## Installing an IDE
-An IDE (Integrated Development Environment) is a software that provides you with a graphical user interface to write and run your code. There are many different IDEs available for Python, but we recommend using either Jupyter Notebook or PyCharm.
+An IDE (Integrated Development Environment) is a software that provides you with a graphical user interface to write and run your code. There are many different IDEs available for Python, but we recommend using either Jupyter Notebook or PyCharm. 
+These can be installed manually or with the help of Anaconda Navigator, which comes with the installation of Anaconda distribution (not with miniconda though). To install them via Anaconda Navigator, just open said Navigator and as soon as it has started, you should see a list of programs that it supports. When you are at that screen, you can simply choose which IDE to install. 
+If you are not using Anaconda Navigator, you can follow these steps:
 
 ### 1) Jupyter Notebook
 Jupyter Notebook is designed to work with interactive Jupyter Notebooks. It is organized in individual code blocks, which can be executed one at a time.
@@ -84,8 +101,8 @@ jupyter notebook
 to start the Jupyter Notebook server.
 
 ### 2) PyCharm
-PyCharm is a professional IDE, which is designed to work with larger projects. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
-It has an integrated debugger, which allows you to easily find and fix errors in your code.
+PyCharm is a professional IDE, which is designed to work with larger projects. It follows a similar design pattern like the IDEs of other languages, such as R's RStudio. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
+It has an integrated debugger, which allows you to easily find and fix errors in your code. It also directly integrates conda into the IDE - you will not have to use the terminal to create new python environments, but can do it whenever you create a new project via the graphic interface.
 It is however not as beginner friendly, as it provides many expert features, which might be overwhelming for beginners.
 
 To install PyCharm, please visit the [official PyCharm website](https://www.jetbrains.com/pycharm/download/) and download the version that you would like to use. You can choose between the free community edition and the professional edition.

@@ -34,6 +34,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/thebe.css?v=9bca0c2f" />
+    <link rel="stylesheet" type="text/css" href="_static/code.css?v=4bf7ba55" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -53,10 +55,17 @@
     <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script defer="defer" src="_static/refresh.js?v=9bea9b76"></script>
+    <script>const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script defer="defer" src="_static/sphinx-thebe-lite.js?v=2a71eeb1"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'installation';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -183,7 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas</a></li>
 </ul>
@@ -516,7 +525,7 @@ document.write(`
 <p>To install Python on your local machine, you can either download the installer
 from the official website or install conda, which is a version manager for
 Python and other programming languages (like R).</p>
-<p>To complete this tutorial, you will <strong>not</strong> need to install Python or an IDE, as the code can be run in your browser.
+<p>To complete this tutorial, you will <strong>not</strong> need to install Python or an Integrated Development Engine (IDE, basically a graphical interface), as the code can be run in your browser.
 If you would like to work with Python after completing this course however, we suggest you install Python and an IDE on your local machine.</p>
 <section id="using-conda-recommended">
 <h3>1) Using conda (recommended)<a class="headerlink" href="#using-conda-recommended" title="Link to this heading">#</a></h3>
@@ -524,6 +533,19 @@ If you would like to work with Python after completing this course however, we s
 You can choose to either install miniconda or Anaconda distribution (recommended). Miniconda is a barebone installation, while Anaconda distribution provides additional pre-installed features, which might be useful for you.
 Follow the download instructions on the website and install the version of conda that you prefer.</p>
 <p>After conda is installed, you can, at any time, create a new programming environment for Python. Thus, if you have different projects that require different Python versions of packages, you can simply use conda to create a new environment. This is recommended to avoid conflicts between different packages and their versions.</p>
+<p>You can call conda from your terminal by entering</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda
+</pre></div>
+</div>
+<p>If it is correctly installed, it should respond with a list of possible commands. If you get an error and you are using Windows, you might need to run the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>activate
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate
+</pre></div>
+</div>
+<p>first.</p>
 <p>To create a Python environment, open a terminal and run the following command in your terminal:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
 </pre></div>
@@ -571,7 +593,9 @@ Please note that it is recommended to use the conda installer, because this will
 </section>
 <section id="installing-an-ide">
 <h2>Installing an IDE<a class="headerlink" href="#installing-an-ide" title="Link to this heading">#</a></h2>
-<p>An IDE (Integrated Development Environment) is a software that provides you with a graphical user interface to write and run your code. There are many different IDEs available for Python, but we recommend using either Jupyter Notebook or PyCharm.</p>
+<p>An IDE (Integrated Development Environment) is a software that provides you with a graphical user interface to write and run your code. There are many different IDEs available for Python, but we recommend using either Jupyter Notebook or PyCharm.
+These can be installed manually or with the help of Anaconda Navigator, which comes with the installation of Anaconda distribution (not with miniconda though). To install them via Anaconda Navigator, just open said Navigator and as soon as it has started, you should see a list of programs that it supports. When you are at that screen, you can simply choose which IDE to install.
+If you are not using Anaconda Navigator, you can follow these steps:</p>
 <section id="jupyter-notebook">
 <h3>1) Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
 <p>Jupyter Notebook is designed to work with interactive Jupyter Notebooks. It is organized in individual code blocks, which can be executed one at a time.
@@ -585,8 +609,8 @@ The downside of this IDE is that it is not very well suited for larger projects,
 </section>
 <section id="pycharm">
 <h3>2) PyCharm<a class="headerlink" href="#pycharm" title="Link to this heading">#</a></h3>
-<p>PyCharm is a professional IDE, which is designed to work with larger projects. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
-It has an integrated debugger, which allows you to easily find and fix errors in your code.
+<p>PyCharm is a professional IDE, which is designed to work with larger projects. It follows a similar design pattern like the IDEs of other languages, such as R’s RStudio. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
+It has an integrated debugger, which allows you to easily find and fix errors in your code. It also directly integrates conda into the IDE - you will not have to use the terminal to create new python environments, but can do it whenever you create a new project via the graphic interface.
 It is however not as beginner friendly, as it provides many expert features, which might be overwhelming for beginners.</p>
 <p>To install PyCharm, please visit the <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">official PyCharm website</a> and download the version that you would like to use. You can choose between the free community edition and the professional edition.
 When logging into the jetbrains-website and linking it to your university account, you can use the professional edition for free.</p>
@@ -595,25 +619,24 @@ When logging into the jetbrains-website and linking it to your university accoun
 </section>
 </section>
 
-    <script type="text/x-thebe-config">
-    {
-        requestKernel: true,
-        binderOptions: {
-            repo: "K-RLange/dhPython",
-            ref: "master",
-        },
-        codeMirrorConfig: {
-            theme: "abcdef",
-            mode: "python"
-        },
-        kernelOptions: {
-            name: "python3",
-            path: "./."
-        },
-        predefinedOutput: true
-    }
-    </script>
-    <script>kernelName = 'python3'</script>
+        <script type="text/x-thebe-config">
+        {
+            "rootPath": "./",
+            "requestKernel": true,
+            "useJupyterLite": true,
+            "useBinder": false,
+            "kernelOptions": {
+                "path": "/"
+            },
+            "codeMirrorConfig": {
+                "theme": "default",
+                "mode": "python"
+            },
+            "mountRestartButton": false,
+            "mountRestartallButton": false
+        }
+        </script>
+        <script>kernelName = 'python3'</script>
 
                 </article>
               

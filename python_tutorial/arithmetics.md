@@ -17,9 +17,9 @@ kernelspec:
 ## Arithmetics
 In its most basic form, Python can simply be used as a calculator. You can use it to, among others, add, subtract, multiply, and divide numbers.
 
-The following cell shows how to add two numbers in Python:
+The following cell shows you how to add two numbers in Python:
 ```{code-cell}
-print(2 + 2)
+print(2 + 3)
 ```
 To show any object within Python in your console, you can use the print(...) command, in which you can replace "..." with the object that you want to display. In this case, it is the answer of 2+2.
 
@@ -32,6 +32,7 @@ print(10 ** 2)  # Exponentiation
 print(10 % 3)  # Modulo
 ```
 The "#" symbol is used to comment out code. This means that the code following the # symbol will not be executed. Comments are useful to explain what the code does.
+
 ## Variables
 ````{margin}
 ```{note}

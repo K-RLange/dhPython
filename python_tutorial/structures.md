@@ -61,7 +61,7 @@ print(type(y + y))
 
 
 ### Strings
-Strings are sequences of characters. They can be created by enclosing characters in single or double quotes. You can also use triple quotes for multi-line strings.
+Strings are sequences of characters (letter, symbols, etc.). They can be created by enclosing characters in single or double quotes. You can also use triple quotes for multi-line strings.
 While these are three options to define a string, they ultimately all have the same data type:
 ```{code-cell}
 x = "Hello, World!"

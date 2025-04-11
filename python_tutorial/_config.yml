@@ -29,6 +29,8 @@ sphinx:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     thebe_config:
       use_thebe_lite: true
+      auto-execute-page: true
+      thebe-init: true
       exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]
 
 # Information about where the book exists on the web
