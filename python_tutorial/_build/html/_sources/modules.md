@@ -38,20 +38,17 @@ print(mean([1, 2, 3]))
 
 ### Importing local modules
 You can import local code files in the same manner in which you import modules created by other people. If you have created a code file called "module.py", you can import it using:
-```{code-cell}
-:tags: [remove-output]
+```{code-block}
 import module
 ```
 
 When module is in a different directory, you can still import it. When the module is two directories above the current one, you need to add two dots in front of the module's name:
-```{code-cell}
-:tags: [remove-output]
+```{code-block}
 import ..module
 ```
 
 If you want to import a module in a subdirectory, you can import it like this:
-```{code-cell}
-:tags: [remove-output]
+```{code-block}
 import subdirectory.module
 ```
 
