@@ -11,6 +11,10 @@ kernelspec:
   language: python
   name: python3
 ---
+<div style="float: right;">
+  <a href="../../../de/_build/html/functions.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/_build/html/functions.html">🇬🇧 English</a>
+</div>
 
 # 4. Functions and Classes
 Functions and Classes are Python's primary way to store code blocks for repeated executions.
