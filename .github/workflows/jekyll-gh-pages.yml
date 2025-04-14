@@ -38,22 +38,39 @@ jobs:
     # if you have config:
     # execute:
     #   execute_notebooks: cache
-    - name: cache executed notebooks
+    - name: cache executed notebook german
       uses: actions/cache@v4
       with:
-        path: python_tutorial/_build/.jupyter_cache
+        path: de/_build/.jupyter_cache
         key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
 
     # Build the book
-    - name: Build the book
+    - name: Build the book german
       run: |
-        jupyter-book build python_tutorial
+        jupyter-book build de
 
     # Upload the book's HTML as an artifact
-    - name: Upload artifact
+    - name: Upload artifact de
       uses: actions/upload-pages-artifact@v3
       with:
-        path: "python_tutorial/_build/html"
+        path: "de/_build/html"
+
+    - name: cache executed notebook english
+      uses: actions/cache@v4
+      with:
+        path: en/_build/.jupyter_cache
+        key: jupyter-book-cache-${{ hashFiles('requirements.txt') }}
+
+    # Build the book
+    - name: Build the book english
+      run: |
+        jupyter-book build en
+
+    # Upload the book's HTML as an artifact
+    - name: Upload artifact en
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: "en/_build/html"
 
     # Deploy the book's HTML to GitHub Pages
     - name: Deploy to GitHub Pages
