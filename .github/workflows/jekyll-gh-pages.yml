@@ -11,7 +11,8 @@ on:
     # folder has been modified.
     #
     paths:
-    - python_tutorial/**
+    - en/**
+    - de/**
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
