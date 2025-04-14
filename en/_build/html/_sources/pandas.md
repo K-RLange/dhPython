@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../de/{{path-to-page}}" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../en/{{path-to-page}}">🇬🇧 English</a>
+  <a href="../../../de/pandas.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/pandas.html">🇬🇧 English</a>
 </div>
 
 # 6. pandas and matplotlib

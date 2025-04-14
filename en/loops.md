@@ -11,6 +11,10 @@ kernelspec:
   language: python
   name: python3
 ---
+<div style="float: right;">
+  <a href="../../../de/loops.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/loops.html">🇬🇧 English</a>
+</div>
 
 # 3. Conditions and Loops
 Programming often does not stop at creating variables. In many cases, you want to perform certain actions only under specific conditions or you want to repeat certain actions multiple times. This is where conditions and loops come into play.

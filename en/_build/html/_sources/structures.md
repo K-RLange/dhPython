@@ -11,6 +11,10 @@ kernelspec:
   language: python
   name: python3
 ---
+<div style="float: right;">
+  <a href="../../../de/structures.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/structures.html">🇬🇧 English</a>
+</div>
 
 # 2. Data types
 In the last chapter, we learned that variables can be assigned a whole number, resulting in an integer variable.

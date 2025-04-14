@@ -12,6 +12,10 @@ kernelspec:
   language: python
   name: python3
 ---
+<div style="float: right;">
+  <a href="../../../de/modules.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/modules.html">🇬🇧 English</a>
+</div>
 
 # 5. Modules
 While basically anything can be coded from scratch in Python, it is wise to first see if someone has already implemented what you are trying to do. That can save time and effort and the implementation is hopefully done well from someone confident enough to share their code online.

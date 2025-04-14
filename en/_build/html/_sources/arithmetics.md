@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../../de/_build/html/arithmetics.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/_build/html/arithmetics.html">🇬🇧 English</a>
+  <a href="../../../de/arithmetics.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/arithmetics.html">🇬🇧 English</a>
 </div>
 
 
