@@ -13,8 +13,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../../de/modules.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/modules.html">🇬🇧 English</a>
+  <a href="../de/modules.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/modules.html">🇬🇧 English</a>
 </div>
 
 # 5. Modules

@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../../de/structures.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/structures.html">🇬🇧 English</a>
+  <a href="../de/structures.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/structures.html">🇬🇧 English</a>
 </div>
 
 # 2. Data types

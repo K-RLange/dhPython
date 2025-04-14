@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../../de/installation.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/installation.html">🇬🇧 English</a>
+  <a href="../de/installation.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/installation.html">🇬🇧 English</a>
 </div>
 
 # 0. Installing Python, an IDE and packages

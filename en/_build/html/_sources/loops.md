@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../../de/loops.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/loops.html">🇬🇧 English</a>
+  <a href="../de/loops.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/loops.html">🇬🇧 English</a>
 </div>
 
 # 3. Conditions and Loops

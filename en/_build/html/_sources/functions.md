@@ -12,8 +12,8 @@ kernelspec:
   name: python3
 ---
 <div style="float: right;">
-  <a href="../../../de/functions.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/functions.html">🇬🇧 English</a>
+  <a href="../de/functions.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/functions.html">🇬🇧 English</a>
 </div>
 
 # 4. Functions and Classes

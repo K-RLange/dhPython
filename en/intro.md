@@ -1,6 +1,6 @@
 <div style="float: right;">
-  <a href="../../../de/intro.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/intro.html">🇬🇧 English</a>
+  <a href="../de/intro.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/intro.html">🇬🇧 English</a>
 </div>
 # Python for digital humanities
 
