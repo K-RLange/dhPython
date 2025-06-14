@@ -87,16 +87,36 @@ print(var2)
 
 ### Exercise 2
 
-```{quiz}
-:question: Was ist die korrekte Syntax, um 3 mit 7 zu multiplizieren und das Ergebnis zu speichern?
-:type: single-choice
-:choices:
-  - x = 3 * 7\nprint(x)      ✔
-  - 3 * 7\nprint(x)
-  - print(3 * 7)
-  - print(x = 3 * 7)
-:answer: x = 3 * 7\nprint(x)
-:feedback:
-  * Correct: Genau so!
-  * Incorrect: Versuch’s nochmal.
+Kais Code
+
+```{code-cell}
+:tags: ["thebe","thebe-remove-input-init"]
+example=[{
+        "question": "What is the correct syntax for multiplying 3 with 7, storing the result in a variable and printing that variable?",
+        "type": "multiple_choice",
+        "answers": [
+            {
+                "code": """x = 3 * 7
+print(x)""",
+                "correct": True,
+                "feedback": "Correct." 
+            },
+            {
+                "code": """3 * 7
+print(x)""",
+                "correct": False,
+                "feedback": "x would not be defined here, so there is nothing to print."
+            },
+            {
+                "code": "print(3 * 7)",
+                "correct": False,
+                "feedback": "This does print the result of 3 * 7, but does not store it in a variable for later use."
+            },
+            {
+                "code": "print(x = 3 * 7)",
+                "correct": False,
+                "feedback": "The print function would be confused, because you are trying to assign a value to x and print it at the same time. Try to separate these two steps."
+            }
+        ]
+    }]
 ```
