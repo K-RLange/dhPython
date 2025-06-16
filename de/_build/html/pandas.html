@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. pandas and matplotlib &#8212; Digital Humanities Python Tutorial</title>
+    <title>4. pandas und matplotlib &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,7 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="5. Modules" href="modules.html" />
+    <link rel="next" title="5. Deskriptive Datenanalyse" href="data_processing.html" />
+    <link rel="prev" title="3. Module" href="modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,18 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -479,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6. pandas and matplotlib</h1>
+    <h1>4. pandas und matplotlib</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -497,33 +499,33 @@ document.write(`
   <a href="../../de/{{path-to-page}}" style="margin-left: 10px;">🇩🇪 Deutsch</a>
   <a href="../../en/{{path-to-page}}">🇬🇧 English</a>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="pandas-and-matplotlib">
-<h1>6. pandas and matplotlib<a class="headerlink" href="#pandas-and-matplotlib" title="Link to this heading">#</a></h1>
-<p>Remember the library we installed in the last chapter? That library is called pandas and is arguably the most commonly used library in Python. It allows us to turn any data into a table, which we can then plot and analyze.</p>
-<p>Let’s look at it in action:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="pandas-und-matplotlib">
+<h1>4. pandas und matplotlib<a class="headerlink" href="#pandas-und-matplotlib" title="Link to this heading">#</a></h1>
+<p>Erinnerst du dich an die Bibliothek, die wir im letzten Kapitel installiert haben? Diese Bibliothek heißt <strong>pandas</strong> und ist vermutlich die am häufigsten verwendete Bibliothek in Python. Sie erlaubt es uns, beliebige Daten in eine Tabelle zu verwandeln, die wir anschließend analysieren und visualisieren können.</p>
+<p>Schauen wir sie uns in Aktion an:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
 <span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
-<span class="n">hobby</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Completing Python tutorials&quot;</span><span class="p">,</span> <span class="s2">&quot;sports&quot;</span><span class="p">,</span> <span class="s2">&quot;Completing Python tutorials&quot;</span><span class="p">]</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">names</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="n">ages</span><span class="p">,</span> <span class="s2">&quot;Hobby&quot;</span><span class="p">:</span> <span class="n">hobby</span><span class="p">}</span>
+<span class="n">hobby</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python-Tutorials abschließen&quot;</span><span class="p">,</span> <span class="s2">&quot;Sport&quot;</span><span class="p">,</span> <span class="s2">&quot;Python-Tutorials abschließen&quot;</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">names</span><span class="p">,</span> <span class="s2">&quot;Alter&quot;</span><span class="p">:</span> <span class="n">ages</span><span class="p">,</span> <span class="s2">&quot;Hobby&quot;</span><span class="p">:</span> <span class="n">hobby</span><span class="p">}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age                        Hobby
-0    Alice   25  Completing Python tutorials
-1      Bob   30                       sports
-2  Charlie   35  Completing Python tutorials
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Alter                         Hobby
+0    Alice     25  Python-Tutorials abschließen
+1      Bob     30                         Sport
+2  Charlie     35  Python-Tutorials abschließen
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you can see, pandas allows us to neatly organize our data into a table.</p>
-<p>We can now use pandas group_by function to group our data by a certain column and then apply another function to each group. In this case, we will group by the “Hobby” column and check how many people have the same hobby:</p>
+<p>Wie du siehst, erlaubt es uns pandas, unsere Daten sauber in Tabellenform zu organisieren.</p>
+<p>Wir können jetzt die <code class="docutils literal notranslate"><span class="pre">groupby</span></code>-Funktion von pandas verwenden, um unsere Daten nach einer bestimmten Spalte zu gruppieren und dann eine Funktion auf jede Gruppe anzuwenden. In diesem Fall gruppieren wir nach der Spalte “Hobby” und zählen, wie viele Personen dasselbe Hobby haben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Hobby&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
@@ -533,14 +535,14 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hobby
-Completing Python tutorials    2
-sports                         1
+Python-Tutorials abschließen    2
+Sport                           1
 dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, lets say we have a csv-file called “prices.csv” that we would normally open in Microsoft Excel that contains data we want to analyze. pandas allows us to read Excel files and turn them into a pandas DataFrame in just one line.</p>
+<p>Nehmen wir nun an, wir haben eine CSV-Datei namens “prices.csv”, die wir normalerweise mit Microsoft Excel öffnen würden und die Daten enthält, die wir analysieren möchten. pandas erlaubt es uns, Excel- bzw. CSV-Dateien mit nur einer Zeile in ein DataFrame einzulesen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;prices.csv&quot;</span><span class="p">)</span>
@@ -567,7 +569,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>It contains timestamps and the differences in a stock course that happened between the timestamps. If we only want to see the data for a specific time period, we can filter the DataFrame by using the “loc” function. In this case, we want to see the data from 2023-01-01 to 2023-01-31:</p>
+<p>Diese Datei enthält Zeitstempel und die Kursveränderungen einer Aktie zwischen den jeweiligen Zeitpunkten. Wenn wir nur die Daten für einen bestimmten Zeitraum sehen wollen, können wir das DataFrame mit der Funktion <code class="docutils literal notranslate"><span class="pre">loc</span></code> filtern. In diesem Fall wollen wir die Daten vom 01.02.2022 bis zum 01.09.2023 anzeigen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_date</span> <span class="o">=</span> <span class="s2">&quot;2022-02-01&quot;</span>
@@ -596,7 +598,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>To plot this time-dependent data, we can first turn the timestamp-column into a date format and then plot it.</p>
+<p>Um diese zeitabhängigen Daten zu visualisieren, können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann ein Diagramm erstellen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -647,8 +649,17 @@ dtype: int64
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">5. Modules</p>
+        <p class="prev-next-title">3. Module</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="data_processing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">5. Deskriptive Datenanalyse</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -666,7 +677,7 @@ dtype: int64
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

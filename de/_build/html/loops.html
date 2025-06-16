@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Conditions and Loops &#8212; Digital Humanities Python Tutorial</title>
+    <title>6. Bedingungen und Schleifen &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4. Functions and Classes" href="functions.html" />
-    <link rel="prev" title="2. Data types" href="structures.html" />
+    <link rel="next" title="7. Funktionen und Klassen" href="functions.html" />
+    <link rel="prev" title="5. Deskriptive Datenanalyse" href="data_processing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,18 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -482,7 +483,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>3. Conditions and Loops</h1>
+    <h1>6. Bedingungen und Schleifen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -492,14 +493,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">while loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehention">List comprehention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingungen">Bedingungen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen">Schleifen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleife">while-Schleife</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleife">for-Schleife</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">List Comprehension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-5">Übung 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -511,24 +524,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="conditions-and-loops">
-<h1>3. Conditions and Loops<a class="headerlink" href="#conditions-and-loops" title="Link to this heading">#</a></h1>
-<p>Programming often does not stop at creating variables. In many cases, you want to perform certain actions only under specific conditions or you want to repeat certain actions multiple times. This is where conditions and loops come into play.</p>
-<section id="conditions">
-<h2>Conditions<a class="headerlink" href="#conditions" title="Link to this heading">#</a></h2>
-<p>Conditions are used to check whether a certain statement is true or false.
-If the statement is true, a certain action is performed. If the statement is false,
-another action is performed. Such conditions are always binary and can thus be represented
-by a boolean variable.</p>
+  <div style="float: right;">
+  <a href="../de/loops.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/loops.html">🇬🇧 English</a>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="bedingungen-und-schleifen">
+<h1>6. Bedingungen und Schleifen<a class="headerlink" href="#bedingungen-und-schleifen" title="Link to this heading">#</a></h1>
+<p>In der Programmierung hört es meist nicht bei der Erstellung von Variablen auf. Häufig möchtest du bestimmte Aktionen nur unter bestimmten Bedingungen ausführen oder Aktionen mehrmals wiederholen. Hier kommen Bedingungen und Schleifen ins Spiel.</p>
+<section id="bedingungen">
+<h2>Bedingungen<a class="headerlink" href="#bedingungen" title="Link to this heading">#</a></h2>
+<p>Bedingungen werden genutzt, um zu prüfen, ob eine Aussage wahr oder falsch ist.
+Wenn die Aussage wahr ist, wird eine bestimmte Aktion ausgeführt. Wenn die Aussage falsch ist,
+wird eine andere Aktion ausgeführt. Solche Bedingungen sind immer binär und können daher als Boolean (True oder False) dargestellt werden.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Code blocks
-In Python, the colon “:” is used to indicate the start of a block of code. All following lines that belong to that code block are then indented by four spaces (usually one tabulator-press). This is the way, Python interprets, which lines of code belong together and is a must. Otherwise, your code will throw errors.
-This structure - a colon followed by intended lines - happens whenever you want to check for a condition, loop over something, create a function or a class.
-How these other blocks of code work will be explained in later sections, but it is important to remember that they always follow this simple structure.</p>
+<p>Codeblöcke
+In Python zeigt der Doppelpunkt “:” den Anfang eines Codeblocks an. Alle Zeilen, die zu diesem Block gehören, werden dann um vier Leerzeichen eingerückt (normalerweise ein Tab). Nur so erkennt Python, welche Zeilen zusammengehören.</p>
+<p>Diese Struktur – ein Doppelpunkt gefolgt von eingerückten Zeilen – wird immer verwendet, wenn du Bedingungen, Schleifen, Funktionen oder Klassen erstellst.</p>
 </div>
-<p>We check for conditions using the “if” keyword and create an intended code block that is executed if and only if the condition is met.</p>
-<p>In the following cell, we define a boolean and check whether it is true or not. If it is true, we print “The boolean is true”.</p>
+</aside>
+<p>Wir prüfen Bedingungen mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">if</span></code>. Der zugehörige eingerückte Codeblock wird nur dann ausgeführt, wenn die Bedingung erfüllt ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boolean</span> <span class="o">=</span> <span class="kc">True</span>
@@ -543,8 +560,7 @@ How these other blocks of code work will be explained in later sections, but it 
 </div>
 </div>
 </div>
-<p>We can also define what happens, if the condition is not met. We can do this by using the “else” keyword directly after the “if”-code block has ended.</p>
-<p>The following code cell checks if a certain number is larger than 5. If this is the case, it prints “The number is larger than 5”. If the number is not larger than 5, it prints “The number is not larger than 5”.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">else</span></code> kannst du definieren, was passiert, wenn die Bedingung <strong>nicht</strong> erfüllt ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">4</span>
@@ -561,9 +577,7 @@ How these other blocks of code work will be explained in later sections, but it 
 </div>
 </div>
 </div>
-<p>We can even go further and check multiple conditions. We can do this by using the “elif” keyword. This keyword is short for “else if” and is used to check another condition if the first condition is not met.
-It is different from “else”, because it does not always execute its code block, if the original “if” condition wasn’t met, but only if an additional condition is met.</p>
-<p>In the following cell, we check if a number is larger than 0, larger than 5 or larger than 10. We print the result of each check.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">elif</span></code> (else if) kannst du mehrere Bedingungen prüfen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">6</span>
@@ -584,29 +598,44 @@ It is different from “else”, because it does not always execute its code blo
 </div>
 </div>
 </div>
+<section id="ubung-1">
+<h3>Übung 1<a class="headerlink" href="#ubung-1" title="Link to this heading">#</a></h3>
+<p>Schreibe ein Programm, das nach dem Alter fragt und sagt, ob die Person volljährig ist (ab 18 Jahren).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">19</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are an adult.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are not adult.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are an adult.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="loops">
-<h2>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h2>
+</section>
+<section id="schleifen">
+<h2>Schleifen<a class="headerlink" href="#schleifen" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Copy-Pasting
-When you want to repeat a certain action multiple times, you might think that just copying and pasting the code is a good idea. But this is not a good idea.</p>
-<p>Copy-Pasting is inefficient code usage. Your code will become bloated and more difficult to read for yourself and others.</p>
-<p>Also, when you made a mistake in the code you copied, you will have to correct it not just once, but you will have to correct in every copy you made.</p>
+Mehrfaches Kopieren von Code ist ineffizient und führt zu Fehlern, die an mehreren Stellen korrigiert werden müssten. Verwende stattdessen Schleifen.</p>
 </div>
-<p>When you want to repeat a certain action multiple times, you can use a loop.
-A loop can also be useful when you want to perform a certain action for each element in a list or other iterable object.</p>
-<p>In Python, there are two types of loops: the “for” loop and the “while” loop.</p>
-<section id="while-loop">
-<h3>while loop<a class="headerlink" href="#while-loop" title="Link to this heading">#</a></h3>
-<p>When you use a while-loop, the code will be executed only if a certain condition is met.</p>
-<p>For instance, the while loop in the following code block checks if the variable “number” is smaller than 10 at the start of every iteration. If this condition is met, the code is executed, if not, the loop ends.</p>
+<p>Wenn du eine Aktion mehrfach wiederholen willst, verwende Schleifen.
+Es gibt zwei Hauptarten von Schleifen in Python: <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife und <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife.</p>
+<section id="while-schleife">
+<h3>while-Schleife<a class="headerlink" href="#while-schleife" title="Link to this heading">#</a></h3>
+<p>Eine <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife wiederholt ihren Codeblock, solange eine Bedingung erfüllt ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
-
 <span class="k">while</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop has ended&quot;</span><span class="p">)</span>
 </pre></div>
@@ -628,13 +657,12 @@ Loop has ended
 </div>
 </div>
 </div>
-<p>When the condition is not met, the loop does not execute at all.</p>
+<p>Wenn die Bedingung zu Beginn <strong>nicht</strong> erfüllt ist, wird der Codeblock gar nicht ausgeführt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">11</span>
-
 <span class="k">while</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop has not been executed&quot;</span><span class="p">)</span>
 </pre></div>
@@ -646,14 +674,14 @@ Loop has ended
 </div>
 </div>
 </div>
-<p>Sometimes you want to check a condition during the run of a while loop, not at the start of each iteration. In these cases, you can check a condition that is always true in the header of the loop and use the “break” command in the code block:</p>
+<p>Man kann <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code> verwenden und mit <code class="docutils literal notranslate"><span class="pre">break</span></code> gezielt abbrechen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
         <span class="k">break</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop has ended&quot;</span><span class="p">)</span>
 </pre></div>
@@ -675,16 +703,15 @@ Loop has ended
 </div>
 </div>
 </div>
-<p>You can also use a combination of both:</p>
+<p>Kombination mit Bedingungen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">limit</span> <span class="o">=</span> <span class="mi">8</span>
-
 <span class="k">while</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">==</span> <span class="n">limit</span><span class="p">:</span>
-        <span class="k">break</span> 
+        <span class="k">break</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop has ended&quot;</span><span class="p">)</span>
 </pre></div>
@@ -703,19 +730,66 @@ Loop has ended
 </div>
 </div>
 </div>
-</section>
-<section id="for-loop">
-<h3>for loop<a class="headerlink" href="#for-loop" title="Link to this heading">#</a></h3>
-<p>When you want to iterate over a list or a different type of iterable object, you can use a for loop.</p>
-<p>For instance, if you want to iterate over the numbers from 0 to 9 and print them, you can use the following loop:</p>
+<section id="ubung-2">
+<h4>Übung 2<a class="headerlink" href="#ubung-2" title="Link to this heading">#</a></h4>
+<p>Verwende eine <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife, um von 1 bis 20 zu zählen, aber gib nur gerade Zahlen aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># A quick iterable object between two numbers</span>
-<span class="c1"># Alternatively you can use </span>
-<span class="c1"># numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
-
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span> <span class="c1"># You iterate over a limited list, you need no end condition</span>
-    <span class="c1"># We also do not need to update our &quot;number&quot; parameter, because that is done in the header of the for loop </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">number</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="n">number</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ubung-3">
+<h4>Übung 3<a class="headerlink" href="#ubung-3" title="Link to this heading">#</a></h4>
+<p>Verwende <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code> und <code class="docutils literal notranslate"><span class="pre">break</span></code>, um einen Zähler bis 3 zu zählen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">counter</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="for-schleife">
+<h3>for-Schleife<a class="headerlink" href="#for-schleife" title="Link to this heading">#</a></h3>
+<p>Wenn du über eine Liste oder ein iterierbares Objekt gehen willst, nutze die <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop has ended&quot;</span><span class="p">)</span>
 </pre></div>
@@ -737,12 +811,11 @@ Loop has ended
 </div>
 </div>
 </div>
-<p>The enumerate function allows you to not just iterate over the objects within the list, but also over their indexes at the same time.
-This is helpful, if you want to have two lists of the same size and want to work with both:</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> kannst du gleichzeitig über Index und Wert iterieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
-<span class="n">larger_numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">larger_numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">larger_numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+</span> <span class="n">number</span><span class="p">)</span>
@@ -766,12 +839,10 @@ Loop has ended
 </div>
 </div>
 </div>
-<p>In the for loop, you can also use the break command to prematurely end your loop:</p>
+<p>Auch in einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife kannst du mit <code class="docutils literal notranslate"><span class="pre">break</span></code> abbrechen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
-
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">7</span><span class="p">:</span>
         <span class="k">break</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
@@ -793,34 +864,83 @@ Loop has ended
 </div>
 </div>
 </div>
-</section>
-<section id="list-comprehention">
-<h3>List comprehention<a class="headerlink" href="#list-comprehention" title="Link to this heading">#</a></h3>
-<p>A list comprehention is a way to create a list with a loop with just one line.</p>
-<p>A list comprehention is written in the following structure: [f(x) for x in iterable]. On the left hand side, you apply a function f to x. x is an object from an iterable that you are looping over. You surround this with square brackets to indicate that you want the results of f(x) to create a list.</p>
-<p>In practice, it might look like this:</p>
+<section id="ubung-4">
+<h4>Übung 4<a class="headerlink" href="#ubung-4" title="Link to this heading">#</a></h4>
+<p>Berechne die Summe einer Liste von Zahlen mit einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">i</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="list-comprehension">
+<h3>List Comprehension<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
+<p>Mit einer <strong>List Comprehension</strong> kannst du Listen mit Schleifen in einer einzigen Zeile erzeugen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">larger_numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-
 <span class="n">even_larger_numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="o">+</span> <span class="n">larger_numbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numbers</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">even_larger_numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loop has ended&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
-Loop has ended
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sei vorsichtig mit Bedingungen in List Comprehensions. Die resultierende Liste sollte die gleiche Länge behalten, sonst kann es zu Fehlern kommen.</p>
+</div>
+</aside>
+<p>Du kannst Bedingungen innerhalb einer List Comprehension verwenden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">number</span> <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">number</span> <span class="o">/</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 1, 1.0, 3, 2.0, 5, 3.0, 7, 4.0, 9]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ubung-5">
+<h4>Übung 5<a class="headerlink" href="#ubung-5" title="Link to this heading">#</a></h4>
+<p>Nutze eine List Comprehension, um eine Liste zu erstellen, die die Quadrate der <strong>geraden</strong> Zahlen von 1 bis 20 enthält und <strong>0</strong> für ungerade Zahlen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 4, 0, 16, 0, 36, 0, 64, 0, 100, 0, 144, 0, 196, 0, 256, 0, 324, 0]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -854,12 +974,12 @@ Loop has ended
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="structures.html"
+       href="data_processing.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2. Data types</p>
+        <p class="prev-next-title">5. Deskriptive Datenanalyse</p>
       </div>
     </a>
     <a class="right-next"
@@ -867,7 +987,7 @@ Loop has ended
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Functions and Classes</p>
+        <p class="prev-next-title">7. Funktionen und Klassen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -887,14 +1007,26 @@ Loop has ended
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions">Conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loops">Loops</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loop">while loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop">for loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehention">List comprehention</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingungen">Bedingungen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen">Schleifen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleife">while-Schleife</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-schleife">for-Schleife</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">List Comprehension</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-5">Übung 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -909,7 +1041,7 @@ Loop has ended
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

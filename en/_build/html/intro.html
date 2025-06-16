@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python course - Data Literacy @TU Dortmund &#8212; Digital Humanities Python Tutorial</title>
+    <title>Python course - Data Literacy at TU Dortmund University &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -18,18 +18,18 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -39,16 +39,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="0. Installing Python, an IDE and packages" href="installation.html" />
+    <link rel="next" title="1. Arithmetics and variables" href="arithmetics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -150,8 +150,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="#">
   
@@ -173,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -186,12 +184,11 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Python course - Data Literacy @TU Dortmund
+                    Python course - Data Literacy at TU Dortmund University
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">3. Modules</a></li>
@@ -199,6 +196,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Descriptive data analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loops.html">6. Conditions and Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">7. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installing Python, an IDE and packages</a></li>
 </ul>
 
     </div>
@@ -228,9 +226,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -355,10 +353,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -366,7 +364,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -382,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python course - Data Literacy @TU Dortmund</h1>
+    <h1>Python course - Data Literacy at TU Dortmund University</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -400,27 +398,24 @@ document.write(`
   <a href="../de/intro.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
   <a href="../en/intro.html">🇬🇧 English</a>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="python-course-data-literacy-tu-dortmund">
-<h1>Python course - Data Literacy &#64;TU Dortmund<a class="headerlink" href="#python-course-data-literacy-tu-dortmund" title="Link to this heading">#</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="python-course-data-literacy-at-tu-dortmund-university">
+<h1>Python course - Data Literacy at TU Dortmund University<a class="headerlink" href="#python-course-data-literacy-at-tu-dortmund-university" title="Link to this heading">#</a></h1>
 <p>This is a small Python Tutorial, which will teach you the basics of the Python
-programming language.</p>
-<p>We will first teach you, how to install Python and an IDE (Integrated
-Development Environment) on your personal system and will then teach you the
-basics of the language, its syntax and most common packages.</p>
+programming language, its syntax and most common packages.</p>
+<p>You can complete this course in your browser, without the need to install Python
+on your local machine. If you want to use Python in the future, we also provide
+a small guide on how to install Python and an IDE (Integrated Development Environment) on your local machine at the end of the course.</p>
 <p>If you have any questions, please do not hesitate to send us an email:</p>
 <ul class="simple">
 <li><p>Kai-Robin Lange (<a class="reference external" href="mailto:kalange&#37;&#52;&#48;statistik&#46;tu-dortmund&#46;de">kalange<span>&#64;</span>statistik<span>&#46;</span>tu-dortmund<span>&#46;</span>de</a>)</p></li>
 <li><p>Henrik Hardering (<a class="reference external" href="mailto:henrik&#46;hardering&#37;&#52;&#48;tu-dortmund&#46;de">henrik<span>&#46;</span>hardering<span>&#64;</span>tu-dortmund<span>&#46;</span>de</a>)</p></li>
 </ul>
-<p>Installing Python on your local hardware is not strictly neccessary for this course, as all code can be run in your browser.
-It is still recommended, if you want to continue working with Python later on.
-To edit and run the Python code in this course, you will find this <img alt="live code symbol" src="_images/code_symbol.PNG" /> symbol on the top of each page that contains Python code. You can click on it and then choose “Live code” to edit and run code yourself. Please feel free to test different things out and play around with the code. You cannot break anything here and nobody (including us) can see your code, so feel free to experiment.</p>
-<p>If you are interested in learning about corpus linguistics, we suggest you to
-first complete this little course and then take a look at
-<a class="reference external" href="https://github.com/K-RLange/dhNLP">this NLP-course</a>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>To edit and run the Python code in this course, you will find this <img alt="live code symbol" src="_images/code_symbol.PNG" /> symbol on the top of each page that contains Python code. You can click on it and then choose “Live code” to edit and run code yourself. Please feel free to test different things out and play around with the code. You cannot break anything here and nobody (including us) can see your code, so feel free to experiment.</p>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">3. Modules</a></li>
@@ -428,6 +423,7 @@ first complete this little course and then take a look at
 <li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Descriptive data analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="loops.html">6. Conditions and Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">7. Functions and Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installing Python, an IDE and packages</a></li>
 </ul>
 </div>
 </section>
@@ -462,11 +458,11 @@ first complete this little course and then take a look at
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="installation.html"
+       href="arithmetics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">0. Installing Python, an IDE and packages</p>
+        <p class="prev-next-title">1. Arithmetics and variables</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -519,8 +515,8 @@ By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

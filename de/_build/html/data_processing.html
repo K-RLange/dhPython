@@ -1,0 +1,1822 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Deskriptive Datenanalyse &#8212; Digital Humanities Python Tutorial</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/thebe.css?v=9bca0c2f" />
+    <link rel="stylesheet" type="text/css" href="_static/code.css?v=4bf7ba55" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="_static/refresh.js?v=9bea9b76"></script>
+    <script>const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script defer="defer" src="_static/sphinx-thebe-lite.js?v=2a71eeb1"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_processing';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Bedingungen und Schleifen" href="loops.html" />
+    <link rel="prev" title="4. pandas und matplotlib" href="pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Digital Humanities Python Tutorial - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Digital Humanities Python Tutorial - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Python-Kurs – Data Literacy an der TU Dortmund
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/K-RLange/dhPython/master?urlpath=tree/python_tutorial/data_processing.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://jupyterhub.uni-muenster.de/hub/user-redirect/git-pull?repo=https%3A//github.com/K-RLange/dhPython&urlpath=tree/dhPython/python_tutorial/data_processing.md&branch=master" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="btn__text-container">JupyterHub</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://deepnote.com/github/K-RLange/dhPython/blob/master/python_tutorial/data_processing.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/K-RLange/dhPython" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/K-RLange/dhPython/issues/new?title=Issue%20on%20page%20%2Fdata_processing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data_processing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Download notebook file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="_sources/data_processing.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Deskriptive Datenanalyse</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wofur-nutzen-wir-python">Wofür nutzen wir Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzbeschreibung-des-datensatzes-tips">Kurzbeschreibung des Datensatzes “Tips”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-informationen-uber-einen-datensatz-erhalten">Erste Informationen über einen Datensatz erhalten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balkendiagramm-erstellen">Balkendiagramm erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gruppiertes-balkendiagramm">Gruppiertes Balkendiagramm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm-erstellen">Histogramm erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-erstellen">Streudiagramm erstellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaikdiagramm-erstellen">Mosaikdiagramm erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-erstellen">Boxplot erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsfunktion-bestimmen">Verteilungsfunktion bestimmen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div style="float: right;">
+  <a href="../de/data_processing.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/data_processing.html">🇬🇧 English</a>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="deskriptive-datenanalyse">
+<h1>5. Deskriptive Datenanalyse<a class="headerlink" href="#deskriptive-datenanalyse" title="Link to this heading">#</a></h1>
+<section id="wofur-nutzen-wir-python">
+<h2>Wofür nutzen wir Python?<a class="headerlink" href="#wofur-nutzen-wir-python" title="Link to this heading">#</a></h2>
+<p>Im Kapitel “DaLi Thema 1: Grundlagen der Datenauswertung” wurden die wichtigsten Visualisierungsformen und Kenngrößen vorgestellt, die für eine Datenauswertung notwendig sind.</p>
+<p>Sobald wir es mit der Verarbeitung realer (oft sehr umfangreicher) Datensätze zu tun haben, kann Software helfen, bestimmte Kenngrößen und Visualisierungsformen zu erstellen. Dieses DaLi-Thema beschäftigt sich daher mit der Analyse und Visualisierung solcher Datensätze mittels Software (Python oder R).</p>
+<p>Um einen ersten Eindruck davon zu bekommen, wie wir Python in diesem Zusammenhang nutzen können, verwenden wir den aus “DaLi Thema 1: Grundlagen der Datenanalyse” bekannten Datensatz “Tips”.</p>
+</section>
+<section id="kurzbeschreibung-des-datensatzes-tips">
+<h2>Kurzbeschreibung des Datensatzes “Tips”<a class="headerlink" href="#kurzbeschreibung-des-datensatzes-tips" title="Link to this heading">#</a></h2>
+<p>Ein Kellner hat über einen Zeitraum von mehreren Monaten Informationen zu jedem Trinkgeld, das er in einem Restaurant erhalten hat, aufgezeichnet. Dabei wurden mehrere Variablen erfasst:</p>
+<ul class="simple">
+<li><p>Rechnungssumme in Dollar (<code class="docutils literal notranslate"><span class="pre">total_bill</span></code>)</p></li>
+<li><p>Trinkgeld in Dollar (<code class="docutils literal notranslate"><span class="pre">tip</span></code>)</p></li>
+<li><p>Geschlecht der zahlenden Person (<code class="docutils literal notranslate"><span class="pre">sex</span></code>)</p></li>
+<li><p>Raucher unter den Gästen (<code class="docutils literal notranslate"><span class="pre">smoker</span></code>)</p></li>
+<li><p>Wochentag (<code class="docutils literal notranslate"><span class="pre">day</span></code>)</p></li>
+<li><p>Tageszeit (<code class="docutils literal notranslate"><span class="pre">time</span></code>)</p></li>
+<li><p>Gruppengröße (<code class="docutils literal notranslate"><span class="pre">size</span></code>)</p></li>
+</ul>
+<p>Im Folgenden erklären wir kurz, was der jeweilige Code bewirkt, bevor der Code und die entsprechenden Ausgaben dargestellt werden.</p>
+</section>
+<section id="erste-informationen-uber-einen-datensatz-erhalten">
+<h2>Erste Informationen über einen Datensatz erhalten<a class="headerlink" href="#erste-informationen-uber-einen-datensatz-erhalten" title="Link to this heading">#</a></h2>
+<p>Die folgenden zwei Funktionen sind in Python über die pandas-Bibliothek integriert. Sie eignen sich gut, um einen ersten Überblick über einen Datensatz und die Eigenschaften seiner Merkmale zu erhalten:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">info()</span></code> liefert Details zur Datenstruktur, wie Spaltennamen, Datentypen und Anzahl der nicht-fehlenden Werte.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">describe(include='all')</span></code> gibt zusammenfassende Statistiken für jede Spalte aus — inklusive Minimum, Maximum, Mittelwert, Quartilen usw. Bei <code class="docutils literal notranslate"><span class="pre">include='all'</span></code> werden auch kategoriale Variablen eingeschlossen.</p></li>
+</ul>
+<p>Diese Funktionen sind ideal, um schnell potenzielle Probleme (z. B. fehlende Werte oder falsche Datentypen) zu erkennen und ein grundlegendes Gefühl für die Verteilung der Daten zu bekommen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Informationen über Struktur und Merkmale</span>
+<span class="n">tips</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">tips</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 244 entries, 0 to 243
+Data columns (total 7 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   total_bill  244 non-null    float64
+ 1   tip         244 non-null    float64
+ 2   sex         244 non-null    object 
+ 3   smoker      244 non-null    object 
+ 4   day         244 non-null    object 
+ 5   time        244 non-null    object 
+ 6   size        244 non-null    int64  
+dtypes: float64(2), int64(1), object(4)
+memory usage: 13.5+ KB
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>244.000000</td>
+      <td>244.000000</td>
+      <td>244</td>
+      <td>244</td>
+      <td>244</td>
+      <td>244</td>
+      <td>244.000000</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sat</td>
+      <td>Dinner</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>157</td>
+      <td>151</td>
+      <td>87</td>
+      <td>176</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>19.785943</td>
+      <td>2.998279</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.569672</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.902412</td>
+      <td>1.383638</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.951100</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.070000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>13.347500</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>17.795000</td>
+      <td>2.900000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>24.127500</td>
+      <td>3.562500</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>50.810000</td>
+      <td>10.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ähnliche Informationen erhält man auch mit der Funktion <code class="docutils literal notranslate"><span class="pre">skim()</span></code> aus der Bibliothek <code class="docutils literal notranslate"><span class="pre">skimpy</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimpy</span> <span class="kn">import</span> <span class="n">skim</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Detaillierte Übersicht über den Datensatz</span>
+<span class="n">skim</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">╭──────────────────────────────────────────────── skimpy summary ─────────────────────────────────────────────────╮
+│ <span style="font-style: italic">         Data Summary         </span> <span style="font-style: italic">      Data Types       </span>                                                          │
+│ ┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓ ┏━━━━━━━━━━━━━┳━━━━━━━┓                                                          │
+│ ┃<span style="color: #008080; text-decoration-color: #008080; font-weight: bold"> Dataframe         </span>┃<span style="color: #008080; text-decoration-color: #008080; font-weight: bold"> Values </span>┃ ┃<span style="color: #008080; text-decoration-color: #008080; font-weight: bold"> Column Type </span>┃<span style="color: #008080; text-decoration-color: #008080; font-weight: bold"> Count </span>┃                                                          │
+│ ┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩ ┡━━━━━━━━━━━━━╇━━━━━━━┩                                                          │
+│ │ Number of rows    │ 244    │ │ string      │ 4     │                                                          │
+│ │ Number of columns │ 7      │ │ float64     │ 2     │                                                          │
+│ └───────────────────┴────────┘ │ int64       │ 1     │                                                          │
+│                                └─────────────┴───────┘                                                          │
+│ <span style="font-style: italic">                                                    number                                                    </span>  │
+│ ┏━━━━━━━━━━━━━━━━┳━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┓  │
+│ ┃<span style="font-weight: bold"> column         </span>┃<span style="font-weight: bold"> NA  </span>┃<span style="font-weight: bold"> NA %   </span>┃<span style="font-weight: bold"> mean    </span>┃<span style="font-weight: bold"> sd       </span>┃<span style="font-weight: bold"> p0     </span>┃<span style="font-weight: bold"> p25     </span>┃<span style="font-weight: bold"> p50    </span>┃<span style="font-weight: bold"> p75    </span>┃<span style="font-weight: bold"> p100   </span>┃<span style="font-weight: bold"> hist    </span>┃  │
+│ ┡━━━━━━━━━━━━━━━━╇━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━━┩  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">total_bill    </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">  19.79</span> │ <span style="color: #008080; text-decoration-color: #008080">   8.902</span> │ <span style="color: #008080; text-decoration-color: #008080">  3.07</span> │ <span style="color: #008080; text-decoration-color: #008080">  13.35</span> │ <span style="color: #008080; text-decoration-color: #008080">  17.8</span> │ <span style="color: #008080; text-decoration-color: #008080"> 24.13</span> │ <span style="color: #008080; text-decoration-color: #008080"> 50.81</span> │ <span style="color: #008000; text-decoration-color: #008000">▂▇▅▂▁▁ </span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">tip           </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">  2.998</span> │ <span style="color: #008080; text-decoration-color: #008080">   1.384</span> │ <span style="color: #008080; text-decoration-color: #008080">     1</span> │ <span style="color: #008080; text-decoration-color: #008080">      2</span> │ <span style="color: #008080; text-decoration-color: #008080">   2.9</span> │ <span style="color: #008080; text-decoration-color: #008080"> 3.562</span> │ <span style="color: #008080; text-decoration-color: #008080">    10</span> │ <span style="color: #008000; text-decoration-color: #008000"> ▇▇▃▁  </span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">size          </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">   2.57</span> │ <span style="color: #008080; text-decoration-color: #008080">  0.9511</span> │ <span style="color: #008080; text-decoration-color: #008080">     1</span> │ <span style="color: #008080; text-decoration-color: #008080">      2</span> │ <span style="color: #008080; text-decoration-color: #008080">     2</span> │ <span style="color: #008080; text-decoration-color: #008080">     3</span> │ <span style="color: #008080; text-decoration-color: #008080">     6</span> │ <span style="color: #008000; text-decoration-color: #008000">  ▇▂▂  </span> │  │
+│ └────────────────┴─────┴────────┴─────────┴──────────┴────────┴─────────┴────────┴────────┴────────┴─────────┘  │
+│ <span style="font-style: italic">                                                    string                                                    </span>  │
+│ ┏━━━━━━━━━┳━━━━━┳━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓  │
+│ ┃<span style="font-weight: bold"> column  </span>┃<span style="font-weight: bold"> NA  </span>┃<span style="font-weight: bold"> NA %  </span>┃<span style="font-weight: bold"> shortest  </span>┃<span style="font-weight: bold"> longest </span>┃<span style="font-weight: bold"> min    </span>┃<span style="font-weight: bold"> max   </span>┃<span style="font-weight: bold"> chars per row </span>┃<span style="font-weight: bold"> words per row </span>┃<span style="font-weight: bold"> total words </span>┃  │
+│ ┡━━━━━━━━━╇━━━━━╇━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━┩  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">sex    </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">    0</span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Male     </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Female </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Female</span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Male </span> │ <span style="color: #008080; text-decoration-color: #008080">         4.71</span> │ <span style="color: #008080; text-decoration-color: #008080">            1</span> │ <span style="color: #008080; text-decoration-color: #008080">        244</span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">smoker </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">    0</span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">No       </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Yes    </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">No    </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Yes  </span> │ <span style="color: #008080; text-decoration-color: #008080">         2.38</span> │ <span style="color: #008080; text-decoration-color: #008080">            1</span> │ <span style="color: #008080; text-decoration-color: #008080">        244</span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">day    </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">    0</span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Sun      </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Thur   </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Fri   </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Thur </span> │ <span style="color: #008080; text-decoration-color: #008080">         3.25</span> │ <span style="color: #008080; text-decoration-color: #008080">            1</span> │ <span style="color: #008080; text-decoration-color: #008080">        244</span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">time   </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">    0</span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Lunch    </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Dinner </span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Dinner</span> │ <span style="color: #af87ff; text-decoration-color: #af87ff">Lunch</span> │ <span style="color: #008080; text-decoration-color: #008080">         5.72</span> │ <span style="color: #008080; text-decoration-color: #008080">            1</span> │ <span style="color: #008080; text-decoration-color: #008080">        244</span> │  │
+│ └─────────┴─────┴───────┴───────────┴─────────┴────────┴───────┴───────────────┴───────────────┴─────────────┘  │
+╰────────────────────────────────────────────────────── End ──────────────────────────────────────────────────────╯
+</pre>
+</div></div>
+</div>
+<section id="ubung-1">
+<h3>Übung 1<a class="headerlink" href="#ubung-1" title="Link to this heading">#</a></h3>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  /* Quiz 1 Container */
+  #quiz1-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  #quiz1-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz1-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Flex labels for Quiz 1 */
+  #quiz1-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  #quiz1-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz1-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz1-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz1-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #quiz1-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz1-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz1-container">
+  <p class="question">🧠 Wie hoch war das höchste, vom Kellner dokumentierte Trinkgeld (in Dollar)?</p>
+  <form id="quiz1-form">
+    <label>
+      <input type="radio" name="answer1" value="a">
+      <pre><code>$6</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer1" value="b">
+      <pre><code>$10</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer1" value="c">
+      <pre><code>$12</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer1" value="d">
+      <pre><code>$20</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer1()">Submit Answer</button>
+    <p id="quiz1-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer1() {
+    const answers1 = {
+      a: { correct: false, feedback: "❌ Das höchste Tinkgeld war höher als 6 Dollar." },
+      b: { correct: true,  feedback: "✅ Korrekt!" },
+      c: { correct: false, feedback: "❌ Inkorrekt, es waren nicht 12 Dollar." },
+      d: { correct: false, feedback: "❌ Nicht ganz, es waren weniger als 20 Dollar." }
+    };
+
+    const selected = document.querySelector('input[name="answer1"]:checked');
+    const feedback = document.getElementById("quiz1-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Bitte wähle eine Antwort aus.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers1[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
+</section>
+<section id="balkendiagramm-erstellen">
+<h2>Balkendiagramm erstellen<a class="headerlink" href="#balkendiagramm-erstellen" title="Link to this heading">#</a></h2>
+<p>Unten siehst du eine Variante zur Erstellung eines Balkendiagramms. Die Funktion bar() aus der matplotlib-Bibliothek wird verwendet, um die Häufigkeiten der Kategorien „Female“ und „Male“ in der Spalte „sex“ des Datensatzes darzustellen.</p>
+<p>Zunächst wird die Pandas-Bibliothek verwendet, um den Datensatz tips.csv zu laden. Anschließend wird die Funktion value_counts() auf die Spalte „sex“ angewendet, um zu zählen, wie oft jedes Geschlecht vorkommt. Diese Zählwerte werden in der Variablen sex_counts gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.</p>
+<p>Schließlich wird ein einfaches vertikales Balkendiagramm mit plt.bar() erstellt. Das Diagramm enthält einen Titel sowie Achsenbeschriftungen, um die dargestellten Informationen besser interpretieren zu können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sex_counts</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">sex_counts</span><span class="o">.</span><span class="n">index</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">sex_counts</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Anzahl der Gäste nach Geschlecht&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Geschlecht&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Anzahl&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c9ef908c7e7497b63e1aac441c7582603d17fffef18dedaf87bf8f615c0a2ee8.png" src="_images/c9ef908c7e7497b63e1aac441c7582603d17fffef18dedaf87bf8f615c0a2ee8.png" />
+</div>
+</div>
+</section>
+<section id="gruppiertes-balkendiagramm">
+<h2>Gruppiertes Balkendiagramm<a class="headerlink" href="#gruppiertes-balkendiagramm" title="Link to this heading">#</a></h2>
+<p>Der folgende Code erstellt ein gruppiertes Balkendiagramm, das die Anzahl der Gäste nach Geschlecht zeigt, getrennt nach Tageszeit (Lunch vs. Dinner). Dies wird mit der catplot()-Funktion von Seaborn umgesetzt, die es ermöglicht, mehrere Diagramme basierend auf den Werten einer kategorialen Variable zu erstellen.</p>
+<p>Das Argument col=”time” gibt an, dass für jeden Wert in der Spalte „time“ ein eigenes Diagramm erstellt werden soll. Das Ergebnis sind zwei nebeneinander angeordnete Balkendiagramme, die die Geschlechterverteilung für Mittag- und Abendessen separat darstellen.</p>
+<p>Diese Visualisierung eignet sich gut, um zu vergleichen, wie sich die Geschlechterverteilung der Gäste zwischen den beiden Tageszeiten unterscheidet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;Time: </span><span class="si">{col_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2ea33a0258d6b7272084882b71242aec8496ed93f6c97bd445be2d3475bbb5ce.png" src="_images/2ea33a0258d6b7272084882b71242aec8496ed93f6c97bd445be2d3475bbb5ce.png" />
+</div>
+</div>
+<section id="ubung-2">
+<h3>Übung 2<a class="headerlink" href="#ubung-2" title="Link to this heading">#</a></h3>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  /* Quiz 2 Container */
+  #quiz2-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  #quiz2-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz2-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Flex labels for Quiz 2 */
+  #quiz2-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  #quiz2-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz2-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz2-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz2-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #quiz2-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz2-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz2-container">
+  <p class="question">🧠 Beim Mittagessen war die Anzahl weiblicher und männlicher Gäste, die bezahlt haben, ungefähr gleich, aber beim Abendessen haben männliche Gäste deutlich häufiger bezahlt (mehr als doppelt so oft). Wahr oder falsch?</p>
+  <form id="quiz2-form">
+    <label>
+      <input type="radio" name="answer2" value="a">
+      <pre><code>Wahr</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer2" value="b">
+      <pre><code>Falsch</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer2" value="c">
+      <pre><code>Geht aus den Daten nicht hervor</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer2()">Submit Answer</button>
+    <p id="quiz2-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer2() {
+    const answers2 = {
+      a: { correct: true,  feedback: "✅ Korrekt!" },
+      b: { correct: false, feedback: "❌ Inkorrekt." },
+      c: { correct: false, feedback: "❌ Inkorrekt, die Daten geben uns alle nötigen Informationen." }
+    };
+
+    const selected = document.querySelector('input[name="answer2"]:checked');
+    const feedback = document.getElementById("quiz2-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Bitte wähle eine Antwort aus.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers2[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
+</section>
+<section id="histogramm-erstellen">
+<h2>Histogramm erstellen<a class="headerlink" href="#histogramm-erstellen" title="Link to this heading">#</a></h2>
+<p>Der folgende Code erstellt ein Histogramm, das die Häufigkeitsverteilung der Rechnungsbeträge im Datensatz visualisiert.
+Die Funktion plt.hist() aus der Matplotlib-Bibliothek wird verwendet, um darzustellen, wie oft Rechnungsbeträge in bestimmten Wertebereichen auftreten.</p>
+<p>edgecolor=”black” fügt jedem Balken klare Umrandungen hinzu.</p>
+<p>Die x-Achse zeigt die Rechnungsbeträge in Dollar, während die y-Achse die Anzahl der Rechnungen in jedem Intervall angibt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">],</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Häufigkeitsverteilung der Rechnungsbeträge&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rechnungsbetrag in $&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Anzahl&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d62d48f4495906929911e8d37e650f53e0589c030cd0bdc9345d372c7a0f8ad7.png" src="_images/d62d48f4495906929911e8d37e650f53e0589c030cd0bdc9345d372c7a0f8ad7.png" />
+</div>
+</div>
+</section>
+<section id="streudiagramm-erstellen">
+<h2>Streudiagramm erstellen<a class="headerlink" href="#streudiagramm-erstellen" title="Link to this heading">#</a></h2>
+<p>Der folgende Code erstellt ein Streudiagramm, um die Beziehung zwischen dem Gesamtbetrag der Rechnung und der Trinkgeldhöhe zu visualisieren.
+Die Funktion plt.scatter() aus der Matplotlib-Bibliothek wird verwendet, um jede Beobachtung als Punkt zu zeichnen, wobei:</p>
+<ul class="simple">
+<li><p>die x-Achse den Gesamtbetrag der Rechnung in Dollar darstellt</p></li>
+<li><p>die y-Achse den entsprechenden Trinkgeldbetrag zeigt
+Jeder Punkt im Diagramm entspricht einer Zeile im Datensatz. Diese Art der Visualisierung ist nützlich, um Muster oder Trends zu erkennen – beispielsweise, ob höhere Rechnungen mit höheren Trinkgeldern verbunden sind.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">],</span>
+    <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Trinkgeld vs. Rechnungsbetrag&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rechnungsbetrag ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Trinkgeld ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/cd8bae0d4e083fb84bdc66932d0acb3bc68e11f45ff9704c879b6b0635163752.png" src="_images/cd8bae0d4e083fb84bdc66932d0acb3bc68e11f45ff9704c879b6b0635163752.png" />
+</div>
+</div>
+<section id="ubung-3">
+<h3>Übung 3<a class="headerlink" href="#ubung-3" title="Link to this heading">#</a></h3>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  /* Quiz 3 Container */
+  #quiz3-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  #quiz3-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz3-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Flex labels for Quiz 3 */
+  #quiz3-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  #quiz3-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz3-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz3-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz3-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #quiz3-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz3-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz3-container">
+  <p class="question">🧠 Wie hoch war das Trinkgeld bei einer Rechnung von ungefähr 48 $? (Eine ungefähre Schätzung reicht aus)</p>
+  <form id="quiz3-form">
+    <label>
+      <input type="radio" name="answer3" value="a">
+      <pre><code>$11</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer3" value="b">
+      <pre><code>$3, $5, und $8</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer3" value="c">
+      <pre><code>$5, $7, und $9</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer3" value="d">
+      <pre><code>Keine der genannten Antworten</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer3()">Submit Answer</button>
+    <p id="quiz3-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer3() {
+    const answers3 = {
+      a: { correct: false, feedback: "❌ Nicht korrekt. Die Trinkgelder waren niedriger." },
+      b: { correct: false, feedback: "❌ Inkorrekt. $3, $5, und $8 waren nicht die Einzigen." },
+      c: { correct: true,  feedback: "✅ Korrekt!" },
+      d: { correct: false, feedback: "❌ Inkorrekt, es gibt eine korrekte Antwort." }
+    };
+
+    const selected = document.querySelector('input[name="answer3"]:checked');
+    const feedback = document.getElementById("quiz3-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Bitte wähle eine Antwort aus.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers3[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
+</section>
+<section id="streudiagramm-mit-regressionslinie-erstellen">
+<h2>Streudiagramm mit Regressionslinie erstellen<a class="headerlink" href="#streudiagramm-mit-regressionslinie-erstellen" title="Link to this heading">#</a></h2>
+<p>Der folgende Code erstellt ein Streudiagramm, das die Beziehung zwischen der Gesamtrechnung und dem Trinkgeldbetrag zeigt.
+Zusätzlich zu den einzelnen Datenpunkten wird eine Regressionslinie hinzugefügt, die die lineare Beziehung zwischen
+den beiden Variablen modelliert.</p>
+<p>Dies wird mit der Funktion lmplot() aus der Seaborn-Bibliothek gemacht.</p>
+<ul class="simple">
+<li><p>Der Parameter x=”total_bill” definiert die Variable auf der x-Achse,</p></li>
+<li><p>y=”tip” definiert die Variable auf der y-Achse,</p></li>
+<li><p>und Seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Trinkgeld vs. Gesamtrechnung mit Regressionslinie&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Gesamtrechnung ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Trinkgeld ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/506f9fefc8f55a4596d03eefb773c347b93bf7cc68903c9969bf26324e7df310.png" src="_images/506f9fefc8f55a4596d03eefb773c347b93bf7cc68903c9969bf26324e7df310.png" />
+</div>
+</div>
+</section>
+<section id="mosaikdiagramm-erstellen">
+<h2>Mosaikdiagramm erstellen<a class="headerlink" href="#mosaikdiagramm-erstellen" title="Link to this heading">#</a></h2>
+<p>Der folgende Code erstellt ein Mosaikdiagramm, um die Beziehung zwischen den kategorialen Variablen Geschlecht (sex)
+und Tageszeit (time) im Datensatz zu visualisieren.</p>
+<p>Ein Mosaikdiagramm zeigt die relativen Häufigkeiten von Kombinationen kategorialer Werte durch Rechtecke, deren Flächen
+proportional zur Anzahl der Beobachtungen sind. In diesem Beispiel:</p>
+<p>Die x-Achse ist aufgeteilt nach den Werten von sex (weiblich / männlich),
+und jeder Abschnitt ist weiter unterteilt nach time (Mittagessen / Abendessen).
+So kann man leicht erkennen, ob zum Beispiel ein höherer Anteil von Männern oder Frauen zu einer bestimmten Tageszeit
+das Restaurant besucht hat.</p>
+<p>Das Diagramm wird mit der Funktion mosaic() aus der Bibliothek statsmodels erstellt, die speziell für diese
+Art der kategorialen Visualisierung gedacht ist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">statsmodels.graphics.mosaicplot</span> <span class="kn">import</span> <span class="n">mosaic</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">mosaic</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosaikdiagramm: Geschlecht vs. Tageszeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Geschlecht&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Anteil&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b4dd512bdab60dca64ddd041cbc6a7962ae6836381334714097303df5e5a5469.png" src="_images/b4dd512bdab60dca64ddd041cbc6a7962ae6836381334714097303df5e5a5469.png" />
+</div>
+</div>
+</section>
+<section id="boxplot-erstellen">
+<h2>Boxplot erstellen<a class="headerlink" href="#boxplot-erstellen" title="Link to this heading">#</a></h2>
+<p>Dieser Code verwendet die Funktion boxplot() aus der seaborn-Bibliothek (importiert als sns), um ein Box-and-Whisker-Diagramm
+zu erstellen, das die Verteilung der Gesamtrechnungen für die beiden Zeitkategorien Mittagessen und Abendessen vergleicht.</p>
+<p>Jede Box repräsentiert die Streuung der Daten für eine Gruppe und enthält:</p>
+<ul class="simple">
+<li><p>den Median (horizontale Linie innerhalb der Box),</p></li>
+<li><p>die Interquartilsdifferenz (die Box selbst),</p></li>
+<li><p>und mögliche Ausreißer (einzelne Punkte).</p></li>
+</ul>
+<p>Die x-Achse zeigt die beiden Zeitkategorien (time), während die y-Achse die entsprechenden Rechnungsbeträge (total_bill)
+anzeigt.
+Diese Visualisierung erleichtert den Vergleich, ob die Rechnungen abends tendenziell höher sind als mittags.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Boxplot der Gesamtrechnung nach Tageszeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tageszeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Gesamtrechnung ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1e2737a46b7beab8ebc31b6691ab34cd9c675b84306cdd6d3596a2405614411a.png" src="_images/1e2737a46b7beab8ebc31b6691ab34cd9c675b84306cdd6d3596a2405614411a.png" />
+</div>
+</div>
+</section>
+<section id="verteilungsfunktion-bestimmen">
+<h2>Verteilungsfunktion bestimmen<a class="headerlink" href="#verteilungsfunktion-bestimmen" title="Link to this heading">#</a></h2>
+<p>Dieser Code verwendet die Klasse ECDF aus dem Modul statsmodels.distributions.empirical_distribution, um die
+empirische Verteilungsfunktion der Werte von total_bill zu berechnen.</p>
+<p>Eine ECDF zeigt für jeden Wert auf der x-Achse den Anteil der Beobachtungen, die kleiner oder gleich diesem Wert sind.
+Das Ergebnis ist eine treppenförmige Kurve, die von 0 bis 1 ansteigt.
+Diese Art von Diagramm ist nützlich, um zu verstehen, wie Werte im Datensatz verteilt sind – zum Beispiel, um abzuschätzen,
+welcher Anteil der Rechnungen unter einem bestimmten Betrag liegt.</p>
+<p>Die Funktion plt.step() wird verwendet, um die ECDF als Stufenfunktion zu zeichnen, und Rasterlinien werden hinzugefügt,
+um die Lesbarkeit zu verbessern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">statsmodels.distributions.empirical_distribution</span> <span class="kn">import</span> <span class="n">ECDF</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">ecdf</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">ecdf</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">ecdf</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Empirische Verteilungsfunktion der Gesamtrechnung&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Gesamtrechnung ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Kumulative Wahrscheinlichkeit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6a7e08cf36a0b8fa68023b674714a60716ee11a07210a81ddcd12bb7db829224.png" src="_images/6a7e08cf36a0b8fa68023b674714a60716ee11a07210a81ddcd12bb7db829224.png" />
+</div>
+</div>
+<section id="ubung-4">
+<h3>Übung 4<a class="headerlink" href="#ubung-4" title="Link to this heading">#</a></h3>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  /* Quiz 4 Container */
+  #quiz4-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  #quiz4-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz4-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Flex labels for Quiz 4 */
+  #quiz4-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  #quiz4-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz4-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz4-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz4-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #quiz4-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz4-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz4-container">
+  <p class="question">🧠 Wieviel Prozent der Rechnungen lagen unter $20?</p>
+  <form id="quiz4-form">
+    <label>
+      <input type="radio" name="answer4" value="a">
+      <pre><code>30%</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer4" value="b">
+      <pre><code>45%</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer4" value="c">
+      <pre><code>55%</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer4" value="d">
+      <pre><code>60%</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer4()">Submit Answer</button>
+    <p id="quiz4-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer4() {
+    const answers4 = {
+      a: { correct: false, feedback: "❌ Nicht ganz, 30% sind zu wenig." },
+      b: { correct: false, feedback: "❌ Inkorrekt." },
+      c: { correct: false, feedback: "❌ Leider nicht richtig." },
+      d: { correct: true,  feedback: "✅ Korrekt." }
+    };
+
+    const selected = document.querySelector('input[name="answer4"]:checked');
+    const feedback = document.getElementById("quiz4-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Bitte wähle eine Antwort aus.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers4[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
+</section>
+</section>
+
+        <script type="text/x-thebe-config">
+        {
+            "rootPath": "./",
+            "requestKernel": true,
+            "useJupyterLite": true,
+            "useBinder": false,
+            "kernelOptions": {
+                "path": "/"
+            },
+            "codeMirrorConfig": {
+                "theme": "default",
+                "mode": "python"
+            },
+            "mountRestartButton": false,
+            "mountRestartallButton": false
+        }
+        </script>
+        <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4. pandas und matplotlib</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="loops.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. Bedingungen und Schleifen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wofur-nutzen-wir-python">Wofür nutzen wir Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzbeschreibung-des-datensatzes-tips">Kurzbeschreibung des Datensatzes “Tips”</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-informationen-uber-einen-datensatz-erhalten">Erste Informationen über einen Datensatz erhalten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balkendiagramm-erstellen">Balkendiagramm erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gruppiertes-balkendiagramm">Gruppiertes Balkendiagramm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm-erstellen">Histogramm erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-erstellen">Streudiagramm erstellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaikdiagramm-erstellen">Mosaikdiagramm erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-erstellen">Boxplot erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsfunktion-bestimmen">Verteilungsfunktion bestimmen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -12,62 +12,83 @@ kernelspec:
   language: python
   name: python3
 ---
-
-# 5. Modules
-While basically anything can be coded from scratch in Python, it is wise to first see if someone has already implemented what you are trying to do. That can save time and effort and the implementation is hopefully done well from someone confident enough to share their code online.
-
-To use functions, classes and other code that has been published online, you must import their respective modules.
-
-Modules are what we call code files. They are organized in libraries (also called packages), which are an organized collection of modules.
-
-## Importing modules
-To import a module or libraries, you can just use "import module_or_library_name" in your Python console.
-
-When you import a module, you can call the functions within it using "module_or_library_name.function()". Let's see how this looks like, if we want to calculate the mean of a list, for which we need to import the statistics module:
-```{code-cell}
-import statistics
-print(statistics.mean([1, 2, 3]))
-```
+<div style="float: right;">
+  <a href="../de/modules.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/modules.html">🇬🇧 English</a>
+</div>
 
 
-Alternatively, you can also import only certain functions from that module. To do this, you can use "from module_or_library_name import function".
-```{code-cell}
-from statistics import mean
-print(mean([1, 2, 3]))
-```
+# 3. Module
 
-### Importing local modules
-You can import local code files in the same manner in which you import modules created by other people. If you have created a code file called "module.py", you can import it using:
-```{code-block}
-import module
-```
+Grundsätzlich kann in Python alles von Grund auf neu programmiert werden. Es ist jedoch klüger, zuerst zu überprüfen, ob jemand anderes bereits das umgesetzt hat, was du tun möchtest. Das spart Zeit und Aufwand — und hoffentlich wurde die Umsetzung von jemandem vorgenommen, der kompetent genug war, seinen Code online zu veröffentlichen.
 
-When module is in a different directory, you can still import it. When the module is two directories above the current one, you need to add two dots in front of the module's name:
-```{code-block}
-import ..module
-```
+Um Funktionen, Klassen und anderen Code zu verwenden, der online veröffentlicht wurde, musst du die entsprechenden Module importieren.
 
-If you want to import a module in a subdirectory, you can import it like this:
-```{code-block}
-import subdirectory.module
-```
+Module sind Code-Dateien. Sie sind in Bibliotheken (auch Pakete genannt) organisiert, also Sammlungen von Modulen in strukturierter Form.
 
-## Installing libraries
-Python comes with a small number of pre-installed modules and libraries. But there are many more out there, which you will have to install first.
+## Bibliotheken installieren
 
-The releases of Python libraries are usually released on the [Python Package Index (PyPi)](https://pypi.org/). 
+Python bringt eine kleine Anzahl vorinstallierter Module und Bibliotheken mit. Es gibt jedoch viele weitere, die du erst installieren musst.
 
-To install libraries from PyPi, you can use **pip**, which comes pre-installed with every Python version from Python 3.0 onwards.
+Die Veröffentlichungen von Python-Bibliotheken erscheinen in der Regel auf dem [Python Package Index (PyPi)](https://pypi.org/).
 
-You can call pip to install a certain package within Python, but it is generally recommended to call it outside of Python in a terminal.
+Um Bibliotheken von PyPi zu installieren, kannst du **pip** verwenden, das seit Python 3.0 bei jeder Installation automatisch mitgeliefert wird.
 
-Let's say, we want to install the very popular "pandas" package. To install it directly from Python, you can call the "main" function of the pip library. This function takes a list as an input. The first object of this list is the string "install", denoting that we want to install a library. The second is the name of the library you want to install:
-```{code-block}
+Du kannst pip direkt aus Python heraus aufrufen, üblicher ist es aber, pip über das Terminal zu verwenden.
+
+Angenommen, wir wollen das beliebte Paket "pandas" installieren. Direkt aus Python heraus könntest du dazu die Funktion "main" aus dem pip-Modul aufrufen. Diese Funktion nimmt eine Liste als Eingabe, deren erstes Element der String "install" ist (was anzeigt, dass du etwas installieren willst), und das zweite der Name des Pakets:
+
+```python
 import pip
 pip.main(["install", "pandas"])
 ```
 
-If you are in a terminal instead (which is what I would recommend), you can use the following command:
+In einem Terminal (was die empfohlene Methode ist) lautet der Befehl so:
+
 ```bash
 pip install pandas
+```
+
+## Module importieren
+
+Um ein Modul oder eine Bibliothek zu importieren, verwendest du den Befehl `import modul_oder_bibliothek_name` in deiner Python-Konsole.
+
+Wenn du ein Modul importierst, kannst du dessen Funktionen mit `modulname.funktion()` aufrufen. Wenn du z. B. den Mittelwert einer Liste berechnen willst, musst du das Modul `statistics` importieren:
+
+```{code-block}
+import statistics
+print(statistics.mean([1, 2, 3]))
+```
+
+Alternativ kannst du auch nur bestimmte Funktionen aus einem Modul importieren. Das machst du mit `from modulname import funktion`:
+
+```{code-block}
+from statistics import mean
+print(mean([1, 2, 3]))
+```
+
+Wenn du eine gesamte Bibliothek importieren, aber den vollen Namen nicht jedes Mal ausschreiben willst (oder wenn du bereits eine Variable mit demselben Namen hast), kannst du dem Modul beim Importieren einen Spitznamen geben. Das geht mit dem Schlüsselwort `as`. Hier ein Beispiel für die Bibliothek pandas:
+
+```{code-block}
+import pandas as pd
+```
+
+### Lokale Module importieren
+
+Du kannst lokale Python-Dateien genauso importieren wie externe Module. Wenn du z. B. eine Datei mit dem Namen `modul.py` erstellt hast, kannst du sie so importieren:
+
+```{code-block}
+import modul
+```
+
+Wenn sich das Modul in einem anderen Verzeichnis befindet, kannst du es dennoch importieren. Befindet es sich zwei Verzeichnisse oberhalb des aktuellen, fügst du zwei Punkte vor dem Modulnamen hinzu:
+
+```{code-block}
+import ..modul
+```
+
+Wenn du ein Modul in einem Unterverzeichnis importieren willst, geht das so:
+
+```{code-block}
+import unterverzeichnis.modul
 ```

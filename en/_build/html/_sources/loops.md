@@ -72,6 +72,20 @@ else:
     print("The number is smaller or equal to 0")
 ```
 
+#### Exercise 1
+Write a small program that asks the user for their age and prints out whether they are adult (assume the age of adulthood is 18).
+```{code-cell}
+age = 19
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+age = 19
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are not adult.")
+```
 
 ## Loops
 ```{note} Copy-Pasting
@@ -133,6 +147,36 @@ while number < 10:
 print("Loop has ended")
 ```
 
+#### Exercise 2
+Write a program that uses a while loop to count from 1 to 20, but only prints even numbers (think of the modulo operator we learnt about in the arithmetics chapter!).
+```{code-cell}
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+for i in range(1, 20):
+    if i % 2 == 0:
+        print(i)
+```
+#### Exercise 3
+
+Use a while loop that runs indefinitely (`while True:`), but stops once a counter reaches 3 using the `break` command. Print the counter at each step.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+counter = 0
+while True:
+    if counter == 3:
+        break
+    print(counter)
+    counter += 1
+```
+
+
 ### for loop
 When you want to iterate over a list or a different type of iterable object, you can use a for loop.
 
@@ -170,6 +214,22 @@ for number in numbers:
 print("Loop has ended")
 ```
 
+#### Exercise 4
+Given a list of numbers, use a for loop to calculate and print the sum of the list.
+```{code-cell}
+numbers = [3, 5, 7, 9, 11]
+
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+numbers = [3, 5, 7, 9, 11]
+sum = 0
+for i in numbers:
+    sum += i  # this is an alternative way of writing sum = sum + i
+print(sum)
+```
+
 ### List comprehention
 A list comprehention is a way to create a list with a loop with just one line.
 
@@ -197,54 +257,8 @@ A list comprehention can also be combined with conditions. In the following code
 [number if number % 2 == 1 else number / 2 for number in range(0, 10)]
 ```
 
-## Exercises
-Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.
 
-### Exercise 1
-Given a list of numbers, use a for loop to calculate and print the sum of the list.
-```{code-cell}
-numbers = [3, 5, 7, 9, 11]
-
-# Your code here
-```
-```{code-cell}
-:tags: ["hide-cell"]
-numbers = [3, 5, 7, 9, 11]
-sum = 0
-for i in numbers:
-    sum += i  # this is an alternative way of writing sum = sum + i
-print(sum)
-```
-
-### Exercise 2
-Write a small program that asks the user for their age and prints out whether they are adult (assume the age of adulthood is 18).
-```{code-cell}
-age = 19
-# Your code here
-```
-```{code-cell}
-:tags: ["hide-cell"]
-age = 19
-if age >= 18:
-    print("You are an adult.")
-else:
-    print("You are not adult.")
-```
-
-
-### Exercise 3
-Write a program that uses a while loop to count from 1 to 20, but only prints even numbers (think of the modulo operator we learnt about in the arithmetics chapter!).
-```{code-cell}
-# Your code here
-```
-```{code-cell}
-:tags: ["hide-cell"]
-for i in range(1, 20):
-    if i % 2 == 0:
-        print(i)
-```
-
-### Exercise 4
+#### Exercise 5
 Use a list comprehension to create a new list that contains only the squares of the even numbers and a 0 for the odd numbers between 1 and 20.
 ```{code-cell}
 # Your code here
@@ -254,22 +268,3 @@ Use a list comprehension to create a new list that contains only the squares of 
 new_list = [i ** 2 if i % 2 == 0 else 0 for i in range(1, 20)]
 print(new_list)
 ```
-
-### Exercise 5
-
-Use a while loop that runs indefinitely (`while True:`), but stops once a counter reaches 3 using the `break` command. Print the counter at each step.
-
-```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
-counter = 0
-while True:
-    if counter == 3:
-        break
-    print(counter)
-    counter += 1
-```
-

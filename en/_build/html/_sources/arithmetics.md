@@ -73,6 +73,12 @@ print(z)
 ## Exercise
 Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.
 
+`````{margin}
+```{attention}
+To edit and run the Python code in this course, you will find this ![live code symbol](code_symbol.PNG) symbol on the top of each page that contains Python code. You can click on it and then choose "Live code" to edit and run code yourself. Please feel free to test different things out and play around with the code. You cannot break anything here and nobody (including us) can see your code, so feel free to experiment.
+```
+`````
+
 ### Exercise 1
 Calculate the sum of 5 and 7 and store the result in a variable called "var1". Then multiply this variable with itself and store the result in a variable called "var2". Finally, print the result of "var2". 
 ```{code-cell}

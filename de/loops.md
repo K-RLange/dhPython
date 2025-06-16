@@ -11,33 +11,39 @@ kernelspec:
   language: python
   name: python3
 ---
+<div style="float: right;">
+  <a href="../de/loops.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/loops.html">🇬🇧 English</a>
+</div>
 
-# 3. Conditions and Loops
-Programming often does not stop at creating variables. In many cases, you want to perform certain actions only under specific conditions or you want to repeat certain actions multiple times. This is where conditions and loops come into play.
 
-## Conditions
-Conditions are used to check whether a certain statement is true or false. 
-If the statement is true, a certain action is performed. If the statement is false, 
-another action is performed. Such conditions are always binary and can thus be represented
-by a boolean variable.
+# 6. Bedingungen und Schleifen
 
-```{note} Code blocks
-In Python, the colon ":" is used to indicate the start of a block of code. All following lines that belong to that code block are then indented by four spaces (usually one tabulator-press). This is the way, Python interprets, which lines of code belong together and is a must. Otherwise, your code will throw errors.
-This structure - a colon followed by intended lines - happens whenever you want to check for a condition, loop over something, create a function or a class. 
-How these other blocks of code work will be explained in later sections, but it is important to remember that they always follow this simple structure.
+In der Programmierung hört es meist nicht bei der Erstellung von Variablen auf. Häufig möchtest du bestimmte Aktionen nur unter bestimmten Bedingungen ausführen oder Aktionen mehrmals wiederholen. Hier kommen Bedingungen und Schleifen ins Spiel.
+
+## Bedingungen
+
+Bedingungen werden genutzt, um zu prüfen, ob eine Aussage wahr oder falsch ist.
+Wenn die Aussage wahr ist, wird eine bestimmte Aktion ausgeführt. Wenn die Aussage falsch ist,
+wird eine andere Aktion ausgeführt. Solche Bedingungen sind immer binär und können daher als Boolean (True oder False) dargestellt werden.
+
+````{margin}
+```{note} Codeblöcke
+In Python zeigt der Doppelpunkt ":" den Anfang eines Codeblocks an. Alle Zeilen, die zu diesem Block gehören, werden dann um vier Leerzeichen eingerückt (normalerweise ein Tab). Nur so erkennt Python, welche Zeilen zusammengehören.
+
+Diese Struktur – ein Doppelpunkt gefolgt von eingerückten Zeilen – wird immer verwendet, wenn du Bedingungen, Schleifen, Funktionen oder Klassen erstellst.
 ```
-We check for conditions using the "if" keyword and create an intended code block that is executed if and only if the condition is met.
+````
 
-In the following cell, we define a boolean and check whether it is true or not. If it is true, we print "The boolean is true".
+Wir prüfen Bedingungen mit dem Schlüsselwort `if`. Der zugehörige eingerückte Codeblock wird nur dann ausgeführt, wenn die Bedingung erfüllt ist.
+
 ```{code-cell}
 boolean = True
 if boolean:
     print("The boolean is true")
 ```
 
-We can also define what happens, if the condition is not met. We can do this by using the "else" keyword directly after the "if"-code block has ended. 
-
-The following code cell checks if a certain number is larger than 5. If this is the case, it prints "The number is larger than 5". If the number is not larger than 5, it prints "The number is not larger than 5".
+Mit `else` kannst du definieren, was passiert, wenn die Bedingung **nicht** erfüllt ist:
 
 ```{code-cell}
 number = 4
@@ -47,10 +53,7 @@ else:
     print("The number is not larger than 5")
 ```
 
-We can even go further and check multiple conditions. We can do this by using the "elif" keyword. This keyword is short for "else if" and is used to check another condition if the first condition is not met.
-It is different from "else", because it does not always execute its code block, if the original "if" condition wasn't met, but only if an additional condition is met.
-
-In the following cell, we check if a number is larger than 0, larger than 5 or larger than 10. We print the result of each check.
+Mit `elif` (else if) kannst du mehrere Bedingungen prüfen:
 
 ```{code-cell}
 number = 6
@@ -64,199 +67,91 @@ else:
     print("The number is smaller or equal to 0")
 ```
 
+#### Übung 1
 
-## Loops
-```{note} Copy-Pasting
-When you want to repeat a certain action multiple times, you might think that just copying and pasting the code is a good idea. But this is not a good idea. 
+Schreibe ein Programm, das nach dem Alter fragt und sagt, ob die Person volljährig ist (ab 18 Jahren).
 
-Copy-Pasting is inefficient code usage. Your code will become bloated and more difficult to read for yourself and others.
-
-Also, when you made a mistake in the code you copied, you will have to correct it not just once, but you will have to correct in every copy you made.
+```{code-cell}
+age = 19
+if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are not adult.")
 ```
-When you want to repeat a certain action multiple times, you can use a loop.
-A loop can also be useful when you want to perform a certain action for each element in a list or other iterable object.
 
-In Python, there are two types of loops: the "for" loop and the "while" loop.
+## Schleifen
 
-### while loop
-When you use a while-loop, the code will be executed only if a certain condition is met.
+```{note} Copy-Pasting
+Mehrfaches Kopieren von Code ist ineffizient und führt zu Fehlern, die an mehreren Stellen korrigiert werden müssten. Verwende stattdessen Schleifen.
+```
 
-For instance, the while loop in the following code block checks if the variable "number" is smaller than 10 at the start of every iteration. If this condition is met, the code is executed, if not, the loop ends.
+Wenn du eine Aktion mehrfach wiederholen willst, verwende Schleifen.
+Es gibt zwei Hauptarten von Schleifen in Python: `while`-Schleife und `for`-Schleife.
+
+### while-Schleife
+
+Eine `while`-Schleife wiederholt ihren Codeblock, solange eine Bedingung erfüllt ist:
+
 ```{code-cell}
 number = 0
-
 while number < 10:
-    number = number + 1
+    number += 1
     print(number)
 print("Loop has ended")
 ```
 
-When the condition is not met, the loop does not execute at all.
+Wenn die Bedingung zu Beginn **nicht** erfüllt ist, wird der Codeblock gar nicht ausgeführt:
+
 ```{code-cell}
 number = 11
-
 while number < 10:
-    number = number + 1
+    number += 1
     print(number)
 print("Loop has not been executed")
 ```
 
-Sometimes you want to check a condition during the run of a while loop, not at the start of each iteration. In these cases, you can check a condition that is always true in the header of the loop and use the "break" command in the code block:
+Man kann `while True:` verwenden und mit `break` gezielt abbrechen:
+
 ```{code-cell}
 number = 0
 while True:
     if number >= 10:
         break
-    number = number + 1
+    number += 1
     print(number)
 print("Loop has ended")
 ```
 
-You can also use a combination of both:
+Kombination mit Bedingungen:
+
 ```{code-cell}
 number = 0
 limit = 8
-
 while number < 10:
-    number = number + 1
+    number += 1
     if number == limit:
-        break 
-    print(number)
-print("Loop has ended")
-```
-
-### for loop
-When you want to iterate over a list or a different type of iterable object, you can use a for loop.
-
-For instance, if you want to iterate over the numbers from 0 to 9 and print them, you can use the following loop:
-```{code-cell}
-numbers = range(0, 10) # A quick iterable object between two numbers
-# Alternatively you can use 
-# numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-for number in numbers: # You iterate over a limited list, you need no end condition
-    # We also do not need to update our "number" parameter, because that is done in the header of the for loop 
-    print(number)
-print("Loop has ended")
-```
-
-The enumerate function allows you to not just iterate over the objects within the list, but also over their indexes at the same time.
-This is helpful, if you want to have two lists of the same size and want to work with both:
-```{code-cell}
-numbers = range(0, 10) 
-larger_numbers = range(10,20)
-
-for index, number in enumerate(numbers):
-    print(larger_numbers[index] + number)
-print("Loop has ended")
-```
-
-In the for loop, you can also use the break command to prematurely end your loop:
-```{code-cell}
-numbers = range(0, 10) 
-
-for number in numbers:
-    if number > 7:
         break
     print(number)
 print("Loop has ended")
 ```
 
-### List comprehention
-A list comprehention is a way to create a list with a loop with just one line.
+#### Übung 2
 
-A list comprehention is written in the following structure: [f(x) for x in iterable]. On the left hand side, you apply a function f to x. x is an object from an iterable that you are looping over. You surround this with square brackets to indicate that you want the results of f(x) to create a list.
-
-In practice, it might look like this:
-```{code-cell}
-numbers = range(0, 10) 
-larger_numbers = range(10,20)
-
-even_larger_numbers = [number + larger_numbers[index] for index, number in enumerate(numbers)]
-print(even_larger_numbers)
-print("Loop has ended")
-```
-
-## Exercises
-
-Now it is your turn! Solve the following exercises and click on the hidden code cells below to view the solutions.
-
----
-
-### Exercise 1
-
-Create a variable called `temperature` and set it to 30.
-Use an if-else condition to print `"It's hot"` if the temperature is greater than 25, otherwise print `"It's not hot"`.
+Verwende eine `while`-Schleife, um von 1 bis 20 zu zählen, aber gib nur gerade Zahlen aus:
 
 ```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
-temperature = 30
-if temperature > 25:
-    print("It's hot")
-else:
-    print("It's not hot")
-```
-
----
-
-### Exercise 2
-
-Create a variable `score` with value 80.
-Write an if-elif-else structure that prints:
-
-* "Excellent" if score > 90
-* "Good" if score > 70
-* "Needs Improvement" otherwise
-
-```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
-score = 80
-if score > 90:
-    print("Excellent")
-elif score > 70:
-    print("Good")
-else:
-    print("Needs Improvement")
-```
-
----
-
-### Exercise 3
-
-Create a while loop that prints the numbers from 1 to 5.
-
-```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
 number = 1
-while number <= 5:
-    print(number)
+while number <= 20:
+    if number % 2 == 0:
+        print(number)
     number += 1
 ```
 
----
+#### Übung 3
 
-### Exercise 4
-
-Use a while loop that runs indefinitely (`while True:`), but stops once a counter reaches 3 using the `break` command. Print the counter at each step.
+Verwende `while True:` und `break`, um einen Zähler bis 3 zu zählen:
 
 ```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
 counter = 0
 while True:
     if counter == 3:
@@ -265,53 +160,78 @@ while True:
     counter += 1
 ```
 
----
+### for-Schleife
 
-### Exercise 5
-
-Use a for loop to iterate over the list `[1, 2, 3, 4, 5]` and print each number multiplied by 2.
+Wenn du über eine Liste oder ein iterierbares Objekt gehen willst, nutze die `for`-Schleife:
 
 ```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
-numbers = [1, 2, 3, 4, 5]
+numbers = range(0, 10)
 for number in numbers:
-    print(number * 2)
+    print(number)
+print("Loop has ended")
 ```
 
----
-
-### Exercise 6
-
-Use the `enumerate()` function to print the index and the corresponding element of the list `["a", "b", "c"]`.
+Mit `enumerate` kannst du gleichzeitig über Index und Wert iterieren:
 
 ```{code-cell}
-# Your code here
+numbers = range(0, 10)
+larger_numbers = range(10, 20)
+
+for index, number in enumerate(numbers):
+    print(larger_numbers[index] + number)
+print("Loop has ended")
 ```
+
+Auch in einer `for`-Schleife kannst du mit `break` abbrechen:
 
 ```{code-cell}
-:tags: ["hide-cell"]
-letters = ["a", "b", "c"]
-for index, letter in enumerate(letters):
-    print(index, letter)
+for number in range(0, 10):
+    if number > 7:
+        break
+    print(number)
+print("Loop has ended")
 ```
 
----
+#### Übung 4
 
-### Exercise 7
-
-Create a list using list comprehension that contains the squares of the numbers from 1 to 5.
+Berechne die Summe einer Liste von Zahlen mit einer `for`-Schleife:
 
 ```{code-cell}
-# Your code here
+numbers = [3, 5, 7, 9, 11]
+sum = 0
+for i in numbers:
+    sum += i
+print(sum)
 ```
+
+### List Comprehension
+
+Mit einer **List Comprehension** kannst du Listen mit Schleifen in einer einzigen Zeile erzeugen:
 
 ```{code-cell}
-:tags: ["hide-cell"]
-squares = [x**2 for x in range(1, 6)]
-print(squares)
+numbers = range(0, 10)
+larger_numbers = range(10,20)
+even_larger_numbers = [number + larger_numbers[index] for index, number in enumerate(numbers)]
+print(even_larger_numbers)
 ```
 
+````{margin}
+```{note}
+Sei vorsichtig mit Bedingungen in List Comprehensions. Die resultierende Liste sollte die gleiche Länge behalten, sonst kann es zu Fehlern kommen.
+```
+````
+
+Du kannst Bedingungen innerhalb einer List Comprehension verwenden:
+
+```{code-cell}
+[number if number % 2 == 1 else number / 2 for number in range(0, 10)]
+```
+
+#### Übung 5
+
+Nutze eine List Comprehension, um eine Liste zu erstellen, die die Quadrate der **geraden** Zahlen von 1 bis 20 enthält und **0** für ungerade Zahlen:
+
+```{code-cell}
+new_list = [i ** 2 if i % 2 == 0 else 0 for i in range(1, 20)]
+print(new_list)
+```

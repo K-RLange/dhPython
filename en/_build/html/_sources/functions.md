@@ -93,6 +93,42 @@ def example_function(x, k=2):
 print(help(example_function))
 ```
 
+#### Exercise 1
+
+Write a function called `add_five` that takes one number as input and returns that number plus five. Execute it with a number of your choice to see if it works.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+def add_five(x):
+    return x + 5
+
+print(add_five(10))
+```
+
+---
+
+#### Exercise 2
+
+Write a function called `power_plus_two` that takes two inputs: `x` and `k`, and returns `x` to the power of `k` plus 2.
+Call the function with values `x = 3`, `k = 2`.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+def power_plus_two(x, k):
+    return x ** k + 2
+
+print(power_plus_two(3, 2))
+```
+
+
 
 ## Classes
 ```{note}
@@ -131,54 +167,7 @@ print(exponential_calculator.x)
 ```
 As you can see, we call functions and variables within the class after creating an object of the class by simply using a "." after the name of our class object. 
 
-Here are exercises based on the **Functions and Classes** section of your Jupyter-Book lecture. They follow the same structure as your previous exercises and include hidden solution cells.
-
----
-
-## Exercises
-
-Now it is your turn! Solve the following exercises and click on the hidden code cells below to view the solutions.
-
----
-
-### Exercise 1
-
-Write a function called `add_five` that takes one number as input and returns that number plus five. Execute it with a number of your choice to see if it works.
-
-```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
-def add_five(x):
-    return x + 5
-
-print(add_five(10))
-```
-
----
-
-### Exercise 2
-
-Write a function called `power_plus_two` that takes two inputs: `x` and `k`, and returns `x` to the power of `k` plus 2.
-Call the function with values `x = 3`, `k = 2`.
-
-```{code-cell}
-# Your code here
-```
-
-```{code-cell}
-:tags: ["hide-cell"]
-def power_plus_two(x, k):
-    return x ** k + 2
-
-print(power_plus_two(3, 2))
-```
-
----
-
-### Exercise 3
+#### Exercise 3
 
 Write a class called `Calculator` that takes a number `x` in the `__init__` method.
 Create two methods:
@@ -211,7 +200,7 @@ print(calc.add_number(6))
 
 ---
 
-### Exercise 4
+#### Exercise 4
 
 Extend the `Calculator` class from Exercise 3 with a method `multiply_and_add` that multiplies `x` by a number `m` and adds another number `a`.
 Call it with `m = 3` and `a = 2`.

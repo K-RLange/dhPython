@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>0. Installing Python, an IDE and packages &#8212; Digital Humanities Python Tutorial</title>
+    <title>8. Installation von Python, einer IDE und Paketen &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,8 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Arithmetics and variables" href="arithmetics.html" />
-    <link rel="prev" title="Python for digital humanities" href="intro.html" />
+    <link rel="prev" title="7. Funktionen und Klassen" href="functions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,18 +182,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">0. Installing Python, an IDE and packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -482,7 +482,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>0. Installing Python, an IDE and packages</h1>
+    <h1>8. Installation von Python, einer IDE und Paketen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -492,17 +492,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">Installing Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-recommended">1) Using conda (recommended)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-official-installer">2) Using the official installer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-von-python">Installation von Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-conda-empfohlen">1) Mit conda (empfohlen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-dem-offiziellen-installer">2) Mit dem offiziellen Installer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip">1) Using pip</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda">2) Using conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-von-paketen">Installation von Paketen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-pip">1) Mit pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-conda">2) Mit conda</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-an-ide">Installing an IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-einer-ide">Installation einer IDE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1) Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">2) PyCharm</a></li>
 </ul>
@@ -518,103 +518,101 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-python-an-ide-and-packages">
-<h1>0. Installing Python, an IDE and packages<a class="headerlink" href="#installing-python-an-ide-and-packages" title="Link to this heading">#</a></h1>
-<section id="installing-python">
-<h2>Installing Python<a class="headerlink" href="#installing-python" title="Link to this heading">#</a></h2>
-<p>To install Python on your local machine, you can either download the installer
-from the official website or install conda, which is a version manager for
-Python and other programming languages (like R).</p>
-<p>To complete this tutorial, you will <strong>not</strong> need to install Python or an Integrated Development Engine (IDE, basically a graphical interface), as the code can be run in your browser.
-If you would like to work with Python after completing this course however, we suggest you install Python and an IDE on your local machine.</p>
-<section id="using-conda-recommended">
-<h3>1) Using conda (recommended)<a class="headerlink" href="#using-conda-recommended" title="Link to this heading">#</a></h3>
-<p>To download conda, please visit the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">official conda website</a>.
-You can choose to either install miniconda or Anaconda distribution (recommended). Miniconda is a barebone installation, while Anaconda distribution provides additional pre-installed features, which might be useful for you.
-Follow the download instructions on the website and install the version of conda that you prefer.</p>
-<p>After conda is installed, you can, at any time, create a new programming environment for Python. Thus, if you have different projects that require different Python versions of packages, you can simply use conda to create a new environment. This is recommended to avoid conflicts between different packages and their versions.</p>
-<p>You can call conda from your terminal by entering</p>
+  <div style="float: right;">
+  <a href="../de/installation.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/installation.html">🇬🇧 English</a>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="installation-von-python-einer-ide-und-paketen">
+<h1>8. Installation von Python, einer IDE und Paketen<a class="headerlink" href="#installation-von-python-einer-ide-und-paketen" title="Link to this heading">#</a></h1>
+<section id="installation-von-python">
+<h2>Installation von Python<a class="headerlink" href="#installation-von-python" title="Link to this heading">#</a></h2>
+<p>Um Python auf deinem lokalen Rechner zu installieren, kannst du entweder das Installationsprogramm von der offiziellen Website herunterladen oder conda installieren, einen Versionsmanager für Python und andere Programmiersprachen (wie R).</p>
+<p>Für dieses Tutorial musst du <strong>kein</strong> Python oder eine integrierte Entwicklungsumgebung (IDE, also eine grafische Benutzeroberfläche) installieren, da der Code direkt im Browser ausgeführt werden kann.
+Möchtest du jedoch nach dem Kurs weiterhin mit Python arbeiten, empfehlen wir dir, Python und eine IDE lokal zu installieren.</p>
+<section id="mit-conda-empfohlen">
+<h3>1) Mit conda (empfohlen)<a class="headerlink" href="#mit-conda-empfohlen" title="Link to this heading">#</a></h3>
+<p>Um conda herunterzuladen, besuche bitte die <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">offizielle conda Website</a>.
+Du kannst entweder Miniconda oder die Anaconda-Distribution installieren (empfohlen). Miniconda ist eine Minimalinstallation, während Anaconda zusätzliche vorinstallierte Funktionen bietet, die für dich nützlich sein könnten.</p>
+<p>Folge den Anweisungen auf der Website und installiere die gewünschte Version von conda.</p>
+<p>Nach der Installation kannst du jederzeit eine neue Programmierumgebung für Python erstellen. Falls du mehrere Projekte mit unterschiedlichen Paketversionen hast, kannst du für jedes eine eigene Umgebung anlegen, um Versionskonflikte zu vermeiden.</p>
+<p>Du kannst conda im Terminal aufrufen mit:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda
 </pre></div>
 </div>
-<p>If it is correctly installed, it should respond with a list of possible commands. If you get an error and you are using Windows, you might need to run the command</p>
+<p>Wenn alles korrekt installiert ist, erscheint eine Liste mit verfügbaren Befehlen. Falls du eine Fehlermeldung bekommst und Windows benutzt, musst du eventuell vorher folgenden Befehl ausführen:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>activate
 </pre></div>
 </div>
-<p>or</p>
+<p>oder</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate
 </pre></div>
 </div>
-<p>first.</p>
-<p>To create a Python environment, open a terminal and run the following command in your terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>myenv<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+<p>Zum Erstellen einer neuen Python-Umgebung gibst du im Terminal folgenden Befehl ein:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>meineumgebung<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
 </pre></div>
 </div>
-<p>In this case, we create a new environment called <code class="docutils literal notranslate"><span class="pre">myenv</span></code> with Python version 3.11. You can choose any name for your environment and any Python version that you need. The latest Python version, as of writing this tutorial, is Python 3.11.</p>
-<p>Within the terminal, you can then type</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>myenv
+<p>In diesem Fall erstellen wir eine Umgebung namens <code class="docutils literal notranslate"><span class="pre">meineumgebung</span></code> mit Python-Version 3.11. Du kannst Namen und Version nach Belieben anpassen.</p>
+<p>Zur Aktivierung deiner Umgebung verwende:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>meineumgebung
 </pre></div>
 </div>
-<p>to activate your environment. You can then install any packages that you need for your project.</p>
+<p>Danach kannst du beliebige Pakete installieren.</p>
 </section>
-<section id="using-the-official-installer">
-<h3>2) Using the official installer<a class="headerlink" href="#using-the-official-installer" title="Link to this heading">#</a></h3>
-<p>To install Python using the official installer, please visit the <a class="reference external" href="https://www.python.org/downloads/">official Python website</a> and install the version that you would like to use.
-Please note that it is recommended to use the conda installer, because this will make it easier for you to manage different Python versions and packages later on.</p>
+<section id="mit-dem-offiziellen-installer">
+<h3>2) Mit dem offiziellen Installer<a class="headerlink" href="#mit-dem-offiziellen-installer" title="Link to this heading">#</a></h3>
+<p>Um Python direkt zu installieren, besuche die <a class="reference external" href="https://www.python.org/downloads/">offizielle Python-Website</a> und lade die gewünschte Version herunter.
+Beachte jedoch, dass die Verwendung von conda empfohlen wird, da es dir die Verwaltung von Versionen und Paketen erleichtert.</p>
 </section>
 </section>
-<section id="installing-packages">
-<h2>Installing packages<a class="headerlink" href="#installing-packages" title="Link to this heading">#</a></h2>
-<p>Python has two major package managers: conda and pip. Conda is the package manager that comes with the Anaconda distribution, while pip is the package manager that comes with every Python installation by default.</p>
-<p>Please note that these two package managers are not always compatible with each other. If you are using conda, it is recommended to install packages using conda. If you need to use both managers for the same Python environment, please make sure to first install as many packages as possible using conda and then install the rest using pip.</p>
-<p>For the most purposes, pip should suffice.</p>
-<section id="using-pip">
-<h3>1) Using pip<a class="headerlink" href="#using-pip" title="Link to this heading">#</a></h3>
-<p>To install a package using pip, you can simply open a terminal and type</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>package_name
+<section id="installation-von-paketen">
+<h2>Installation von Paketen<a class="headerlink" href="#installation-von-paketen" title="Link to this heading">#</a></h2>
+<p>Python bietet zwei wichtige Paketmanager: conda und pip. Conda kommt mit der Anaconda-Distribution, pip ist bei jeder Python-Installation dabei.</p>
+<p>Diese beiden Manager sind nicht immer miteinander kompatibel. Wenn du conda nutzt, installiere Pakete möglichst über conda. Falls du beide nutzen musst, installiere zuerst möglichst viele Pakete über conda und danach den Rest mit pip.</p>
+<p>Für die meisten Anwendungsfälle reicht pip aus.</p>
+<section id="mit-pip">
+<h3>1) Mit pip<a class="headerlink" href="#mit-pip" title="Link to this heading">#</a></h3>
+<p>Um ein Paket mit pip zu installieren, öffne ein Terminal und tippe:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>paketname
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">package_name</span></code> is the name of the package that you would like to install. For example, to install the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, you can type</p>
+<p>Beispiel für das Paket <code class="docutils literal notranslate"><span class="pre">numpy</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>numpy
 </pre></div>
 </div>
 </section>
-<section id="using-conda">
-<h3>2) Using conda<a class="headerlink" href="#using-conda" title="Link to this heading">#</a></h3>
-<p>To install a package using conda, you can simply open a terminal and type</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>package_name
+<section id="mit-conda">
+<h3>2) Mit conda<a class="headerlink" href="#mit-conda" title="Link to this heading">#</a></h3>
+<p>Um ein Paket mit conda zu installieren, verwende:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>paketname
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">package_name</span></code> is the name of the package that you would like to install. For example, to install the package <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, you can type</p>
+<p>Beispiel:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>numpy
 </pre></div>
 </div>
 </section>
 </section>
-<section id="installing-an-ide">
-<h2>Installing an IDE<a class="headerlink" href="#installing-an-ide" title="Link to this heading">#</a></h2>
-<p>An IDE (Integrated Development Environment) is a software that provides you with a graphical user interface to write and run your code. There are many different IDEs available for Python, but we recommend using either Jupyter Notebook or PyCharm.
-These can be installed manually or with the help of Anaconda Navigator, which comes with the installation of Anaconda distribution (not with miniconda though). To install them via Anaconda Navigator, just open said Navigator and as soon as it has started, you should see a list of programs that it supports. When you are at that screen, you can simply choose which IDE to install.
-If you are not using Anaconda Navigator, you can follow these steps:</p>
+<section id="installation-einer-ide">
+<h2>Installation einer IDE<a class="headerlink" href="#installation-einer-ide" title="Link to this heading">#</a></h2>
+<p>Eine IDE (integrierte Entwicklungsumgebung) ist eine Software mit grafischer Oberfläche zum Schreiben und Ausführen von Code. Für Python empfehlen wir Jupyter Notebook oder PyCharm.</p>
+<p>Diese IDEs können entweder manuell installiert werden oder mit dem Anaconda Navigator, der mit der Anaconda-Distribution (nicht Miniconda) mitgeliefert wird. Nach dem Start des Navigators werden dir verschiedene Programme zur Installation angeboten.</p>
+<p>Falls du den Navigator nicht nutzt, folge diesen Schritten:</p>
 <section id="jupyter-notebook">
 <h3>1) Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h3>
-<p>Jupyter Notebook is designed to work with interactive Jupyter Notebooks. It is organized in individual code blocks, which can be executed one at a time.
-This is often used for teaching or demonstration purposes. E.g. this project is organized using Jupyter notebook-esque code blocks.
-The downside of this IDE is that it is not very well suited for larger projects, as it is not designed to work with multiple files. For larger projects, we recommend using PyCharm.</p>
-<p>The installation of Jupyter Notebook is included in the Anaconda distribution, so if you have installed Anaconda, you can simply open a terminal and type</p>
+<p>Jupyter Notebook ist für interaktive Notebooks konzipiert. Es besteht aus einzelnen Code-Blöcken, die nacheinander ausgeführt werden können. Ideal für Lehre und Demos, wie auch dieses Projekt.</p>
+<p>Nachteil: Für größere Projekte mit mehreren Dateien ungeeignet.</p>
+<p>Wenn du Anaconda installiert hast, kannst du Jupyter starten mit:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook
 </pre></div>
 </div>
-<p>to start the Jupyter Notebook server.</p>
 </section>
 <section id="pycharm">
 <h3>2) PyCharm<a class="headerlink" href="#pycharm" title="Link to this heading">#</a></h3>
-<p>PyCharm is a professional IDE, which is designed to work with larger projects. It follows a similar design pattern like the IDEs of other languages, such as R’s RStudio. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
-It has an integrated debugger, which allows you to easily find and fix errors in your code. It also directly integrates conda into the IDE - you will not have to use the terminal to create new python environments, but can do it whenever you create a new project via the graphic interface.
-It is however not as beginner friendly, as it provides many expert features, which might be overwhelming for beginners.</p>
-<p>To install PyCharm, please visit the <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">official PyCharm website</a> and download the version that you would like to use. You can choose between the free community edition and the professional edition.
-When logging into the jetbrains-website and linking it to your university account, you can use the professional edition for free.</p>
-<p>For a tutorial, on how to use PyCharm, please visit the <a class="reference external" href="https://www.jetbrains.com/help/pycharm/quick-start-guide.html">official PyCharm tutorial</a>.</p>
+<p>PyCharm ist eine professionelle IDE für große Projekte, ähnlich wie RStudio für R. Sie bietet viele Funktionen: mehrere Dateien, integrierten Debugger, grafische Verwaltung von conda-Umgebungen u.v.m.</p>
+<p>Nachteil: Für Anfänger eventuell überfordernd.</p>
+<p>Zur Installation besuche die <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">offizielle PyCharm-Website</a> und wähle die gewünschte Version. Es gibt eine kostenlose Community Edition und eine kostenpflichtige Professional Edition.</p>
+<p>Falls du ein Hochschul-Login hast, kannst du die Professional Edition kostenlos nutzen, wenn du dein JetBrains-Konto mit deiner Uni-E-Mail verknüpfst.</p>
+<p>Ein Tutorial zur Nutzung findest du auf der <a class="reference external" href="https://www.jetbrains.com/help/pycharm/quick-start-guide.html">offiziellen PyCharm-Hilfeseite</a>.</p>
 </section>
 </section>
 </section>
@@ -649,22 +647,13 @@ When logging into the jetbrains-website and linking it to your university accoun
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="functions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Python for digital humanities</p>
+        <p class="prev-next-title">7. Funktionen und Klassen</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="arithmetics.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. Arithmetics and variables</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -682,17 +671,17 @@ When logging into the jetbrains-website and linking it to your university accoun
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-python">Installing Python</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda-recommended">1) Using conda (recommended)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-official-installer">2) Using the official installer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-von-python">Installation von Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-conda-empfohlen">1) Mit conda (empfohlen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-dem-offiziellen-installer">2) Mit dem offiziellen Installer</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-packages">Installing packages</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pip">1) Using pip</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-conda">2) Using conda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-von-paketen">Installation von Paketen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-pip">1) Mit pip</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-conda">2) Mit conda</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-an-ide">Installing an IDE</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation-einer-ide">Installation einer IDE</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">1) Jupyter Notebook</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pycharm">2) PyCharm</a></li>
 </ul>
@@ -711,7 +700,7 @@ When logging into the jetbrains-website and linking it to your university accoun
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

@@ -16,34 +16,40 @@ kernelspec:
   <a href="../../en/{{path-to-page}}">🇬🇧 English</a>
 </div>
 
-# 6. pandas and matplotlib
-Remember the library we installed in the last chapter? That library is called pandas and is arguably the most commonly used library in Python. It allows us to turn any data into a table, which we can then plot and analyze.
+# 4. pandas und matplotlib
 
-Let's look at it in action:
+Erinnerst du dich an die Bibliothek, die wir im letzten Kapitel installiert haben? Diese Bibliothek heißt **pandas** und ist vermutlich die am häufigsten verwendete Bibliothek in Python. Sie erlaubt es uns, beliebige Daten in eine Tabelle zu verwandeln, die wir anschließend analysieren und visualisieren können.
+
+Schauen wir sie uns in Aktion an:
+
 ```{code-cell}
 import pandas as pd
 names = ["Alice", "Bob", "Charlie"]
 ages = [25, 30, 35]
-hobby = ["Completing Python tutorials", "sports", "Completing Python tutorials"]
-data = {"Name": names, "Age": ages, "Hobby": hobby}
+hobby = ["Python-Tutorials abschließen", "Sport", "Python-Tutorials abschließen"]
+data = {"Name": names, "Alter": ages, "Hobby": hobby}
 df = pd.DataFrame(data)
 print(df)
 ```
-As you can see, pandas allows us to neatly organize our data into a table.
 
-We can now use pandas group_by function to group our data by a certain column and then apply another function to each group. In this case, we will group by the "Hobby" column and check how many people have the same hobby:
+Wie du siehst, erlaubt es uns pandas, unsere Daten sauber in Tabellenform zu organisieren.
+
+Wir können jetzt die `groupby`-Funktion von pandas verwenden, um unsere Daten nach einer bestimmten Spalte zu gruppieren und dann eine Funktion auf jede Gruppe anzuwenden. In diesem Fall gruppieren wir nach der Spalte "Hobby" und zählen, wie viele Personen dasselbe Hobby haben:
+
 ```{code-cell}
 df_grouped = df.groupby("Hobby").size()
 print(df_grouped)
 ```
 
-Now, lets say we have a csv-file called "prices.csv" that we would normally open in Microsoft Excel that contains data we want to analyze. pandas allows us to read Excel files and turn them into a pandas DataFrame in just one line.
+Nehmen wir nun an, wir haben eine CSV-Datei namens "prices.csv", die wir normalerweise mit Microsoft Excel öffnen würden und die Daten enthält, die wir analysieren möchten. pandas erlaubt es uns, Excel- bzw. CSV-Dateien mit nur einer Zeile in ein DataFrame einzulesen:
+
 ```{code-cell}
 price_data = pd.read_csv("prices.csv")
 print(price_data)
 ```
 
-It contains timestamps and the differences in a stock course that happened between the timestamps. If we only want to see the data for a specific time period, we can filter the DataFrame by using the "loc" function. In this case, we want to see the data from 2023-01-01 to 2023-01-31:
+Diese Datei enthält Zeitstempel und die Kursveränderungen einer Aktie zwischen den jeweiligen Zeitpunkten. Wenn wir nur die Daten für einen bestimmten Zeitraum sehen wollen, können wir das DataFrame mit der Funktion `loc` filtern. In diesem Fall wollen wir die Daten vom 01.02.2022 bis zum 01.09.2023 anzeigen:
+
 ```{code-cell}
 start_date = "2022-02-01"
 end_date = "2023-09-01"
@@ -51,7 +57,8 @@ filtered_data = price_data.loc[(price_data["timestamp"] >= start_date) & (price_
 print(filtered_data)
 ```
 
-To plot this time-dependent data, we can first turn the timestamp-column into a date format and then plot it.
+Um diese zeitabhängigen Daten zu visualisieren, können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann ein Diagramm erstellen:
+
 ```{code-cell}
 import matplotlib.pyplot as plt
 price_data["timestamp"] = pd.to_datetime(price_data["timestamp"])

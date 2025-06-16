@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>4. Functions and Classes &#8212; Digital Humanities Python Tutorial</title>
+    <title>7. Funktionen und Klassen &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="5. Modules" href="modules.html" />
-    <link rel="prev" title="3. Conditions and Loops" href="loops.html" />
+    <link rel="next" title="8. Installation von Python, einer IDE und Paketen" href="installation.html" />
+    <link rel="prev" title="6. Bedingungen und Schleifen" href="loops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,18 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -482,7 +483,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>4. Functions and Classes</h1>
+    <h1>7. Funktionen und Klassen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -492,8 +493,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen">Funktionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen">Klassen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -506,21 +515,22 @@ document.write(`
                 <article class="bd-article">
                   
   <div style="float: right;">
-  <a href="../../../de/_build/html/functions.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/_build/html/functions.html">🇬🇧 English</a>
+  <a href="../../../de/functions.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/functions.html">🇬🇧 English</a>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="functions-and-classes">
-<h1>4. Functions and Classes<a class="headerlink" href="#functions-and-classes" title="Link to this heading">#</a></h1>
-<p>Functions and Classes are Python’s primary way to store code blocks for repeated executions.</p>
-<section id="functions">
-<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<h2 class="rubric" id="namespaces">Namespaces</h2>
-</div>
-<p>Functions are a way to assign a name to a certain code block so that it can be repeatedly executed with different starting values (inputs).</p>
-<p>Each function starts with a header that contains the key word “def” followed by the name you want to give the function. After that, there must be a pair of round brackets and the required inputs within these brackets. A double colon follows after the brackets and the corresponding function code block is intended, just like we saw for loops and conditions. The function code block usually ends with a return statement, which defines what the function gives back to the user. We can then call the function using its function name and the desired input in round brackets.</p>
-<p>For example, if we want to create a function that returns the value of x^2+2 where x is our input:</p>
+<section class="tex2jax_ignore mathjax_ignore" id="funktionen-und-klassen">
+<h1>7. Funktionen und Klassen<a class="headerlink" href="#funktionen-und-klassen" title="Link to this heading">#</a></h1>
+<p>Funktionen und Klassen sind Pythons primäre Möglichkeit, Codeblöcke für wiederholte Ausführungen zu speichern.</p>
+<section id="funktionen">
+<h2>Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title">Namensräume</p>
+<p>Wenn du eine Funktion erstellst, entsteht eine neue Umgebung, in der Variablen unterschiedlich benannt sein können. Das nennt man einen Namensraum.</p>
+<p>Das bedeutet, dass Variablen, die innerhalb einer Funktion definiert werden, außerhalb dieser Funktion nicht zugänglich sind. Das ist wichtig zu beachten, da du sonst beim Zugriff auf solche Variablen einen Fehler bekommst.</p>
+</aside>
+<p>Funktionen sind eine Möglichkeit, einem bestimmten Codeblock einen Namen zu geben, sodass er wiederholt mit unterschiedlichen Startwerten (Inputs) ausgeführt werden kann.</p>
+<p>Jede Funktion beginnt mit einer Kopfzeile, die das Schlüsselwort “def” enthält, gefolgt vom Namen der Funktion. Danach müssen runde Klammern folgen, in denen die benötigten Eingaben stehen. Ein Doppelpunkt folgt danach, und der dazugehörige Funktions-Codeblock wird eingerückt, genauso wie bei Schleifen und Bedingungen. Der Codeblock endet normalerweise mit einem “return”-Statement, das angibt, was die Funktion zurückgibt. Die Funktion kann dann mit ihrem Namen und den gewünschten Eingabewerten in Klammern aufgerufen werden.</p>
+<p>Beispiel: Wenn wir eine Funktion erstellen wollen, die den Wert von x^2 + 2 zurückgibt, wobei x unser Input ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -538,7 +548,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>You can also give a function multiple inputs. For instance, if we want to calculate x^k+2 with x and k as inputs:</p>
+<p>Man kann einer Funktion auch mehrere Eingabewerte geben. Wenn wir z. B. x^k + 2 berechnen wollen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
@@ -556,19 +566,19 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We can also assign a default value to one or more inputs in the function header. Here is an example, where we use k=2 as a default value:</p>
+<p>Wir können auch Standardwerte für Eingaben im Funktionskopf festlegen. Hier ein Beispiel mit k=2 als Standardwert:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">result</span>
 
-<span class="c1"># Default</span>
-<span class="n">function_result</span> <span class="o">=</span> <span class="n">example_function</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># We don&#39;t have to specify k</span>
+<span class="c1"># Standardwert</span>
+<span class="n">function_result</span> <span class="o">=</span> <span class="n">example_function</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># k muss nicht angegeben werden</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">function_result</span><span class="p">)</span>
 
-<span class="c1"># When we want something other than the default:</span>
-<span class="n">function_result</span> <span class="o">=</span> <span class="n">example_function</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># We need to define k</span>
+<span class="c1"># Anderer Wert als der Standard:</span>
+<span class="n">function_result</span> <span class="o">=</span> <span class="n">example_function</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># k wird angegeben</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">function_result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -580,14 +590,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Sometimes functions can have dozens of input variables. In these cases, we might not want to assign every single variable in the function call if we just want to change one default value. We can do that by assigning a value to that variable during the function call explicitly:</p>
+<p>Wenn Funktionen viele Eingabevariablen haben, möchte man manchmal nur eine bestimmte davon ändern. Das geht, indem man die entsprechende Variable beim Funktionsaufruf explizit angibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="n">result</span>
 
-<span class="n">function_result</span> <span class="o">=</span> <span class="n">example_function</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># We change only the default value of k</span>
+<span class="n">function_result</span> <span class="o">=</span> <span class="n">example_function</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Nur k wird geändert</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">function_result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -598,14 +608,14 @@ document.write(`
 </div>
 </div>
 </div>
-<p>If we want to describe our functions, which can be helpful if other people want to use them, we can use docstrings. These are created when you create a string with three quotation marks directly after the function header:</p>
+<p>Wenn man seine Funktionen beschreiben möchte (hilfreich für andere Nutzer), kann man Docstrings verwenden. Diese werden direkt nach dem Funktionskopf mit drei Anführungszeichen erstellt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This is an example function. That calculates x^k + 2</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Dies ist eine Beispiel-Funktion. Sie berechnet x^k + 2</span>
 <span class="sd">    Args:</span>
-<span class="sd">        x: The number to calculate the exponential + 2 for.</span>
-<span class="sd">        k: The exponent</span>
+<span class="sd">        x: Die Zahl, für die der Ausdruck berechnet wird.</span>
+<span class="sd">        k: Der Exponent</span>
 <span class="sd">    Returns:</span>
 <span class="sd">        x^k + 2</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -620,10 +630,10 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function example_function in module __main__:
 
 example_function(x, k=2)
-    This is an example function. That calculates x^k + 2
+    Dies ist eine Beispiel-Funktion. Sie berechnet x^k + 2
     Args:
-        x: The number to calculate the exponential + 2 for.
-        k: The exponent
+        x: Die Zahl, für die der Ausdruck berechnet wird.
+        k: Der Exponent
     Returns:
         x^k + 2
 
@@ -632,42 +642,106 @@ None
 </div>
 </div>
 </div>
+<section id="ubung-1">
+<h3>Übung 1<a class="headerlink" href="#ubung-1" title="Link to this heading">#</a></h3>
+<p>Schreibe eine Funktion namens <code class="docutils literal notranslate"><span class="pre">add_five</span></code>, die eine Zahl als Eingabe nimmt und diese Zahl plus fünf zurückgibt. Führe sie mit einer beliebigen Zahl aus, um zu testen, ob sie funktioniert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_five</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_five</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
 </section>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h2>
+<section id="ubung-2">
+<h3>Übung 2<a class="headerlink" href="#ubung-2" title="Link to this heading">#</a></h3>
+<p>Schreibe eine Funktion namens <code class="docutils literal notranslate"><span class="pre">power_plus_two</span></code>, die zwei Eingaben <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">k</span></code> nimmt und <code class="docutils literal notranslate"><span class="pre">x</span></code> hoch <code class="docutils literal notranslate"><span class="pre">k</span></code> plus 2 zurückgibt.
+Rufe die Funktion mit den Werten <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">2</span></code> auf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power_plus_two</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">**</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">power_plus_two</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="klassen">
+<h2>Klassen<a class="headerlink" href="#klassen" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The names of classes are usually capitalized while the names of functions and variables are written in lowercase.</p>
+<p>Die Namen von Klassen werden normalerweise großgeschrieben, während Funktions- und Variablennamen klein geschrieben werden.</p>
 </div>
-<p>Classes are bigger structures that can store multiple functions and variables. This is usually done to create a coherent object that can perform complex operations that need multiple functions to work.</p>
-<p>Classes are created using a header with the structure “class Class_Name”. Additionally, each class must contain the initialization function “<strong>init</strong>(self, …)”.</p>
+<p>Klassen sind größere Strukturen, die mehrere Funktionen und Variablen speichern können. Dies dient oft dazu, ein zusammenhängendes Objekt zu erstellen, das komplexe Operationen mit mehreren Funktionen durchführen kann.</p>
+<p>Klassen werden mit einer Kopfzeile wie “class Klassen_Name” erstellt. Jede Klasse muss eine Initialisierungsfunktion “<strong>init</strong>(self, …)” enthalten.</p>
 <ul class="simple">
-<li><p>The underscores indicate, that the function is not to be tempered with by users.</p></li>
-<li><p>The input “self” is used in (almost) every function in a class. Using that input, the function can call other functions and variables within the class.</p></li>
+<li><p>Die Unterstriche deuten darauf hin, dass diese Funktion nicht direkt vom Nutzer verändert werden soll.</p></li>
+<li><p>Der Parameter “self” wird in (fast) jeder Funktion einer Klasse verwendet. Damit kann man innerhalb der Klasse auf andere Funktionen und Variablen zugreifen.</p></li>
 </ul>
-<p>Let’s test this. Let’s first create a class that takes a variable x as an input during the initialization. Then we create two functions: One calculates x^k and the other calculates x^k+m. We call the first function during the second one to calculate x^k:</p>
+<p>Beispiel: Wir erstellen eine Klasse, die bei der Initialisierung eine Variable x als Input nimmt. Dann definieren wir zwei Funktionen: Eine berechnet x^k, die andere x^k+m. Die zweite ruft die erste auf:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Example_Class</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># use self to set a variable for the entire class</span>
-        <span class="c1"># Also note that we have two intends here, because we define a function within a class, so we need to use the tabulator twice</span>
-        
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># self setzt eine Klassenvariable</span>
+
     <span class="k">def</span> <span class="nf">exponential</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="n">k</span>  <span class="c1"># reference the global variable x with self.x </span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="n">k</span>  <span class="c1"># Zugriff auf self.x</span>
         <span class="k">return</span> <span class="n">result</span>
-        
+
     <span class="k">def</span> <span class="nf">exponential_plus_m</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="n">exponential_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>  <span class="c1"># call the exponential function of the same class with self.exponential(...)</span>
+        <span class="n">exponential_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>  <span class="c1"># Aufruf interner Funktion</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">exponential_result</span> <span class="o">+</span> <span class="n">m</span>
         <span class="k">return</span> <span class="n">result</span>
 
 <span class="n">exponential_calculator</span> <span class="o">=</span> <span class="n">Example_Class</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">result1</span> <span class="o">=</span> <span class="n">exponential_calculator</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># Calling the first function </span>
+<span class="n">result1</span> <span class="o">=</span> <span class="n">exponential_calculator</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>
-<span class="n">result2</span> <span class="o">=</span> <span class="n">exponential_calculator</span><span class="o">.</span><span class="n">exponential_plus_m</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># Calling the second function</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">exponential_calculator</span><span class="o">.</span><span class="n">exponential_plus_m</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>
-<span class="c1"># We can also directly reference variables within the class:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">exponential_calculator</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -680,7 +754,100 @@ None
 </div>
 </div>
 </div>
-<p>As you can see, we call functions and variables within the class after creating an object of the class by simply using a “.” after the name of our class object.</p>
+<p>Wie du siehst, rufen wir Funktionen und Variablen innerhalb der Klasse über einen Punkt-Zugriff auf das Objekt auf.</p>
+<section id="ubung-3">
+<h3>Übung 3<a class="headerlink" href="#ubung-3" title="Link to this heading">#</a></h3>
+<p>Schreibe eine Klasse namens <code class="docutils literal notranslate"><span class="pre">Calculator</span></code>, die eine Zahl <code class="docutils literal notranslate"><span class="pre">x</span></code> in der Methode <code class="docutils literal notranslate"><span class="pre">__init__</span></code> übernimmt.
+Erstelle zwei Methoden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">square</span></code>: gibt <code class="docutils literal notranslate"><span class="pre">x</span></code> zum Quadrat zurück.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_number</span></code>: nimmt ein Argument und gibt die Summe von <code class="docutils literal notranslate"><span class="pre">x</span></code> und diesem Argument zurück.</p></li>
+</ul>
+<p>Erzeuge dann ein Objekt von <code class="docutils literal notranslate"><span class="pre">Calculator</span></code> mit <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">4</span></code> und rufe beide Methoden auf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">add_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">square</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">add_number</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+10
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<hr class="docutils" />
+</section>
+<section id="ubung-4">
+<h3>Übung 4<a class="headerlink" href="#ubung-4" title="Link to this heading">#</a></h3>
+<p>Erweitere die <code class="docutils literal notranslate"><span class="pre">Calculator</span></code>-Klasse aus Übung 3 um eine Methode <code class="docutils literal notranslate"><span class="pre">multiply_and_add</span></code>, die <code class="docutils literal notranslate"><span class="pre">x</span></code> mit einer Zahl <code class="docutils literal notranslate"><span class="pre">m</span></code> multipliziert und eine weitere Zahl <code class="docutils literal notranslate"><span class="pre">a</span></code> addiert.
+Rufe sie mit <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">3</span></code> und <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">2</span></code> auf.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">add_number</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">multiply_and_add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="n">a</span>
+
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calc</span><span class="o">.</span><span class="n">multiply_and_add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
 </section>
 </section>
 
@@ -719,15 +886,15 @@ None
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">3. Conditions and Loops</p>
+        <p class="prev-next-title">6. Bedingungen und Schleifen</p>
       </div>
     </a>
     <a class="right-next"
-       href="modules.html"
+       href="installation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">5. Modules</p>
+        <p class="prev-next-title">8. Installation von Python, einer IDE und Paketen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -747,8 +914,16 @@ None
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen">Funktionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen">Klassen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -763,7 +938,7 @@ None
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Data types" href="structures.html" />
-    <link rel="prev" title="0. Installing Python, an IDE and packages" href="installation.html" />
+    <link rel="next" title="2. Datentypen" href="structures.html" />
+    <link rel="prev" title="Python-Kurs – Data Literacy an der TU Dortmund" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,18 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Arithmetik und Variablen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -492,11 +493,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetics">Arithmetics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetik">Arithmetik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen">Variablen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -511,15 +514,15 @@ document.write(`
                 <article class="bd-article">
                   
   <div style="float: right;">
-  <a href="../../../de/_build/html/arithmetics.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
-  <a href="../../../en/_build/html/arithmetics.html">🇬🇧 English</a>
+  <a href="../../../de/arithmetics.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../../../en/arithmetics.html">🇬🇧 English</a>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="arithmetik-und-variablen">
 <h1>1. Arithmetik und Variablen<a class="headerlink" href="#arithmetik-und-variablen" title="Link to this heading">#</a></h1>
-<section id="arithmetics">
-<h2>Arithmetics<a class="headerlink" href="#arithmetics" title="Link to this heading">#</a></h2>
-<p>In its most basic form, Python can simply be used as a calculator. You can use it to, among others, add, subtract, multiply, and divide numbers.</p>
-<p>The following cell shows you how to add two numbers in Python:</p>
+<section id="arithmetik">
+<h2>Arithmetik<a class="headerlink" href="#arithmetik" title="Link to this heading">#</a></h2>
+<p>In seiner einfachsten Form kann Python wie ein Taschenrechner verwendet werden. Du kannst damit unter anderem Zahlen addieren, subtrahieren, multiplizieren und dividieren.</p>
+<p>Die folgende Zelle zeigt dir, wie man zwei Zahlen in Python addiert:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
@@ -532,42 +535,29 @@ document.write(`
 </div>
 </div>
 </div>
-<p>To show any object within Python in your console, you can use the print(…) command, in which you can replace “…” with the object that you want to display. In this case, it is the answer of 2+2.</p>
-<p>Other numeric calculations can be performed like this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Multiplication</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Subtraction</span>
+<p>Um ein Objekt in der Konsole auszugeben, kannst du den Befehl print(…) verwenden, wobei du „…“ durch das Objekt ersetzt, das du anzeigen möchtest. In diesem Fall ist es das Ergebnis von 2 + 2.</p>
+<p>Weitere mathematische Operationen können wie folgt durchgeführt werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># Multiplikation</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Subtraktion</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Division</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Exponentiation</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Potenzierung</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Modulo</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
-1
-5.0
-100
-1
-</pre></div>
-</div>
-</div>
-</div>
-<p>The “#” symbol is used to comment out code. This means that the code following the # symbol will not be executed. Comments are useful to explain what the code does.</p>
+<p>Das Symbol # wird verwendet, um Code zu kommentieren. Das bedeutet, dass der Code hinter dem #-Symbol nicht ausgeführt wird. Kommentare sind hilfreich, um zu erklären, was der Code macht.</p>
 </section>
-<section id="variables">
-<h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
+<section id="variablen">
+<h2>Variablen<a class="headerlink" href="#variablen" title="Link to this heading">#</a></h2>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When naming variables, you should take care to not overwrite existing names. You should, for instance, not name a variable “print”, because it would overwrite the meaning of the print function. This would lead to an error, when you try to use the print function later on.</p>
+<p>Beim Benennen von Variablen solltest du darauf achten, keine bereits verwendeten Namen zu überschreiben. Du solltest zum Beispiel keine Variable „print“ nennen, da dies die Funktion <code class="docutils literal notranslate"><span class="pre">print</span></code> überschreiben würde. Das würde später zu einem Fehler führen, wenn du versuchst, die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion zu verwenden.</p>
 </div>
 </aside>
-<p>In Python, you can also store values in variables. This is useful when you want to use a value multiple times in your code. You can assign a value to a variable using the = operator.
-Variables can take any name. In a practical analysis, it is suggested to use meaningful names for your variables. This makes it easier for you and others to understand the code.</p>
-<p>The following cell shows how to assign a value to a variable and then print it:</p>
+<p>In Python kannst du Werte in Variablen speichern. Das ist nützlich, wenn du einen Wert mehrfach im Code verwenden möchtest. Eine Zuweisung erfolgt über den = Operator.
+Variablen können beliebige Namen haben. In einer praktischen Analyse empfiehlt es sich jedoch, aussagekräftige Namen zu verwenden. So wird der Code verständlicher – für dich und für andere.</p>
+<p>Die folgende Zelle zeigt, wie man einer Variable (hier mit dem Namen x) einen Wert zuweist und diesen dann ausgibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -581,7 +571,7 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
 </div>
 </div>
 </div>
-<p>If you want to alter the variable, you can also do this using the “=” operator:</p>
+<p>Wenn du eine Variable verändern möchtest, kannst du das ebenfalls mit dem = Operator tun:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -598,7 +588,7 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
 </div>
 </div>
 </div>
-<p>You can thus use variables as placeholders for objects. In this case, x is assigned to be an integer (a whole number). If we define another variable y to be an integer as well, we can perform calculations with these variables:</p>
+<p>Du kannst Variablen also als Platzhalter für Objekte verwenden. In diesem Fall wird x eine ganze Zahl (Integer) zugewiesen. Wenn wir eine weitere Variable y definieren, können wir Berechnungen mit diesen Variablen durchführen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -615,16 +605,22 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
 </div>
 </div>
 </div>
-</section>
-<section id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
-<p>Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.</p>
-<section id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
-<p>Calculate the sum of 5 and 7 and store the result in a variable called “var1”. Then multiply this variable with itself and store the result in a variable called “var2”. Finally, print the result of “var2”.</p>
+<section id="ubung">
+<h3>Übung<a class="headerlink" href="#ubung" title="Link to this heading">#</a></h3>
+<p>Jetzt bist du dran! Löse die folgende Übung und klicke auf die versteckte Code-Zelle darunter, um die Lösung zu sehen.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Um den Python-Code in diesem Kurs zu bearbeiten und auszuführen, findest du dieses Symbol <img alt="live code symbol" src="_images/code_symbol.PNG" /> oben auf jeder Seite, die Python-Code enthält. Du kannst darauf klicken und dann „Live code“ auswählen, um den Code selbst zu bearbeiten und auszuführen. Probiere ruhig verschiedene Dinge aus und experimentiere mit dem Code. Du kannst hier nichts kaputt machen, und niemand (auch wir nicht) kann deinen Code sehen – also fühl dich frei, zu experimentieren.</p>
+</div>
+</aside>
+<section id="ubung-1">
+<h4>Übung 1<a class="headerlink" href="#ubung-1" title="Link to this heading">#</a></h4>
+<p>Berechne die Summe von 5 und 7 und speichere das Ergebnis in einer Variablen namens „var1“. Multipliziere dann diese Variable mit sich selbst und speichere das Ergebnis in einer Variablen namens „var2“. Gib zum Schluss das Ergebnis von „var2“ aus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
 </pre></div>
 </div>
 </div>
@@ -650,42 +646,184 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
 </details>
 </div>
 </section>
-<section id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
-<div class="cell tag_thebe-remove-input-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the correct syntax for multiplying 3 with 7, storing the result in a variable and printing that variable?&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;multiple_choice&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;answers&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;x = 3 * 7</span>
-<span class="s2">print(x)&quot;&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct.&quot;</span> 
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;3 * 7</span>
-<span class="s2">print(x)&quot;&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;x would not be defined here, so there is nothing to print.&quot;</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;print(3 * 7)&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;This does print the result of 3 * 7, but does not store it in a variable for later use.&quot;</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;print(x = 3 * 7)&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;The print function would be confused, because you are trying to assign a value to x and print it at the same time. Try to separate these two steps.&quot;</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}]</span>
-</pre></div>
+<section id="ubung-2">
+<h4>Übung 2<a class="headerlink" href="#ubung-2" title="Link to this heading">#</a></h4>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  #quiz-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  #quiz-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  #quiz-form label {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #quiz-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz-form input[type="radio"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+   #quiz-form pre {
+    margin: 0.2rem 0 0;
+    background-color: transparent !important;  /* no background */
+    border: none !important;                   /* no border */
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;                                /* no padding */
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #quiz-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz-container">
+  <p class="question">🧠 Was ist die korrekte Syntax, um 3 mit 7 zu multiplizieren, das Ergebnis in einer Variable zu speichern, und diese auszugeben? </p>
+  <form id="quiz-form">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <pre><code>x = 3 * 7
+print(x)</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <pre><code>3 * 7
+print(x)</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <pre><code>print(3 * 7)</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="d">
+      <pre><code>print(x = 3 * 7)</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer()">Submit Answer</button>
+    <p id="quiz-feedback"></p>
+  </form>
 </div>
-</div>
-</div>
+
+<script>
+  function checkAnswer() {
+    const answers = {
+      a: {
+        correct: true,
+        feedback: "✅ Korrekt!"
+      },
+      b: {
+        correct: false,
+        feedback: "❌ x wäre hier nicht definiert, weswegen es nichts zu auszugeben gäbe."
+      },
+      c: {
+        correct: false,
+        feedback: "❌ Das gibt das Resultat aus, speichert es aber nicht ab."
+      },
+      d: {
+        correct: false,
+        feedback: "❌ Du kannst eine Variable nicht gleichzeitig verwenden und abspeichern."
+      }
+    };
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const feedback = document.getElementById("quiz-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Bitte wähle eine Antwort aus!";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
 </section>
 </section>
 </section>
@@ -720,12 +858,12 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="installation.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">0. Installing Python, an IDE and packages</p>
+        <p class="prev-next-title">Python-Kurs – Data Literacy an der TU Dortmund</p>
       </div>
     </a>
     <a class="right-next"
@@ -733,7 +871,7 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2. Data types</p>
+        <p class="prev-next-title">2. Datentypen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -753,11 +891,13 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetics">Arithmetics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables">Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetik">Arithmetik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen">Variablen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung">Übung</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -774,7 +914,7 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

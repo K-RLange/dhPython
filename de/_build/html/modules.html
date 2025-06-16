@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Modules &#8212; Digital Humanities Python Tutorial</title>
+    <title>3. Module &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. pandas and matplotlib" href="pandas.html" />
-    <link rel="prev" title="4. Functions and Classes" href="functions.html" />
+    <link rel="next" title="4. pandas und matplotlib" href="pandas.html" />
+    <link rel="prev" title="2. Datentypen" href="structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,18 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -482,7 +483,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5. Modules</h1>
+    <h1>3. Module</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -492,11 +493,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules">Importing modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-local-modules">Importing local modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheken-installieren">Bibliotheken installieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-importieren">Module importieren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-module-importieren">Lokale Module importieren</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-libraries">Installing libraries</a></li>
 </ul>
             </nav>
         </div>
@@ -508,73 +509,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="modules">
-<h1>5. Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h1>
-<p>While basically anything can be coded from scratch in Python, it is wise to first see if someone has already implemented what you are trying to do. That can save time and effort and the implementation is hopefully done well from someone confident enough to share their code online.</p>
-<p>To use functions, classes and other code that has been published online, you must import their respective modules.</p>
-<p>Modules are what we call code files. They are organized in libraries (also called packages), which are an organized collection of modules.</p>
-<section id="importing-modules">
-<h2>Importing modules<a class="headerlink" href="#importing-modules" title="Link to this heading">#</a></h2>
-<p>To import a module or libraries, you can just use “import module_or_library_name” in your Python console.</p>
-<p>When you import a module, you can call the functions within it using “module_or_library_name.function()”. Let’s see how this looks like, if we want to calculate the mean of a list, for which we need to import the statistics module:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
-</pre></div>
+  <div style="float: right;">
+  <a href="../de/modules.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/modules.html">🇬🇧 English</a>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
-</div>
-<p>Alternatively, you can also import only certain functions from that module. To do this, you can use “from module_or_library_name import function”.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-</div>
-</div>
-<section id="importing-local-modules">
-<h3>Importing local modules<a class="headerlink" href="#importing-local-modules" title="Link to this heading">#</a></h3>
-<p>You can import local code files in the same manner in which you import modules created by other people. If you have created a code file called “<a class="reference external" href="http://module.py">module.py</a>”, you can import it using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module</span>
-</pre></div>
-</div>
-<p>When module is in a different directory, you can still import it. When the module is two directories above the current one, you need to add two dots in front of the module’s name:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">..module</span>
-</pre></div>
-</div>
-<p>If you want to import a module in a subdirectory, you can import it like this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">subdirectory.module</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="installing-libraries">
-<h2>Installing libraries<a class="headerlink" href="#installing-libraries" title="Link to this heading">#</a></h2>
-<p>Python comes with a small number of pre-installed modules and libraries. But there are many more out there, which you will have to install first.</p>
-<p>The releases of Python libraries are usually released on the <a class="reference external" href="https://pypi.org/">Python Package Index (PyPi)</a>.</p>
-<p>To install libraries from PyPi, you can use <strong>pip</strong>, which comes pre-installed with every Python version from Python 3.0 onwards.</p>
-<p>You can call pip to install a certain package within Python, but it is generally recommended to call it outside of Python in a terminal.</p>
-<p>Let’s say, we want to install the very popular “pandas” package. To install it directly from Python, you can call the “main” function of the pip library. This function takes a list as an input. The first object of this list is the string “install”, denoting that we want to install a library. The second is the name of the library you want to install:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
+<section class="tex2jax_ignore mathjax_ignore" id="module">
+<h1>3. Module<a class="headerlink" href="#module" title="Link to this heading">#</a></h1>
+<p>Grundsätzlich kann in Python alles von Grund auf neu programmiert werden. Es ist jedoch klüger, zuerst zu überprüfen, ob jemand anderes bereits das umgesetzt hat, was du tun möchtest. Das spart Zeit und Aufwand — und hoffentlich wurde die Umsetzung von jemandem vorgenommen, der kompetent genug war, seinen Code online zu veröffentlichen.</p>
+<p>Um Funktionen, Klassen und anderen Code zu verwenden, der online veröffentlicht wurde, musst du die entsprechenden Module importieren.</p>
+<p>Module sind Code-Dateien. Sie sind in Bibliotheken (auch Pakete genannt) organisiert, also Sammlungen von Modulen in strukturierter Form.</p>
+<section id="bibliotheken-installieren">
+<h2>Bibliotheken installieren<a class="headerlink" href="#bibliotheken-installieren" title="Link to this heading">#</a></h2>
+<p>Python bringt eine kleine Anzahl vorinstallierter Module und Bibliotheken mit. Es gibt jedoch viele weitere, die du erst installieren musst.</p>
+<p>Die Veröffentlichungen von Python-Bibliotheken erscheinen in der Regel auf dem <a class="reference external" href="https://pypi.org/">Python Package Index (PyPi)</a>.</p>
+<p>Um Bibliotheken von PyPi zu installieren, kannst du <strong>pip</strong> verwenden, das seit Python 3.0 bei jeder Installation automatisch mitgeliefert wird.</p>
+<p>Du kannst pip direkt aus Python heraus aufrufen, üblicher ist es aber, pip über das Terminal zu verwenden.</p>
+<p>Angenommen, wir wollen das beliebte Paket “pandas” installieren. Direkt aus Python heraus könntest du dazu die Funktion “main” aus dem pip-Modul aufrufen. Diese Funktion nimmt eine Liste als Eingabe, deren erstes Element der String “install” ist (was anzeigt, dass du etwas installieren willst), und das zweite der Name des Pakets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pip</span>
 <span class="n">pip</span><span class="o">.</span><span class="n">main</span><span class="p">([</span><span class="s2">&quot;install&quot;</span><span class="p">,</span> <span class="s2">&quot;pandas&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>If you are in a terminal instead (which is what I would recommend), you can use the following command:</p>
+<p>In einem Terminal (was die empfohlene Methode ist) lautet der Befehl so:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pandas
 </pre></div>
 </div>
+</section>
+<section id="module-importieren">
+<h2>Module importieren<a class="headerlink" href="#module-importieren" title="Link to this heading">#</a></h2>
+<p>Um ein Modul oder eine Bibliothek zu importieren, verwendest du den Befehl <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">modul_oder_bibliothek_name</span></code> in deiner Python-Konsole.</p>
+<p>Wenn du ein Modul importierst, kannst du dessen Funktionen mit <code class="docutils literal notranslate"><span class="pre">modulname.funktion()</span></code> aufrufen. Wenn du z. B. den Mittelwert einer Liste berechnen willst, musst du das Modul <code class="docutils literal notranslate"><span class="pre">statistics</span></code> importieren:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Alternativ kannst du auch nur bestimmte Funktionen aus einem Modul importieren. Das machst du mit <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">modulname</span> <span class="pre">import</span> <span class="pre">funktion</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">mean</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>Wenn du eine gesamte Bibliothek importieren, aber den vollen Namen nicht jedes Mal ausschreiben willst (oder wenn du bereits eine Variable mit demselben Namen hast), kannst du dem Modul beim Importieren einen Spitznamen geben. Das geht mit dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">as</span></code>. Hier ein Beispiel für die Bibliothek pandas:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+<section id="lokale-module-importieren">
+<h3>Lokale Module importieren<a class="headerlink" href="#lokale-module-importieren" title="Link to this heading">#</a></h3>
+<p>Du kannst lokale Python-Dateien genauso importieren wie externe Module. Wenn du z. B. eine Datei mit dem Namen <code class="docutils literal notranslate"><span class="pre">modul.py</span></code> erstellt hast, kannst du sie so importieren:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">modul</span>
+</pre></div>
+</div>
+<p>Wenn sich das Modul in einem anderen Verzeichnis befindet, kannst du es dennoch importieren. Befindet es sich zwei Verzeichnisse oberhalb des aktuellen, fügst du zwei Punkte vor dem Modulnamen hinzu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">..modul</span>
+</pre></div>
+</div>
+<p>Wenn du ein Modul in einem Unterverzeichnis importieren willst, geht das so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unterverzeichnis.modul</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 
@@ -608,12 +599,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="functions.html"
+       href="structures.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">4. Functions and Classes</p>
+        <p class="prev-next-title">2. Datentypen</p>
       </div>
     </a>
     <a class="right-next"
@@ -621,7 +612,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">6. pandas and matplotlib</p>
+        <p class="prev-next-title">4. pandas und matplotlib</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -641,11 +632,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-modules">Importing modules</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-local-modules">Importing local modules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliotheken-installieren">Bibliotheken installieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-importieren">Module importieren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-module-importieren">Lokale Module importieren</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-libraries">Installing libraries</a></li>
 </ul>
   </nav></div>
 
@@ -660,7 +651,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

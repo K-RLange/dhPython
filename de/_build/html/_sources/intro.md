@@ -1,20 +1,29 @@
-# Python for digital humanities
+<div style="float: right;">
+  <a href="../de/intro.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/intro.html">🇬🇧 English</a>
+</div>
 
-This is a small Python Tutorial, which will teach you the basics of the Python 
-programming language.
+# Python-Kurs – Data Literacy an der TU Dortmund
 
-We will first teach you, how to install Python and an IDE (Integrated 
-Development Environment) on your personal system and will then teach you the 
-basics of the language, its syntax and most common packages.
+In diesem kleinen Python-Tutorial lernst du die Grundlagen der 
+Programmiersprache Python, ihre Syntax und die wichtigsten 
+Bibliotheken kennen.
 
-Installing Python on your local hardware is not strictly neccessary for this course, as all code can be run in your browser. 
-It is still recommended, if you want to continue working with Python later on.
-To edit and run the Python code in this course, you will find this ![live code symbol](code_symbol.PNG) symbol on the top of each page that contains Python code. You can click on it and then choose "Live code" to edit and run code yourself.
+Du kannst diesen Kurs direkt in deinem Browser absolvieren, ohne Python 
+auf deinem lokalen Rechner installieren zu müssen. Wenn du Python später 
+weiter nutzen möchtest, stellen wir dir am Ende des Kurses auch eine kleine Anleitung 
+zur Verfügung, wie du Python und eine IDE (Integrated Development Environment) 
+auf deinem Rechner installierst.
+
+Wenn du Fragen hast, zögere bitte nicht, uns eine E-Mail zu schreiben:
+- Kai-Robin Lange ([kalange@statistik.tu-dortmund.de](mailto:kalange@statistik.tu-dortmund.de))
+- Henrik Hardering ([henrik.hardering@tu-dortmund.de](mailto:henrik.hardering@tu-dortmund.de))
 
 
-If you are interested in learning about corpus linguistics, we suggest you to
-first complete this little course and then take a look at 
-[this NLP-course](https://github.com/K-RLange/dhNLP).
+```{attention}
+Um den Python-Code in diesem Kurs zu bearbeiten und auszuführen, findest du dieses Symbol ![live code symbol](code_symbol.PNG) oben auf jeder Seite, die Python-Code enthält. Du kannst darauf klicken und dann „Live code“ auswählen, um den Code selbst zu bearbeiten und auszuführen. Probiere ruhig verschiedene Dinge aus und experimentiere mit dem Code. Du kannst hier nichts kaputt machen, und niemand (auch wir nicht) kann deinen Code sehen – also fühl dich frei, zu experimentieren.
+```
+
 
 ```{tableofcontents}
 ```

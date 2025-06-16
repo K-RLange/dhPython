@@ -4,7 +4,6 @@
 format: jb-book
 root: intro
 chapters:
-- file: installation
 - file: arithmetics
 - file: structures
 - file: modules
@@ -12,3 +11,4 @@ chapters:
 - file: data_processing
 - file: loops
 - file: functions
+- file: installation

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Python for digital humanities &#8212; Digital Humanities Python Tutorial</title>
+    <title>Python-Kurs – Data Literacy an der TU Dortmund &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="0. Installing Python, an IDE and packages" href="installation.html" />
+    <link rel="next" title="1. Arithmetik und Variablen" href="arithmetics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,18 +184,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -379,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Python for digital humanities</h1>
+    <h1>Python-Kurs – Data Literacy an der TU Dortmund</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -393,28 +394,39 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="python-for-digital-humanities">
-<h1>Python for digital humanities<a class="headerlink" href="#python-for-digital-humanities" title="Link to this heading">#</a></h1>
-<p>This is a small Python Tutorial, which will teach you the basics of the Python
-programming language.</p>
-<p>We will first teach you, how to install Python and an IDE (Integrated
-Development Environment) on your personal system and will then teach you the
-basics of the language, its syntax and most common packages.</p>
-<p>Installing Python on your local hardware is not strictly neccessary for this course, as all code can be run in your browser.
-It is still recommended, if you want to continue working with Python later on.
-To edit and run the Python code in this course, you will find this <img alt="live code symbol" src="_images/code_symbol.PNG" /> symbol on the top of each page that contains Python code. You can click on it and then choose “Live code” to edit and run code yourself.</p>
-<p>If you are interested in learning about corpus linguistics, we suggest you to
-first complete this little course and then take a look at
-<a class="reference external" href="https://github.com/K-RLange/dhNLP">this NLP-course</a>.</p>
+  <div style="float: right;">
+  <a href="../de/intro.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/intro.html">🇬🇧 English</a>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="python-kurs-data-literacy-an-der-tu-dortmund">
+<h1>Python-Kurs – Data Literacy an der TU Dortmund<a class="headerlink" href="#python-kurs-data-literacy-an-der-tu-dortmund" title="Link to this heading">#</a></h1>
+<p>In diesem kleinen Python-Tutorial lernst du die Grundlagen der
+Programmiersprache Python, ihre Syntax und die wichtigsten
+Bibliotheken kennen.</p>
+<p>Du kannst diesen Kurs direkt in deinem Browser absolvieren, ohne Python
+auf deinem lokalen Rechner installieren zu müssen. Wenn du Python später
+weiter nutzen möchtest, stellen wir dir am Ende des Kurses auch eine kleine Anleitung
+zur Verfügung, wie du Python und eine IDE (Integrated Development Environment)
+auf deinem Rechner installierst.</p>
+<p>Wenn du Fragen hast, zögere bitte nicht, uns eine E-Mail zu schreiben:</p>
+<ul class="simple">
+<li><p>Kai-Robin Lange (<a class="reference external" href="mailto:kalange&#37;&#52;&#48;statistik&#46;tu-dortmund&#46;de">kalange<span>&#64;</span>statistik<span>&#46;</span>tu-dortmund<span>&#46;</span>de</a>)</p></li>
+<li><p>Henrik Hardering (<a class="reference external" href="mailto:henrik&#46;hardering&#37;&#52;&#48;tu-dortmund&#46;de">henrik<span>&#46;</span>hardering<span>&#64;</span>tu-dortmund<span>&#46;</span>de</a>)</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Um den Python-Code in diesem Kurs zu bearbeiten und auszuführen, findest du dieses Symbol <img alt="live code symbol" src="_images/code_symbol.PNG" /> oben auf jeder Seite, die Python-Code enthält. Du kannst darauf klicken und dann „Live code“ auswählen, um den Code selbst zu bearbeiten und auszuführen. Probiere ruhig verschiedene Dinge aus und experimentiere mit dem Code. Du kannst hier nichts kaputt machen, und niemand (auch wir nicht) kann deinen Code sehen – also fühl dich frei, zu experimentieren.</p>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 </div>
 </section>
@@ -449,11 +461,11 @@ first complete this little course and then take a look at
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="installation.html"
+       href="arithmetics.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">0. Installing Python, an IDE and packages</p>
+        <p class="prev-next-title">1. Arithmetik und Variablen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -473,7 +485,7 @@ first complete this little course and then take a look at
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

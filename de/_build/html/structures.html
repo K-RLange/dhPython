@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Data types &#8212; Digital Humanities Python Tutorial</title>
+    <title>2. Datentypen &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. Conditions and Loops" href="loops.html" />
-    <link rel="prev" title="1. Arithmetics and variables" href="arithmetics.html" />
+    <link rel="next" title="3. Module" href="modules.html" />
+    <link rel="prev" title="1. Arithmetik und Variablen" href="arithmetics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,18 +183,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python-Kurs – Data Literacy an der TU Dortmund
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetik und Variablen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Datentypen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas und matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
 </ul>
 
     </div>
@@ -482,7 +483,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>2. Data types</h1>
+    <h1>2. Datentypen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -492,24 +493,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-data-types">Numeric data types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablentypen">Variablentypen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-datentypen">Numerische Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-collection-types">Variable collection types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections-fur-variablen">Collections für Variablen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen">Listen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel">Tupel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -523,20 +527,24 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-types">
-<h1>2. Data types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h1>
-<p>In the last chapter, we learned that variables can be assigned a whole number, resulting in an integer variable.
-In Python, there are different types of data that can be stored in variables, an integer is just one of many forms a variable can take.
-In this chapter, we will introduce you to the most common data types in Python.</p>
-<section id="variable-types">
-<h2>Variable types<a class="headerlink" href="#variable-types" title="Link to this heading">#</a></h2>
-<section id="numeric-data-types">
-<h3>Numeric data types<a class="headerlink" href="#numeric-data-types" title="Link to this heading">#</a></h3>
-<p>In Python, there are two important numeric data types: integers (“int”) and floating-point numbers (“float”).
-Integers are whole numbers, while floating-point numbers are numbers with a decimal point.</p>
+  <div style="float: right;">
+  <a href="../de/structures.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/structures.html">🇬🇧 English</a>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="datentypen">
+<h1>2. Datentypen<a class="headerlink" href="#datentypen" title="Link to this heading">#</a></h1>
+<p>Im letzten Kapitel haben wir gelernt, dass Variablen eine ganze Zahl zugewiesen werden kann, was zu einer Integer-Variable führt.
+In Python gibt es verschiedene Arten von Daten, die in Variablen gespeichert werden können. Ein Integer ist nur eine von vielen Formen, die eine Variable annehmen kann.
+In diesem Kapitel stellen wir dir die gängigsten Datentypen in Python vor.</p>
+<section id="variablentypen">
+<h2>Variablentypen<a class="headerlink" href="#variablentypen" title="Link to this heading">#</a></h2>
+<section id="numerische-datentypen">
+<h3>Numerische Datentypen<a class="headerlink" href="#numerische-datentypen" title="Link to this heading">#</a></h3>
+<p>In Python gibt es zwei wichtige numerische Datentypen: Ganzzahlen (“int”) und Fließkommazahlen (“float”).
+Ganzzahlen sind ganze Zahlen, während Fließkommazahlen Zahlen mit einem Dezimalpunkt sind.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Python is a dynamically typed language. This means that you do not need to declare the data type of a variable when you create one. Python will automatically infer the data type of the variable based on the value that you assign to it. This is true for all data types in Python, not just for numbers.</p>
+<p>Python ist eine dynamisch typisierte Sprache. Das bedeutet, dass du den Datentyp einer Variablen beim Erstellen nicht explizit angeben musst. Python erkennt automatisch den Datentyp der Variablen basierend auf dem zugewiesenen Wert. Das gilt für alle Datentypen in Python, nicht nur für Zahlen.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -555,9 +563,9 @@ Integers are whole numbers, while floating-point numbers are numbers with a deci
 </div>
 </div>
 <aside class="margin sidebar">
-<p class="sidebar-title">Be careful!</p>
-<p>Python will always try to detect what it deems to be the correct data type. This might lead to problems, when you want to have a specific data type, but Python converts your variables to a different type.</p>
-<p>Let’s say, we want to only use integers in a division. But in a divison, Python always converts numbers to floating numbers. To correct this mistake Python does, we might want to type-cast the result back to an integer:</p>
+<p class="sidebar-title">Achtung!</p>
+<p>Python versucht immer, den seiner Meinung nach passenden Datentyp zu erkennen. Dies kann zu Problemen führen, wenn du einen bestimmten Datentyp verwenden willst, Python aber deine Variable in einen anderen Typ umwandelt.</p>
+<p>Angenommen, wir möchten bei einer Division nur Ganzzahlen verwenden. Aber bei einer Division wandelt Python Zahlen immer in Fließkommazahlen um. Um diesen Fehler zu korrigieren, können wir das Ergebnis zurück in einen Integer casten:</p>
 </aside>
 <div class="cell tag_margin docutils container">
 <div class="cell_input docutils container">
@@ -579,11 +587,11 @@ Integers are whole numbers, while floating-point numbers are numbers with a deci
 </div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>We see that the value does not change, but only the decimal point disappears. Type-casting is an advanced technique, and should only be used if you require one specific data type.
-You can read more about it <a class="reference external" href="https://www.geeksforgeeks.org/type-conversion-python/">here</a>.</p>
+<p>Wir sehen, dass sich der Wert nicht ändert, sondern nur der Dezimalpunkt verschwindet. Type-Casting ist eine fortgeschrittene Technik und sollte nur verwendet werden, wenn du einen bestimmten Datentyp benötigst.
+Mehr dazu findest du <a class="reference external" href="https://www.geeksforgeeks.org/type-conversion-python/">hier</a>.</p>
 </aside>
-<p>You can perform arithmetic operations on both types of numbers.
-Python will automatically convert the result to the data type, it deems to be most appropriate:</p>
+<p>Du kannst mit beiden Zahlentypen Rechenoperationen durchführen.
+Python konvertiert das Ergebnis automatisch in den Datentyp, den es für am geeignetsten hält:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -605,8 +613,8 @@ Python will automatically convert the result to the data type, it deems to be mo
 </section>
 <section id="strings">
 <h3>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
-<p>Strings are sequences of characters (letter, symbols, etc.). They can be created by enclosing characters in single or double quotes. You can also use triple quotes for multi-line strings.
-While these are three options to define a string, they ultimately all have the same data type:</p>
+<p>Strings sind Zeichenfolgen (Buchstaben, Symbole etc.). Sie können erstellt werden, indem man Zeichen in einfache oder doppelte Anführungszeichen einschließt. Für mehrzeilige Strings kann man auch dreifache Anführungszeichen verwenden.
+Alle drei Varianten ergeben denselben Datentyp:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Hello, World!&quot;</span>
@@ -631,7 +639,7 @@ World! &lt;class &#39;str&#39;&gt;
 </section>
 <section id="booleans">
 <h3>Booleans<a class="headerlink" href="#booleans" title="Link to this heading">#</a></h3>
-<p>Booleans are a data type that can only take two values: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. They are used to represent the truth value of an expression. You can check the data type of a boolean using the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function:</p>
+<p>Booleans sind ein Datentyp, der nur zwei Werte annehmen kann: <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>. Sie repräsentieren den Wahrheitswert einer Aussage. Du kannst den Datentyp eines Booleans mit der Funktion <code class="docutils literal notranslate"><span class="pre">type()</span></code> überprüfen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
@@ -648,7 +656,7 @@ World! &lt;class &#39;str&#39;&gt;
 </div>
 </div>
 </div>
-<p>We can also define a boolean relative to another variable. In the following code block, we define a boolean that checks if the number x is greater than 3. The result is then printed to the console:</p>
+<p>Wir können auch einen Boolean relativ zu einer anderen Variablen definieren. Im folgenden Codeblock überprüfen wir, ob x größer als 3 ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -663,17 +671,16 @@ World! &lt;class &#39;str&#39;&gt;
 </div>
 </div>
 </div>
-<p>You can alter the number that is assigned to x to see how the boolean changes.</p>
-<p>Booleans are often used in conditional statements, which we will discuss in a later chapter.</p>
+<p>Du kannst den Wert von x ändern, um zu sehen, wie sich der Boolean-Wert ändert.</p>
+<p>Booleans werden häufig in Bedingungsanweisungen verwendet, die wir in einem späteren Kapitel behandeln.</p>
 </section>
 </section>
-<section id="variable-collection-types">
-<h2>Variable collection types<a class="headerlink" href="#variable-collection-types" title="Link to this heading">#</a></h2>
-<p>To not only store single values in variables, Python also offers the possibility to store multiple values in a single variable. These are called collections. The most common collection types in Python are lists, tuples, sets, and dictionaries.</p>
-<section id="lists">
-<h3>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h3>
-<p>Lists are the most flexible way to store multiple variables. You can create a list by enclosing items in square brackets and separating them with commas:
-In the following code block, we define a list x that contains the numbers 1 to 5 as integers:</p>
+<section id="collections-fur-variablen">
+<h2>Collections für Variablen<a class="headerlink" href="#collections-fur-variablen" title="Link to this heading">#</a></h2>
+<p>Um nicht nur einzelne Werte in Variablen zu speichern, bietet Python die Möglichkeit, mehrere Werte in einer einzigen Variable zu speichern. Diese nennt man Collections. Die gängigsten Collection-Typen in Python sind Listen, Tupel, Sets und Dictionaries.</p>
+<section id="listen">
+<h3>Listen<a class="headerlink" href="#listen" title="Link to this heading">#</a></h3>
+<p>Listen sind die flexibelste Art, mehrere Variablen zu speichern. Du kannst eine Liste erstellen, indem du Elemente in eckige Klammern setzt und mit Kommas trennst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -687,11 +694,10 @@ In the following code block, we define a list x that contains the numbers 1 to 5
 </div>
 </div>
 </div>
-<p>You can access items in a list by referring to the index number.</p>
+<p>Auf Elemente in einer Liste kann über den Index zugegriffen werden.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Indexing
-Counterintuitively, the indexing in Python starts at 0. This means that the first element in a list has the index 0, the second element has the index 1, and so on.</p>
+<p>Ungewöhnlich ist, dass die Indexierung in Python bei 0 beginnt. Das heißt, das erste Element hat den Index 0, das zweite den Index 1 usw.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -706,7 +712,7 @@ Counterintuitively, the indexing in Python starts at 0. This means that the firs
 </div>
 </div>
 </div>
-<p>You can also use negative indexing to get items “from the back” of the list. By using the index -1, you can access the last item in the list. By using -2, you can access the second-to-last item, and so on.</p>
+<p>Man kann auch negative Indizes verwenden, um Elemente “von hinten” zu erhalten. Mit dem Index -1 bekommst du das letzte Element, mit -2 das vorletzte usw.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -722,7 +728,7 @@ Counterintuitively, the indexing in Python starts at 0. This means that the firs
 </div>
 </div>
 </div>
-<p>Lists are flexible. You can change a list at any time by adding, removing, or changing items. You can also add items to a list by using the <code class="docutils literal notranslate"><span class="pre">append()</span></code> method and remove items from a list by using the <code class="docutils literal notranslate"><span class="pre">remove()</span></code> method.</p>
+<p>Listen sind flexibel. Du kannst sie jederzeit verändern, indem du Elemente hinzufügst, entfernst oder änderst. Mit <code class="docutils literal notranslate"><span class="pre">append()</span></code> fügst du Elemente hinzu, mit <code class="docutils literal notranslate"><span class="pre">remove()</span></code> entfernst du sie.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -738,185 +744,12 @@ Counterintuitively, the indexing in Python starts at 0. This means that the firs
 </div>
 </div>
 </div>
-</section>
-<section id="tuples">
-<h3>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h3>
-<p>Tuples are the least flexible data type. Once a tuple is created, you cannot change its values.
-You should thus only use a tuple when you are sure that the data will not change.</p>
-<p>You can create a tuple by enclosing items in parentheses and separating them with commas:</p>
+<section id="ubung-1">
+<h4>Übung 1<a class="headerlink" href="#ubung-1" title="Link to this heading">#</a></h4>
+<p>Erstelle eine Liste mit den Zahlen 1 bis 10. Entferne dann die Zahl 5 und füge die Zahl 11 hinzu.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3, 4, 5)
-</pre></div>
-</div>
-</div>
-</div>
-<p>A unique feature of tuples is the ability to assign multiple variables at once. This is called tuple unpacking:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="sets">
-<h3>Sets<a class="headerlink" href="#sets" title="Link to this heading">#</a></h3>
-<p>Sets are unordered and unindexed. This means that you cannot access items in a set by referring to an index number.</p>
-<p>You can create a set by enclosing items in curly brackets and separating them with commas:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5}
-</pre></div>
-</div>
-</div>
-</div>
-<p>Set objects are always unique. You cannot have two items with the same value in a set.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5}
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can also use this feature to turn a list into a set and back to a list to remove duplicates:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5]
-</pre></div>
-</div>
-</div>
-</div>
-<p>A second great advantage of sets is the ability to almost instantaneously search for objects within a set. The difference in speed between searching for an object in a list and a set becomes more apparent, the larger the data set becomes.
-In the following code block, we define a set and then check if the number 3 is in the set. The code “3 in x” returns a boolean that is printed to the console:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="dictionaries">
-<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h3>
-<p>Dictionaries extend the concept of sets. While sets only contain values, dictionaries contain key-value pairs.
-That means that you are able to give each object you are interested in a unique identifier.</p>
-<p>In the following example you want to store the age of a person. You can do this by creating a dictionary with the name of the person as the key and the age as the value.
-By indexing the dictionary with the name of the person, you can access the age of the person.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dictionaries are very similar to sets: Firstly, they are unordered. This means that you cannot access items in a dictionary by referring to an index number. You must use the keys to index the elements.
-Secondly, they use a hash algorithm, just like sets, with which you can instantainously search for a key in a dictionary.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dictionaries are very flexible. You can add, remove, or change items at any time. You can also add items to a dictionary by using the key and the assignment operator and remove items from a dictionary by using the <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
-<span class="n">x</span><span class="p">[</span><span class="s2">&quot;David&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Alice&#39;: 25, &#39;Charlie&#39;: 35, &#39;David&#39;: 40}
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can get all keys or all values of a dictionary by using the <code class="docutils literal notranslate"><span class="pre">keys()</span></code> and <code class="docutils literal notranslate"><span class="pre">values()</span></code> methods, respectively.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;])
-dict_values([25, 30, 35])
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.</p>
-<section id="exercise-1">
-<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
-<p>Create a list that contains the numbers 1 to 10. Then, remove the number 5 from the list and add the number 11 to the list.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
 </pre></div>
 </div>
 </div>
@@ -943,12 +776,12 @@ dict_values([25, 30, 35])
 </details>
 </div>
 </section>
-<section id="exercise-2">
-<h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
-<p>Create a list that contains the numbers 1 to 3. Then append the String “Four” to the list. Finally, print the list.</p>
+<section id="ubung-2">
+<h4>Übung 2<a class="headerlink" href="#ubung-2" title="Link to this heading">#</a></h4>
+<p>Erstelle eine Liste mit den Zahlen 1 bis 3. Füge dann den String “Four” hinzu. Gib die Liste aus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
 </pre></div>
 </div>
 </div>
@@ -974,12 +807,112 @@ dict_values([25, 30, 35])
 </details>
 </div>
 </section>
-<section id="exercise-3">
-<h3>Exercise 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
-<p>Create a list that contains the numbers 1 to 3 twice. Turn this list into a list with only unique elements.</p>
+</section>
+<section id="tupel">
+<h3>Tupel<a class="headerlink" href="#tupel" title="Link to this heading">#</a></h3>
+<p>Tupel sind der unflexibelste Datentyp. Einmal erstellt, können ihre Werte nicht geändert werden.
+Du solltest Tupel nur verwenden, wenn die Daten garantiert gleich bleiben.</p>
+<p>Ein Tupel wird mit runden Klammern und Kommas erstellt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 2, 3, 4, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein einzigartiges Merkmal von Tupeln ist das sogenannte Tuple Unpacking, bei dem mehrere Variablen gleichzeitig zugewiesen werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sets">
+<h3>Sets<a class="headerlink" href="#sets" title="Link to this heading">#</a></h3>
+<p>Sets sind ungeordnet und nicht indexierbar. Du kannst also nicht mit einem Index auf Elemente zugreifen.</p>
+<p>Ein Set wird mit geschweiften Klammern und Kommas erstellt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alle Elemente in einem Set sind einzigartig. Doppelte Werte werden automatisch entfernt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1, 2, 3, 4, 5}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Du kannst das auch nutzen, um Duplikate aus einer Liste zu entfernen, indem du sie in ein Set und dann wieder in eine Liste konvertierst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein zweiter großer Vorteil von Sets ist die sehr schnelle Suche nach Elementen. Der Unterschied zur Liste wird bei großen Datenmengen deutlich:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ubung-3">
+<h4>Übung 3<a class="headerlink" href="#ubung-3" title="Link to this heading">#</a></h4>
+<p>Erstelle eine Liste, die die Zahlen 1 bis 3 zweimal enthält. Entferne die Duplikate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
 </pre></div>
 </div>
 </div>
@@ -1006,12 +939,77 @@ dict_values([25, 30, 35])
 </details>
 </div>
 </section>
-<section id="exercise-4">
-<h3>Exercise 4<a class="headerlink" href="#exercise-4" title="Link to this heading">#</a></h3>
-<p>Create a dictionary that contains the names “Alice”, “Bob” and “Charlie” as keys and their ages as values. Then, add anoter person with the name “David” with the same age as “Bob” to the dictionary. Then turn the values of the dictionary into a unique list.</p>
+</section>
+<section id="dictionaries">
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h3>
+<p>Dictionaries erweitern das Konzept von Sets. Während Sets nur Werte enthalten, bestehen Dictionaries aus Schlüssel-Wert-Paaren.
+Das bedeutet, dass du jedem Objekt eine eindeutige Kennung geben kannst.</p>
+<p>Im folgenden Beispiel speichern wir das Alter einer Person. Wir erstellen ein Dictionary mit dem Namen als Schlüssel und dem Alter als Wert:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dictionaries sind ähnlich wie Sets: Erstens sind sie ungeordnet. Du kannst also nicht per Index auf sie zugreifen, sondern musst den Schlüssel verwenden. Zweitens nutzen sie, wie Sets, Hashing, womit du blitzschnell auf einen Eintrag zugreifen kannst:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dictionaries sind sehr flexibel. Du kannst Elemente hinzufügen, ändern oder entfernen. Mit dem Zuweisungsoperator fügst du Werte hinzu, mit der Methode <code class="docutils literal notranslate"><span class="pre">pop()</span></code> entfernst du sie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
+<span class="n">x</span><span class="p">[</span><span class="s2">&quot;David&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Alice&#39;: 25, &#39;Charlie&#39;: 35, &#39;David&#39;: 40}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Du kannst mit <code class="docutils literal notranslate"><span class="pre">keys()</span></code> alle Schlüssel oder mit <code class="docutils literal notranslate"><span class="pre">values()</span></code> alle Werte eines Dictionaries ausgeben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;])
+dict_values([25, 30, 35])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ubung-4">
+<h4>Übung 4<a class="headerlink" href="#ubung-4" title="Link to this heading">#</a></h4>
+<p>Erstelle ein Dictionary mit den Namen “Alice”, “Bob” und “Charlie” als Schlüssel und deren Alter als Werte. Füge dann “David” mit dem gleichen Alter wie “Bob” hinzu. Wandle anschließend die Werte des Dictionaries in eine Liste mit eindeutigen Werten um.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dein Code hier</span>
 </pre></div>
 </div>
 </div>
@@ -1038,6 +1036,7 @@ dict_values([25, 30, 35])
 </div>
 </details>
 </div>
+</section>
 </section>
 </section>
 </section>
@@ -1077,15 +1076,15 @@ dict_values([25, 30, 35])
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">1. Arithmetics and variables</p>
+        <p class="prev-next-title">1. Arithmetik und Variablen</p>
       </div>
     </a>
     <a class="right-next"
-       href="loops.html"
+       href="modules.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3. Conditions and Loops</p>
+        <p class="prev-next-title">3. Module</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1105,24 +1104,27 @@ dict_values([25, 30, 35])
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-types">Variable types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-data-types">Numeric data types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablentypen">Variablentypen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerische-datentypen">Numerische Datentypen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-collection-types">Variable collection types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">Lists</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">Tuples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collections-fur-variablen">Collections für Variablen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen">Listen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-1">Übung 1</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-2">Übung 2</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">Exercise 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">Exercise 3</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4">Exercise 4</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tupel">Tupel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets">Sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-4">Übung 4</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1139,7 +1141,7 @@ dict_values([25, 30, 35])
   <div class="footer-item">
     
 <p class="component-author">
-By Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 </p>
 
   </div>

@@ -16,7 +16,7 @@ kernelspec:
   <a href="../en/installation.html">🇬🇧 English</a>
 </div>
 
-# 0. Installing Python, an IDE and packages
+# 8. Installing Python, an IDE and packages
 ## Installing Python
 To install Python on your local machine, you can either download the installer
 from the official website or install conda, which is a version manager for
@@ -107,7 +107,7 @@ to start the Jupyter Notebook server.
 ### 2) PyCharm
 PyCharm is a professional IDE, which is designed to work with larger projects. It follows a similar design pattern like the IDEs of other languages, such as R's RStudio. It provides you with a graphical user interface to write and run your code, and it is very well suited for working with multiple files and projects.
 It has an integrated debugger, which allows you to easily find and fix errors in your code. It also directly integrates conda into the IDE - you will not have to use the terminal to create new python environments, but can do it whenever you create a new project via the graphic interface.
-It is however not as beginner friendly, as it provides many expert features, which might be overwhelming for beginners.
+It is however not as beginner-friendly, as it provides many expert features, which might be overwhelming for beginners.
 
 To install PyCharm, please visit the [official PyCharm website](https://www.jetbrains.com/pycharm/download/) and download the version that you would like to use. You can choose between the free community edition and the professional edition.
 When logging into the jetbrains-website and linking it to your university account, you can use the professional edition for free.

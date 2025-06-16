@@ -11,31 +11,42 @@ kernelspec:
   language: python
   name: python3
 ---
+<div style="float: right;">
+  <a href="../de/structures.html" style="margin-left: 10px;">🇩🇪 Deutsch</a>
+  <a href="../en/structures.html">🇬🇧 English</a>
+</div>
 
-# 2. Data types
-In the last chapter, we learned that variables can be assigned a whole number, resulting in an integer variable.
-In Python, there are different types of data that can be stored in variables, an integer is just one of many forms a variable can take.
-In this chapter, we will introduce you to the most common data types in Python.
 
-## Variable types
-### Numeric data types
-In Python, there are two important numeric data types: integers ("int") and floating-point numbers ("float").
-Integers are whole numbers, while floating-point numbers are numbers with a decimal point.
+# 2. Datentypen
+
+Im letzten Kapitel haben wir gelernt, dass Variablen eine ganze Zahl zugewiesen werden kann, was zu einer Integer-Variable führt.
+In Python gibt es verschiedene Arten von Daten, die in Variablen gespeichert werden können. Ein Integer ist nur eine von vielen Formen, die eine Variable annehmen kann.
+In diesem Kapitel stellen wir dir die gängigsten Datentypen in Python vor.
+
+## Variablentypen
+
+### Numerische Datentypen
+
+In Python gibt es zwei wichtige numerische Datentypen: Ganzzahlen ("int") und Fließkommazahlen ("float").
+Ganzzahlen sind ganze Zahlen, während Fließkommazahlen Zahlen mit einem Dezimalpunkt sind.
+
 ```{note}
-Python is a dynamically typed language. This means that you do not need to declare the data type of a variable when you create one. Python will automatically infer the data type of the variable based on the value that you assign to it. This is true for all data types in Python, not just for numbers.
+Python ist eine dynamisch typisierte Sprache. Das bedeutet, dass du den Datentyp einer Variablen beim Erstellen nicht explizit angeben musst. Python erkennt automatisch den Datentyp der Variablen basierend auf dem zugewiesenen Wert. Das gilt für alle Datentypen in Python, nicht nur für Zahlen.
 ```
- ```{code-cell}
- x = 5
- y = 5.5
- print(type(x))
- print(type(y))
- ```
 
-````{margin} Be careful!
-Python will always try to detect what it deems to be the correct data type. This might lead to problems, when you want to have a specific data type, but Python converts your variables to a different type.
+```{code-cell}
+x = 5
+y = 5.5
+print(type(x))
+print(type(y))
+```
 
-Let's say, we want to only use integers in a division. But in a divison, Python always converts numbers to floating numbers. To correct this mistake Python does, we might want to type-cast the result back to an integer:
-````
+```{margin} Achtung!
+Python versucht immer, den seiner Meinung nach passenden Datentyp zu erkennen. Dies kann zu Problemen führen, wenn du einen bestimmten Datentyp verwenden willst, Python aber deine Variable in einen anderen Typ umwandelt.
+
+Angenommen, wir möchten bei einer Division nur Ganzzahlen verwenden. Aber bei einer Division wandelt Python Zahlen immer in Fließkommazahlen um. Um diesen Fehler zu korrigieren, können wir das Ergebnis zurück in einen Integer casten:
+```
+
 ```{code-cell}
 :tags: [margin]
 x = 10
@@ -45,12 +56,15 @@ print(z, type(z))
 z = int(z)
 print(z, type(z))
 ```
-````{margin}
-We see that the value does not change, but only the decimal point disappears. Type-casting is an advanced technique, and should only be used if you require one specific data type.
-You can read more about it [here](https://www.geeksforgeeks.org/type-conversion-python/). 
-````
-You can perform arithmetic operations on both types of numbers. 
-Python will automatically convert the result to the data type, it deems to be most appropriate:
+
+```{margin}
+Wir sehen, dass sich der Wert nicht ändert, sondern nur der Dezimalpunkt verschwindet. Type-Casting ist eine fortgeschrittene Technik und sollte nur verwendet werden, wenn du einen bestimmten Datentyp benötigst.
+Mehr dazu findest du [hier](https://www.geeksforgeeks.org/type-conversion-python/). 
+```
+
+Du kannst mit beiden Zahlentypen Rechenoperationen durchführen.
+Python konvertiert das Ergebnis automatisch in den Datentyp, den es für am geeignetsten hält:
+
 ```{code-cell}
 x = 5
 y = 5.5
@@ -59,10 +73,11 @@ print(type(x + y))
 print(type(y + y))
 ```
 
-
 ### Strings
-Strings are sequences of characters (letter, symbols, etc.). They can be created by enclosing characters in single or double quotes. You can also use triple quotes for multi-line strings.
-While these are three options to define a string, they ultimately all have the same data type:
+
+Strings sind Zeichenfolgen (Buchstaben, Symbole etc.). Sie können erstellt werden, indem man Zeichen in einfache oder doppelte Anführungszeichen einschließt. Für mehrzeilige Strings kann man auch dreifache Anführungszeichen verwenden.
+Alle drei Varianten ergeben denselben Datentyp:
+
 ```{code-cell}
 x = "Hello, World!"
 y = 'Hello, World!'
@@ -74,51 +89,62 @@ print(z, type(z))
 ```
 
 ### Booleans
-Booleans are a data type that can only take two values: `True` or `False`. They are used to represent the truth value of an expression. You can check the data type of a boolean using the `type()` function:
+
+Booleans sind ein Datentyp, der nur zwei Werte annehmen kann: `True` oder `False`. Sie repräsentieren den Wahrheitswert einer Aussage. Du kannst den Datentyp eines Booleans mit der Funktion `type()` überprüfen:
+
 ```{code-cell}
 x = True
 y = False
 print(type(x))
 print(type(y))
 ```
-We can also define a boolean relative to another variable. In the following code block, we define a boolean that checks if the number x is greater than 3. The result is then printed to the console:
+
+Wir können auch einen Boolean relativ zu einer anderen Variablen definieren. Im folgenden Codeblock überprüfen wir, ob x größer als 3 ist:
+
 ```{code-cell}
 x = 5
 y = x > 3
 print(y)
 ```
-You can alter the number that is assigned to x to see how the boolean changes.
 
-Booleans are often used in conditional statements, which we will discuss in a later chapter.
+Du kannst den Wert von x ändern, um zu sehen, wie sich der Boolean-Wert ändert.
 
-## Variable collection types
-To not only store single values in variables, Python also offers the possibility to store multiple values in a single variable. These are called collections. The most common collection types in Python are lists, tuples, sets, and dictionaries.
+Booleans werden häufig in Bedingungsanweisungen verwendet, die wir in einem späteren Kapitel behandeln.
 
-### Lists
-Lists are the most flexible way to store multiple variables. You can create a list by enclosing items in square brackets and separating them with commas:
-In the following code block, we define a list x that contains the numbers 1 to 5 as integers:
+## Collections für Variablen
+
+Um nicht nur einzelne Werte in Variablen zu speichern, bietet Python die Möglichkeit, mehrere Werte in einer einzigen Variable zu speichern. Diese nennt man Collections. Die gängigsten Collection-Typen in Python sind Listen, Tupel, Sets und Dictionaries.
+
+### Listen
+
+Listen sind die flexibelste Art, mehrere Variablen zu speichern. Du kannst eine Liste erstellen, indem du Elemente in eckige Klammern setzt und mit Kommas trennst:
+
 ```{code-cell}
 x = [1, 2, 3, 4, 5]
 print(x)
 ```
 
-You can access items in a list by referring to the index number.
-```{attention} Indexing
-Counterintuitively, the indexing in Python starts at 0. This means that the first element in a list has the index 0, the second element has the index 1, and so on.
+Auf Elemente in einer Liste kann über den Index zugegriffen werden.
+
+```{attention}
+Ungewöhnlich ist, dass die Indexierung in Python bei 0 beginnt. Das heißt, das erste Element hat den Index 0, das zweite den Index 1 usw.
 ```
+
 ```{code-cell}
 x = [1, 2, 3, 4, 5]
 print(x[0])
 ```
 
-You can also use negative indexing to get items "from the back" of the list. By using the index -1, you can access the last item in the list. By using -2, you can access the second-to-last item, and so on.
+Man kann auch negative Indizes verwenden, um Elemente "von hinten" zu erhalten. Mit dem Index -1 bekommst du das letzte Element, mit -2 das vorletzte usw.
+
 ```{code-cell}
 x = [1, 2, 3, 4, 5]
 print(x[-1])
 print(x[-2])
 ```
 
-Lists are flexible. You can change a list at any time by adding, removing, or changing items. You can also add items to a list by using the `append()` method and remove items from a list by using the `remove()` method.
+Listen sind flexibel. Du kannst sie jederzeit verändern, indem du Elemente hinzufügst, entfernst oder änderst. Mit `append()` fügst du Elemente hinzu, mit `remove()` entfernst du sie.
+
 ```{code-cell}
 x = [1, 2, 3, 4, 5]
 x.append(6)
@@ -126,95 +152,14 @@ x.remove(2)
 print(x)
 ```
 
-### Tuples
-Tuples are the least flexible data type. Once a tuple is created, you cannot change its values. 
-You should thus only use a tuple when you are sure that the data will not change.
+#### Übung 1
 
-You can create a tuple by enclosing items in parentheses and separating them with commas:
+Erstelle eine Liste mit den Zahlen 1 bis 10. Entferne dann die Zahl 5 und füge die Zahl 11 hinzu.
+
 ```{code-cell}
-x = (1, 2, 3, 4, 5)
-print(x)
+# Dein Code hier
 ```
 
-A unique feature of tuples is the ability to assign multiple variables at once. This is called tuple unpacking:
-```{code-cell}
-x = (1, 2, 3)
-a, b, c = x
-print(a)
-print(b)
-print(c)
-```
-
-
-### Sets
-Sets are unordered and unindexed. This means that you cannot access items in a set by referring to an index number.
-
-You can create a set by enclosing items in curly brackets and separating them with commas:
-```{code-cell}
-x = {1, 2, 3, 4, 5}
-print(x)
-```
-
-Set objects are always unique. You cannot have two items with the same value in a set.
-```{code-cell}
-x = {1, 2, 3, 4, 5, 5}
-print(x)
-```
-You can also use this feature to turn a list into a set and back to a list to remove duplicates:
-```{code-cell}
-x = [1, 2, 3, 1, 4, 5]
-x = set(x)
-x = list(x)
-print(x)
-```
-
-A second great advantage of sets is the ability to almost instantaneously search for objects within a set. The difference in speed between searching for an object in a list and a set becomes more apparent, the larger the data set becomes.
-In the following code block, we define a set and then check if the number 3 is in the set. The code "3 in x" returns a boolean that is printed to the console:
-```{code-cell}
-x = {1, 2, 3, 4, 5}
-print(3 in x)
-```
-
-### Dictionaries
-Dictionaries extend the concept of sets. While sets only contain values, dictionaries contain key-value pairs.
-That means that you are able to give each object you are interested in a unique identifier. 
-
-In the following example you want to store the age of a person. You can do this by creating a dictionary with the name of the person as the key and the age as the value.
-By indexing the dictionary with the name of the person, you can access the age of the person.
-```{code-cell}
-x = {"Alice": 25, "Bob": 30, "Charlie": 35}
-print(x["Alice"])
-```
-Dictionaries are very similar to sets: Firstly, they are unordered. This means that you cannot access items in a dictionary by referring to an index number. You must use the keys to index the elements.
-Secondly, they use a hash algorithm, just like sets, with which you can instantainously search for a key in a dictionary.
-```{code-cell}
-x = {"Alice": 25, "Bob": 30, "Charlie": 35}
-print("Alice" in x)
-```
-
-Dictionaries are very flexible. You can add, remove, or change items at any time. You can also add items to a dictionary by using the key and the assignment operator and remove items from a dictionary by using the `pop()` method.
-```{code-cell}
-x = {"Alice": 25, "Bob": 30, "Charlie": 35}
-x["David"] = 40
-x.pop("Bob")
-print(x)
-``` 
-
-You can get all keys or all values of a dictionary by using the `keys()` and `values()` methods, respectively.
-```{code-cell}
-x = {"Alice": 25, "Bob": 30, "Charlie": 35}
-print(x.keys())
-print(x.values())
-```
-
-## Exercises
-Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.
-
-### Exercise 1
-Create a list that contains the numbers 1 to 10. Then, remove the number 5 from the list and add the number 11 to the list.
-```{code-cell}
-# Your code here
-```
 ```{code-cell}
 :tags: ["hide-cell"]
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -223,11 +168,14 @@ x.append(11)
 print(x)
 ```
 
-### Exercise 2
-Create a list that contains the numbers 1 to 3. Then append the String "Four" to the list. Finally, print the list.
+#### Übung 2
+
+Erstelle eine Liste mit den Zahlen 1 bis 3. Füge dann den String "Four" hinzu. Gib die Liste aus.
+
 ```{code-cell}
-# Your code here
+# Dein Code hier
 ```
+
 ```{code-cell}
 :tags: ["hide-cell"]
 x = [1, 2, 3]
@@ -235,12 +183,70 @@ x.append("Four")
 print(x)
 ```
 
+### Tupel
 
-### Exercise 3
-Create a list that contains the numbers 1 to 3 twice. Turn this list into a list with only unique elements.
+Tupel sind der unflexibelste Datentyp. Einmal erstellt, können ihre Werte nicht geändert werden.
+Du solltest Tupel nur verwenden, wenn die Daten garantiert gleich bleiben.
+
+Ein Tupel wird mit runden Klammern und Kommas erstellt:
+
 ```{code-cell}
-# Your code here
+x = (1, 2, 3, 4, 5)
+print(x)
 ```
+
+Ein einzigartiges Merkmal von Tupeln ist das sogenannte Tuple Unpacking, bei dem mehrere Variablen gleichzeitig zugewiesen werden:
+
+```{code-cell}
+x = (1, 2, 3)
+a, b, c = x
+print(a)
+print(b)
+print(c)
+```
+
+### Sets
+
+Sets sind ungeordnet und nicht indexierbar. Du kannst also nicht mit einem Index auf Elemente zugreifen.
+
+Ein Set wird mit geschweiften Klammern und Kommas erstellt:
+
+```{code-cell}
+x = {1, 2, 3, 4, 5}
+print(x)
+```
+
+Alle Elemente in einem Set sind einzigartig. Doppelte Werte werden automatisch entfernt:
+
+```{code-cell}
+x = {1, 2, 3, 4, 5, 5}
+print(x)
+```
+
+Du kannst das auch nutzen, um Duplikate aus einer Liste zu entfernen, indem du sie in ein Set und dann wieder in eine Liste konvertierst:
+
+```{code-cell}
+x = [1, 2, 3, 1, 4, 5]
+x = set(x)
+x = list(x)
+print(x)
+```
+
+Ein zweiter großer Vorteil von Sets ist die sehr schnelle Suche nach Elementen. Der Unterschied zur Liste wird bei großen Datenmengen deutlich:
+
+```{code-cell}
+x = {1, 2, 3, 4, 5}
+print(3 in x)
+```
+
+#### Übung 3
+
+Erstelle eine Liste, die die Zahlen 1 bis 3 zweimal enthält. Entferne die Duplikate.
+
+```{code-cell}
+# Dein Code hier
+```
+
 ```{code-cell}
 :tags: ["hide-cell"]
 x = [1, 2, 3, 1, 2, 3]
@@ -249,11 +255,50 @@ x = list(x)
 print(x)
 ```
 
-### Exercise 4
-Create a dictionary that contains the names "Alice", "Bob" and "Charlie" as keys and their ages as values. Then, add anoter person with the name "David" with the same age as "Bob" to the dictionary. Then turn the values of the dictionary into a unique list. 
+### Dictionaries
+
+Dictionaries erweitern das Konzept von Sets. Während Sets nur Werte enthalten, bestehen Dictionaries aus Schlüssel-Wert-Paaren.
+Das bedeutet, dass du jedem Objekt eine eindeutige Kennung geben kannst.
+
+Im folgenden Beispiel speichern wir das Alter einer Person. Wir erstellen ein Dictionary mit dem Namen als Schlüssel und dem Alter als Wert:
+
 ```{code-cell}
-# Your code here
+x = {"Alice": 25, "Bob": 30, "Charlie": 35}
+print(x["Alice"])
 ```
+
+Dictionaries sind ähnlich wie Sets: Erstens sind sie ungeordnet. Du kannst also nicht per Index auf sie zugreifen, sondern musst den Schlüssel verwenden. Zweitens nutzen sie, wie Sets, Hashing, womit du blitzschnell auf einen Eintrag zugreifen kannst:
+
+```{code-cell}
+x = {"Alice": 25, "Bob": 30, "Charlie": 35}
+print("Alice" in x)
+```
+
+Dictionaries sind sehr flexibel. Du kannst Elemente hinzufügen, ändern oder entfernen. Mit dem Zuweisungsoperator fügst du Werte hinzu, mit der Methode `pop()` entfernst du sie:
+
+```{code-cell}
+x = {"Alice": 25, "Bob": 30, "Charlie": 35}
+x["David"] = 40
+x.pop("Bob")
+print(x)
+```
+
+Du kannst mit `keys()` alle Schlüssel oder mit `values()` alle Werte eines Dictionaries ausgeben:
+
+```{code-cell}
+x = {"Alice": 25, "Bob": 30, "Charlie": 35}
+print(x.keys())
+print(x.values())
+```
+
+#### Übung 4
+
+Erstelle ein Dictionary mit den Namen "Alice", "Bob" und "Charlie" als Schlüssel und deren Alter als Werte. Füge dann "David" mit dem gleichen Alter wie "Bob" hinzu. Wandle anschließend die Werte des Dictionaries in eine Liste mit eindeutigen Werten um.
+
+```{code-cell}
+# Dein Code hier
+```
+
 ```{code-cell}
 :tags: ["hide-cell"]
 x = {"Alice": 25, "Bob": 30, "Charlie": 35}
@@ -262,5 +307,3 @@ y = x.values()
 y = list(set(y))
 print(y)
 ```
-
-

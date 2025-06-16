@@ -129,6 +129,31 @@ x.append(6)
 x.remove(2)
 print(x)
 ```
+#### Exercise 1
+Create a list that contains the numbers 1 to 10. Then, remove the number 5 from the list and add the number 11 to the list.
+```{code-cell}
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+x.remove(5)
+x.append(11)
+print(x)
+```
+
+
+#### Exercise 2
+Create a list that contains the numbers 1 to 3. Then append the String "Four" to the list. Finally, print the list.
+```{code-cell}
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+x = [1, 2, 3]
+x.append("Four")
+print(x)
+```
 
 ### Tuples
 Tuples are the least flexible data type. Once a tuple is created, you cannot change its values. 
@@ -179,6 +204,21 @@ x = {1, 2, 3, 4, 5}
 print(3 in x)
 ```
 
+
+#### Exercise 3
+Create a list that contains the numbers 1 to 3 twice. Turn this list into a list with only unique elements.
+```{code-cell}
+# Your code here
+```
+```{code-cell}
+:tags: ["hide-cell"]
+x = [1, 2, 3, 1, 2, 3]
+x = set(x)
+x = list(x)
+print(x)
+```
+
+
 ### Dictionaries
 Dictionaries extend the concept of sets. While sets only contain values, dictionaries contain key-value pairs.
 That means that you are able to give each object you are interested in a unique identifier. 
@@ -211,49 +251,7 @@ print(x.keys())
 print(x.values())
 ```
 
-## Exercises
-Now it is your turn! Solve the following exercise and click on the hidden code cell below to view the solution.
-
-### Exercise 1
-Create a list that contains the numbers 1 to 10. Then, remove the number 5 from the list and add the number 11 to the list.
-```{code-cell}
-# Your code here
-```
-```{code-cell}
-:tags: ["hide-cell"]
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-x.remove(5)
-x.append(11)
-print(x)
-```
-
-### Exercise 2
-Create a list that contains the numbers 1 to 3. Then append the String "Four" to the list. Finally, print the list.
-```{code-cell}
-# Your code here
-```
-```{code-cell}
-:tags: ["hide-cell"]
-x = [1, 2, 3]
-x.append("Four")
-print(x)
-```
-
-
-### Exercise 3
-Create a list that contains the numbers 1 to 3 twice. Turn this list into a list with only unique elements.
-```{code-cell}
-# Your code here
-```
-```{code-cell}
-:tags: ["hide-cell"]
-x = [1, 2, 3, 1, 2, 3]
-x = set(x)
-x = list(x)
-print(x)
-```
-
-### Exercise 4
+#### Exercise 4
 Create a dictionary that contains the names "Alice", "Bob" and "Charlie" as keys and their ages as values. Then, add anoter person with the name "David" with the same age as "Bob" to the dictionary. Then turn the values of the dictionary into a unique list. 
 ```{code-cell}
 # Your code here
@@ -266,5 +264,6 @@ y = x.values()
 y = list(set(y))
 print(y)
 ```
+
 
 
