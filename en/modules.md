@@ -17,7 +17,7 @@ kernelspec:
   <a href="../en/modules.html">🇬🇧 English</a>
 </div>
 
-# 5. Modules
+# 3. Modules
 While basically anything can be coded from scratch in Python, it is wise to first see if someone has already implemented what you are trying to do. That can save time and effort and the implementation is hopefully done well from someone confident enough to share their code online.
 
 To use functions, classes and other code that has been published online, you must import their respective modules.

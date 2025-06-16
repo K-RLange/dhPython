@@ -16,7 +16,7 @@ kernelspec:
   <a href="../en/pandas.html">🇬🇧 English</a>
 </div>
 
-# 6. pandas and matplotlib
+# 4. pandas and matplotlib
 Remember the library we installed in the last chapter? That library is called pandas and is arguably the most commonly used library in Python. It allows us to turn any data into a table, which we can then plot and analyze.
 
 Let's look at it in action:

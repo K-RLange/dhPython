@@ -7,8 +7,8 @@ chapters:
 - file: installation
 - file: arithmetics
 - file: structures
-- file: loops
-- file: functions
 - file: modules
 - file: pandas
 - file: data_processing
+- file: loops
+- file: functions

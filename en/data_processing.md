@@ -16,7 +16,7 @@ kernelspec:
   <a href="../en/data_processing.html">🇬🇧 English</a>
 </div>
 
-# 7. Descriptive data analysis
+# 5. Descriptive data analysis
 
 ## What do we use Python for?
 In ‘DaLi topic 1: Basics of data evaluation’, the most important forms of visualisation and key figures required for 
@@ -84,7 +84,8 @@ skim(tips)
     --warning: #facc15;
   }
 
-  #quiz-container {
+  /* Quiz 1 Container */
+  #quiz1-container {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -96,19 +97,18 @@ skim(tips)
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;
   }
-
-  #quiz-container:hover {
+  #quiz1-container:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  #quiz-container p.question {
+  #quiz1-container p.question {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
-  /* Make label a flex container so radio and text align */
-  #quiz-form label {
+  /* Flex labels for Quiz 1 */
+  #quiz1-form label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -120,19 +120,17 @@ skim(tips)
     cursor: pointer;
     transition: all 0.25s ease;
   }
-
-  #quiz-form label:hover {
+  #quiz1-form label:hover {
     background-color: #e0e7ff;
     border-color: var(--accent);
   }
 
-  #quiz-form input[type="radio"] {
+  #quiz1-form input[type="radio"] {
     transform: scale(1.2);
     accent-color: var(--accent);
   }
 
-  /* Ensure any <pre> code stays inline */
-  #quiz-form pre {
+  #quiz1-form pre {
     margin: 0;
     background-color: transparent !important;
     border: none !important;
@@ -143,7 +141,7 @@ skim(tips)
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #quiz-form button {
+  #quiz1-form button {
     margin-top: 1.5rem;
     background-color: var(--accent);
     color: white;
@@ -155,12 +153,11 @@ skim(tips)
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #quiz-form button:hover {
+  #quiz1-form button:hover {
     background-color: #4338ca;
   }
 
-  #quiz-feedback {
+  #quiz1-feedback {
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -168,19 +165,16 @@ skim(tips)
     font-size: 1rem;
     display: inline-block;
   }
-
   .success {
     background-color: #dcfce7;
     color: var(--success);
     border: 1px solid var(--success);
   }
-
   .error {
     background-color: #fee2e2;
     color: var(--error);
     border: 1px solid var(--error);
   }
-
   .warning {
     background-color: #fef9c3;
     color: var(--warning);
@@ -188,54 +182,42 @@ skim(tips)
   }
 </style>
 
-<div id="quiz-container">
+<div id="quiz1-container">
   <p class="question">🧠 What was the maximum tip amount, in dollars, that the waiter received and recorded?</p>
-  <form id="quiz-form">
+  <form id="quiz1-form">
     <label>
-      <input type="radio" name="answer" value="a">
+      <input type="radio" name="answer1" value="a">
       <pre><code>$6</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="b">
+      <input type="radio" name="answer1" value="b">
       <pre><code>$10</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="c">
+      <input type="radio" name="answer1" value="c">
       <pre><code>$12</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="d">
+      <input type="radio" name="answer1" value="d">
       <pre><code>$20</code></pre>
     </label>
 
-    <button type="button" onclick="checkAnswer()">Submit Answer</button>
-    <p id="quiz-feedback"></p>
+    <button type="button" onclick="checkAnswer1()">Submit Answer</button>
+    <p id="quiz1-feedback"></p>
   </form>
 </div>
 
 <script>
-  function checkAnswer() {
-    const answers = {
-      a: {
-        correct: false,
-        feedback: "❌ The maximum recorded tip was higher than $6."
-      },
-      b: {
-        correct: true,
-        feedback: "✅ Correct! The highest tip documented was $10."
-      },
-      c: {
-        correct: false,
-        feedback: "❌ Not quite. It wasn't $12."
-      },
-      d: {
-        correct: false,
-        feedback: "❌ No, the maximum tip recorded was not $20."
-      }
+  function checkAnswer1() {
+    const answers1 = {
+      a: { correct: false, feedback: "❌ The maximum recorded tip was higher than $6." },
+      b: { correct: true,  feedback: "✅ Correct! The highest tip documented was $10." },
+      c: { correct: false, feedback: "❌ Not quite. It wasn't $12." },
+      d: { correct: false, feedback: "❌ No, the maximum tip recorded was not $20." }
     };
 
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("quiz-feedback");
+    const selected = document.querySelector('input[name="answer1"]:checked');
+    const feedback = document.getElementById("quiz1-feedback");
 
     if (!selected) {
       feedback.textContent = "⚠️ Please select an answer before submitting.";
@@ -243,7 +225,7 @@ skim(tips)
       return;
     }
 
-    const result = answers[selected.value];
+    const result = answers1[selected.value];
     feedback.textContent = result.feedback;
     feedback.className = result.correct ? "success" : "error";
   }
@@ -320,7 +302,8 @@ plt.show()
     --warning: #facc15;
   }
 
-  #quiz-container {
+  /* Quiz 2 Container */
+  #quiz2-container {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -332,18 +315,18 @@ plt.show()
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;
   }
-
-  #quiz-container:hover {
+  #quiz2-container:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  #quiz-container p.question {
+  #quiz2-container p.question {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
-  #quiz-form label {
+  /* Flex labels for Quiz 2 */
+  #quiz2-form label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -355,18 +338,17 @@ plt.show()
     cursor: pointer;
     transition: all 0.25s ease;
   }
-
-  #quiz-form label:hover {
+  #quiz2-form label:hover {
     background-color: #e0e7ff;
     border-color: var(--accent);
   }
 
-  #quiz-form input[type="radio"] {
+  #quiz2-form input[type="radio"] {
     transform: scale(1.2);
     accent-color: var(--accent);
   }
 
-  #quiz-form pre {
+  #quiz2-form pre {
     margin: 0;
     background-color: transparent !important;
     border: none !important;
@@ -377,7 +359,7 @@ plt.show()
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #quiz-form button {
+  #quiz2-form button {
     margin-top: 1.5rem;
     background-color: var(--accent);
     color: white;
@@ -389,12 +371,11 @@ plt.show()
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #quiz-form button:hover {
+  #quiz2-form button:hover {
     background-color: #4338ca;
   }
 
-  #quiz-feedback {
+  #quiz2-feedback {
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -408,13 +389,11 @@ plt.show()
     color: var(--success);
     border: 1px solid var(--success);
   }
-
   .error {
     background-color: #fee2e2;
     color: var(--error);
     border: 1px solid var(--error);
   }
-
   .warning {
     background-color: #fef9c3;
     color: var(--warning);
@@ -422,46 +401,37 @@ plt.show()
   }
 </style>
 
-<div id="quiz-container">
+<div id="quiz2-container">
   <p class="question">🧠 During lunch the number of female and male guests who paid was roughly equal, but at dinner male guests paid for the meal significantly more often (more than twice as many). True or false?</p>
-  <form id="quiz-form">
+  <form id="quiz2-form">
     <label>
-      <input type="radio" name="answer" value="a">
+      <input type="radio" name="answer2" value="a">
       <pre><code>True</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="b">
+      <input type="radio" name="answer2" value="b">
       <pre><code>False</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="c">
+      <input type="radio" name="answer2" value="c">
       <pre><code>Cannot determine from data</code></pre>
     </label>
 
-    <button type="button" onclick="checkAnswer()">Submit Answer</button>
-    <p id="quiz-feedback"></p>
+    <button type="button" onclick="checkAnswer2()">Submit Answer</button>
+    <p id="quiz2-feedback"></p>
   </form>
 </div>
 
 <script>
-  function checkAnswer() {
-    const answers = {
-      a: {
-        correct: true,
-        feedback: "✅ Correct! Significantly more male guests paid at dinner (over twice as many)."
-      },
-      b: {
-        correct: false,
-        feedback: "❌ Incorrect. The statement is supported by the data."
-      },
-      c: {
-        correct: false,
-        feedback: "❌ The data do allow us to conclude that male guests paid more than twice as often at dinner."
-      }
+  function checkAnswer2() {
+    const answers2 = {
+      a: { correct: true,  feedback: "✅ Correct! Significantly more male guests paid at dinner (over twice as many)." },
+      b: { correct: false, feedback: "❌ Incorrect. The data do support the statement." },
+      c: { correct: false, feedback: "❌ You can determine from the data that male guests paid more than twice as often at dinner." }
     };
 
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("quiz-feedback");
+    const selected = document.querySelector('input[name="answer2"]:checked');
+    const feedback = document.getElementById("quiz2-feedback");
 
     if (!selected) {
       feedback.textContent = "⚠️ Please select an answer before submitting.";
@@ -469,7 +439,7 @@ plt.show()
       return;
     }
 
-    const result = answers[selected.value];
+    const result = answers2[selected.value];
     feedback.textContent = result.feedback;
     feedback.className = result.correct ? "success" : "error";
   }
@@ -539,7 +509,8 @@ plt.show()
     --warning: #facc15;
   }
 
-  #quiz-container {
+  /* Quiz 3 Container */
+  #quiz3-container {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -551,18 +522,18 @@ plt.show()
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;
   }
-
-  #quiz-container:hover {
+  #quiz3-container:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  #quiz-container p.question {
+  #quiz3-container p.question {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
-  #quiz-form label {
+  /* Flex labels for Quiz 3 */
+  #quiz3-form label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -574,18 +545,17 @@ plt.show()
     cursor: pointer;
     transition: all 0.25s ease;
   }
-
-  #quiz-form label:hover {
+  #quiz3-form label:hover {
     background-color: #e0e7ff;
     border-color: var(--accent);
   }
 
-  #quiz-form input[type="radio"] {
+  #quiz3-form input[type="radio"] {
     transform: scale(1.2);
     accent-color: var(--accent);
   }
 
-  #quiz-form pre {
+  #quiz3-form pre {
     margin: 0;
     background-color: transparent !important;
     border: none !important;
@@ -596,7 +566,7 @@ plt.show()
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #quiz-form button {
+  #quiz3-form button {
     margin-top: 1.5rem;
     background-color: var(--accent);
     color: white;
@@ -608,12 +578,11 @@ plt.show()
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #quiz-form button:hover {
+  #quiz3-form button:hover {
     background-color: #4338ca;
   }
 
-  #quiz-feedback {
+  #quiz3-feedback {
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -627,13 +596,11 @@ plt.show()
     color: var(--success);
     border: 1px solid var(--success);
   }
-
   .error {
     background-color: #fee2e2;
     color: var(--error);
     border: 1px solid var(--error);
   }
-
   .warning {
     background-color: #fef9c3;
     color: var(--warning);
@@ -641,54 +608,42 @@ plt.show()
   }
 </style>
 
-<div id="quiz-container">
+<div id="quiz3-container">
   <p class="question">🧠 What was the tip amount for a bill of approximately $48? (Approximate reading is sufficient)</p>
-  <form id="quiz-form">
+  <form id="quiz3-form">
     <label>
-      <input type="radio" name="answer" value="a">
+      <input type="radio" name="answer3" value="a">
       <pre><code>$11</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="b">
+      <input type="radio" name="answer3" value="b">
       <pre><code>$3, $5, and $8</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="c">
+      <input type="radio" name="answer3" value="c">
       <pre><code>$5, $7, and $9</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="d">
+      <input type="radio" name="answer3" value="d">
       <pre><code>None of the above</code></pre>
     </label>
 
-    <button type="button" onclick="checkAnswer()">Submit Answer</button>
-    <p id="quiz-feedback"></p>
+    <button type="button" onclick="checkAnswer3()">Submit Answer</button>
+    <p id="quiz3-feedback"></p>
   </form>
 </div>
 
 <script>
-  function checkAnswer() {
-    const answers = {
-      a: {
-        correct: false,
-        feedback: "❌ Not correct. The tip values at $48 were lower."
-      },
-      b: {
-        correct: false,
-        feedback: "❌ Incorrect. You can see $3, $5, and $8 are not the only ones."
-      },
-      c: {
-        correct: true,
-        feedback: "✅ Correct! The tips were approximately $5, $7, and $9."
-      },
-      d: {
-        correct: false,
-        feedback: "❌ There is a valid answer: it was $5, $7, and $9."
-      }
+  function checkAnswer3() {
+    const answers3 = {
+      a: { correct: false, feedback: "❌ Not correct. The tip values at $48 were lower." },
+      b: { correct: false, feedback: "❌ Incorrect. You can see $3, $5, and $8 are not the only ones." },
+      c: { correct: true,  feedback: "✅ Correct! The tips were approximately $5, $7, and $9." },
+      d: { correct: false, feedback: "❌ There is a valid answer: it was $5, $7, and $9." }
     };
 
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("quiz-feedback");
+    const selected = document.querySelector('input[name="answer3"]:checked');
+    const feedback = document.getElementById("quiz3-feedback");
 
     if (!selected) {
       feedback.textContent = "⚠️ Please select an answer before submitting.";
@@ -696,7 +651,7 @@ plt.show()
       return;
     }
 
-    const result = answers[selected.value];
+    const result = answers3[selected.value];
     feedback.textContent = result.feedback;
     feedback.className = result.correct ? "success" : "error";
   }

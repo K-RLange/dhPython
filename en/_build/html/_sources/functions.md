@@ -16,7 +16,7 @@ kernelspec:
   <a href="../en/functions.html">🇬🇧 English</a>
 </div>
 
-# 4. Functions and Classes
+# 7. Functions and Classes
 Functions and Classes are Python's primary way to store code blocks for repeated executions.
 
 ## Functions

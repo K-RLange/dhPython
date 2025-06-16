@@ -16,7 +16,7 @@ kernelspec:
   <a href="../en/loops.html">🇬🇧 English</a>
 </div>
 
-# 3. Conditions and Loops
+# 6. Conditions and Loops
 Programming often does not stop at creating variables. In many cases, you want to perform certain actions only under specific conditions or you want to repeat certain actions multiple times. This is where conditions and loops come into play.
 
 ## Conditions

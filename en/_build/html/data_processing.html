@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Descriptive data analysis &#8212; Digital Humanities Python Tutorial</title>
+    <title>5. Descriptive data analysis &#8212; Digital Humanities Python Tutorial</title>
   
   
   
@@ -70,7 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="6. pandas and matplotlib" href="pandas.html" />
+    <link rel="next" title="6. Conditions and Loops" href="loops.html" />
+    <link rel="prev" title="4. pandas and matplotlib" href="pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Python for digital humanities
+                    Python course - Data Literacy @TU Dortmund
                 </a>
             </li>
         </ul>
@@ -192,11 +193,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="installation.html">0. Installing Python, an IDE and packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arithmetics.html">1. Arithmetics and variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="structures.html">2. Data types</a></li>
-<li class="toctree-l1"><a class="reference internal" href="loops.html">3. Conditions and Loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="functions.html">4. Functions and Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">5. Modules</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pandas.html">6. pandas and matplotlib</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Descriptive data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">3. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">4. pandas and matplotlib</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Descriptive data analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loops.html">6. Conditions and Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">7. Functions and Classes</a></li>
 </ul>
 
     </div>
@@ -484,7 +485,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>7. Descriptive data analysis</h1>
+    <h1>5. Descriptive data analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -530,7 +531,7 @@ document.write(`
   <a href="../en/data_processing.html">🇬🇧 English</a>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="descriptive-data-analysis">
-<h1>7. Descriptive data analysis<a class="headerlink" href="#descriptive-data-analysis" title="Link to this heading">#</a></h1>
+<h1>5. Descriptive data analysis<a class="headerlink" href="#descriptive-data-analysis" title="Link to this heading">#</a></h1>
 <section id="what-do-we-use-python-for">
 <h2>What do we use Python for?<a class="headerlink" href="#what-do-we-use-python-for" title="Link to this heading">#</a></h2>
 <p>In ‘DaLi topic 1: Basics of data evaluation’, the most important forms of visualisation and key figures required for
@@ -795,7 +796,8 @@ memory usage: 13.5+ KB
     --warning: #facc15;
   }
 
-  #quiz-container {
+  /* Quiz 1 Container */
+  #quiz1-container {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -807,19 +809,18 @@ memory usage: 13.5+ KB
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;
   }
-
-  #quiz-container:hover {
+  #quiz1-container:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  #quiz-container p.question {
+  #quiz1-container p.question {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
-  /* Make label a flex container so radio and text align */
-  #quiz-form label {
+  /* Flex labels for Quiz 1 */
+  #quiz1-form label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -831,19 +832,17 @@ memory usage: 13.5+ KB
     cursor: pointer;
     transition: all 0.25s ease;
   }
-
-  #quiz-form label:hover {
+  #quiz1-form label:hover {
     background-color: #e0e7ff;
     border-color: var(--accent);
   }
 
-  #quiz-form input[type="radio"] {
+  #quiz1-form input[type="radio"] {
     transform: scale(1.2);
     accent-color: var(--accent);
   }
 
-  /* Ensure any <pre> code stays inline */
-  #quiz-form pre {
+  #quiz1-form pre {
     margin: 0;
     background-color: transparent !important;
     border: none !important;
@@ -854,7 +853,7 @@ memory usage: 13.5+ KB
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #quiz-form button {
+  #quiz1-form button {
     margin-top: 1.5rem;
     background-color: var(--accent);
     color: white;
@@ -866,12 +865,11 @@ memory usage: 13.5+ KB
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #quiz-form button:hover {
+  #quiz1-form button:hover {
     background-color: #4338ca;
   }
 
-  #quiz-feedback {
+  #quiz1-feedback {
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -879,19 +877,16 @@ memory usage: 13.5+ KB
     font-size: 1rem;
     display: inline-block;
   }
-
   .success {
     background-color: #dcfce7;
     color: var(--success);
     border: 1px solid var(--success);
   }
-
   .error {
     background-color: #fee2e2;
     color: var(--error);
     border: 1px solid var(--error);
   }
-
   .warning {
     background-color: #fef9c3;
     color: var(--warning);
@@ -899,54 +894,42 @@ memory usage: 13.5+ KB
   }
 </style>
 
-<div id="quiz-container">
+<div id="quiz1-container">
   <p class="question">🧠 What was the maximum tip amount, in dollars, that the waiter received and recorded?</p>
-  <form id="quiz-form">
+  <form id="quiz1-form">
     <label>
-      <input type="radio" name="answer" value="a">
+      <input type="radio" name="answer1" value="a">
       <pre><code>$6</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="b">
+      <input type="radio" name="answer1" value="b">
       <pre><code>$10</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="c">
+      <input type="radio" name="answer1" value="c">
       <pre><code>$12</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="d">
+      <input type="radio" name="answer1" value="d">
       <pre><code>$20</code></pre>
     </label>
 
-    <button type="button" onclick="checkAnswer()">Submit Answer</button>
-    <p id="quiz-feedback"></p>
+    <button type="button" onclick="checkAnswer1()">Submit Answer</button>
+    <p id="quiz1-feedback"></p>
   </form>
 </div>
 
 <script>
-  function checkAnswer() {
-    const answers = {
-      a: {
-        correct: false,
-        feedback: "❌ The maximum recorded tip was higher than $6."
-      },
-      b: {
-        correct: true,
-        feedback: "✅ Correct! The highest tip documented was $10."
-      },
-      c: {
-        correct: false,
-        feedback: "❌ Not quite. It wasn't $12."
-      },
-      d: {
-        correct: false,
-        feedback: "❌ No, the maximum tip recorded was not $20."
-      }
+  function checkAnswer1() {
+    const answers1 = {
+      a: { correct: false, feedback: "❌ The maximum recorded tip was higher than $6." },
+      b: { correct: true,  feedback: "✅ Correct! The highest tip documented was $10." },
+      c: { correct: false, feedback: "❌ Not quite. It wasn't $12." },
+      d: { correct: false, feedback: "❌ No, the maximum tip recorded was not $20." }
     };
 
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("quiz-feedback");
+    const selected = document.querySelector('input[name="answer1"]:checked');
+    const feedback = document.getElementById("quiz1-feedback");
 
     if (!selected) {
       feedback.textContent = "⚠️ Please select an answer before submitting.";
@@ -954,7 +937,7 @@ memory usage: 13.5+ KB
       return;
     }
 
-    const result = answers[selected.value];
+    const result = answers1[selected.value];
     feedback.textContent = result.feedback;
     feedback.className = result.correct ? "success" : "error";
   }
@@ -1041,7 +1024,8 @@ result is two side-by-side bar charts showing the distribution of genders for lu
     --warning: #facc15;
   }
 
-  #quiz-container {
+  /* Quiz 2 Container */
+  #quiz2-container {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -1053,18 +1037,18 @@ result is two side-by-side bar charts showing the distribution of genders for lu
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;
   }
-
-  #quiz-container:hover {
+  #quiz2-container:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  #quiz-container p.question {
+  #quiz2-container p.question {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
-  #quiz-form label {
+  /* Flex labels for Quiz 2 */
+  #quiz2-form label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -1076,18 +1060,17 @@ result is two side-by-side bar charts showing the distribution of genders for lu
     cursor: pointer;
     transition: all 0.25s ease;
   }
-
-  #quiz-form label:hover {
+  #quiz2-form label:hover {
     background-color: #e0e7ff;
     border-color: var(--accent);
   }
 
-  #quiz-form input[type="radio"] {
+  #quiz2-form input[type="radio"] {
     transform: scale(1.2);
     accent-color: var(--accent);
   }
 
-  #quiz-form pre {
+  #quiz2-form pre {
     margin: 0;
     background-color: transparent !important;
     border: none !important;
@@ -1098,7 +1081,7 @@ result is two side-by-side bar charts showing the distribution of genders for lu
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #quiz-form button {
+  #quiz2-form button {
     margin-top: 1.5rem;
     background-color: var(--accent);
     color: white;
@@ -1110,12 +1093,11 @@ result is two side-by-side bar charts showing the distribution of genders for lu
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #quiz-form button:hover {
+  #quiz2-form button:hover {
     background-color: #4338ca;
   }
 
-  #quiz-feedback {
+  #quiz2-feedback {
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -1129,13 +1111,11 @@ result is two side-by-side bar charts showing the distribution of genders for lu
     color: var(--success);
     border: 1px solid var(--success);
   }
-
   .error {
     background-color: #fee2e2;
     color: var(--error);
     border: 1px solid var(--error);
   }
-
   .warning {
     background-color: #fef9c3;
     color: var(--warning);
@@ -1143,46 +1123,37 @@ result is two side-by-side bar charts showing the distribution of genders for lu
   }
 </style>
 
-<div id="quiz-container">
+<div id="quiz2-container">
   <p class="question">🧠 During lunch the number of female and male guests who paid was roughly equal, but at dinner male guests paid for the meal significantly more often (more than twice as many). True or false?</p>
-  <form id="quiz-form">
+  <form id="quiz2-form">
     <label>
-      <input type="radio" name="answer" value="a">
+      <input type="radio" name="answer2" value="a">
       <pre><code>True</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="b">
+      <input type="radio" name="answer2" value="b">
       <pre><code>False</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="c">
+      <input type="radio" name="answer2" value="c">
       <pre><code>Cannot determine from data</code></pre>
     </label>
 
-    <button type="button" onclick="checkAnswer()">Submit Answer</button>
-    <p id="quiz-feedback"></p>
+    <button type="button" onclick="checkAnswer2()">Submit Answer</button>
+    <p id="quiz2-feedback"></p>
   </form>
 </div>
 
 <script>
-  function checkAnswer() {
-    const answers = {
-      a: {
-        correct: true,
-        feedback: "✅ Correct! Significantly more male guests paid at dinner (over twice as many)."
-      },
-      b: {
-        correct: false,
-        feedback: "❌ Incorrect. The statement is supported by the data."
-      },
-      c: {
-        correct: false,
-        feedback: "❌ The data do allow us to conclude that male guests paid more than twice as often at dinner."
-      }
+  function checkAnswer2() {
+    const answers2 = {
+      a: { correct: true,  feedback: "✅ Correct! Significantly more male guests paid at dinner (over twice as many)." },
+      b: { correct: false, feedback: "❌ Incorrect. The data do support the statement." },
+      c: { correct: false, feedback: "❌ You can determine from the data that male guests paid more than twice as often at dinner." }
     };
 
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("quiz-feedback");
+    const selected = document.querySelector('input[name="answer2"]:checked');
+    const feedback = document.getElementById("quiz2-feedback");
 
     if (!selected) {
       feedback.textContent = "⚠️ Please select an answer before submitting.";
@@ -1190,7 +1161,7 @@ result is two side-by-side bar charts showing the distribution of genders for lu
       return;
     }
 
-    const result = answers[selected.value];
+    const result = answers2[selected.value];
     feedback.textContent = result.feedback;
     feedback.className = result.correct ? "success" : "error";
   }
@@ -1273,7 +1244,8 @@ patterns or trends — for example, whether higher bills are associated with hig
     --warning: #facc15;
   }
 
-  #quiz-container {
+  /* Quiz 3 Container */
+  #quiz3-container {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -1285,18 +1257,18 @@ patterns or trends — for example, whether higher bills are associated with hig
     transition: box-shadow 0.3s ease;
     margin-bottom: 2rem;
   }
-
-  #quiz-container:hover {
+  #quiz3-container:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
-  #quiz-container p.question {
+  #quiz3-container p.question {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
-  #quiz-form label {
+  /* Flex labels for Quiz 3 */
+  #quiz3-form label {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -1308,18 +1280,17 @@ patterns or trends — for example, whether higher bills are associated with hig
     cursor: pointer;
     transition: all 0.25s ease;
   }
-
-  #quiz-form label:hover {
+  #quiz3-form label:hover {
     background-color: #e0e7ff;
     border-color: var(--accent);
   }
 
-  #quiz-form input[type="radio"] {
+  #quiz3-form input[type="radio"] {
     transform: scale(1.2);
     accent-color: var(--accent);
   }
 
-  #quiz-form pre {
+  #quiz3-form pre {
     margin: 0;
     background-color: transparent !important;
     border: none !important;
@@ -1330,7 +1301,7 @@ patterns or trends — for example, whether higher bills are associated with hig
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #quiz-form button {
+  #quiz3-form button {
     margin-top: 1.5rem;
     background-color: var(--accent);
     color: white;
@@ -1342,12 +1313,11 @@ patterns or trends — for example, whether higher bills are associated with hig
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  #quiz-form button:hover {
+  #quiz3-form button:hover {
     background-color: #4338ca;
   }
 
-  #quiz-feedback {
+  #quiz3-feedback {
     margin-top: 1.25rem;
     padding: 0.75rem 1rem;
     border-radius: 8px;
@@ -1361,13 +1331,11 @@ patterns or trends — for example, whether higher bills are associated with hig
     color: var(--success);
     border: 1px solid var(--success);
   }
-
   .error {
     background-color: #fee2e2;
     color: var(--error);
     border: 1px solid var(--error);
   }
-
   .warning {
     background-color: #fef9c3;
     color: var(--warning);
@@ -1375,54 +1343,42 @@ patterns or trends — for example, whether higher bills are associated with hig
   }
 </style>
 
-<div id="quiz-container">
+<div id="quiz3-container">
   <p class="question">🧠 What was the tip amount for a bill of approximately $48? (Approximate reading is sufficient)</p>
-  <form id="quiz-form">
+  <form id="quiz3-form">
     <label>
-      <input type="radio" name="answer" value="a">
+      <input type="radio" name="answer3" value="a">
       <pre><code>$11</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="b">
+      <input type="radio" name="answer3" value="b">
       <pre><code>$3, $5, and $8</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="c">
+      <input type="radio" name="answer3" value="c">
       <pre><code>$5, $7, and $9</code></pre>
     </label>
     <label>
-      <input type="radio" name="answer" value="d">
+      <input type="radio" name="answer3" value="d">
       <pre><code>None of the above</code></pre>
     </label>
 
-    <button type="button" onclick="checkAnswer()">Submit Answer</button>
-    <p id="quiz-feedback"></p>
+    <button type="button" onclick="checkAnswer3()">Submit Answer</button>
+    <p id="quiz3-feedback"></p>
   </form>
 </div>
 
 <script>
-  function checkAnswer() {
-    const answers = {
-      a: {
-        correct: false,
-        feedback: "❌ Not correct. The tip values at $48 were lower."
-      },
-      b: {
-        correct: false,
-        feedback: "❌ Incorrect. You can see $3, $5, and $8 are not the only ones."
-      },
-      c: {
-        correct: true,
-        feedback: "✅ Correct! The tips were approximately $5, $7, and $9."
-      },
-      d: {
-        correct: false,
-        feedback: "❌ There is a valid answer: it was $5, $7, and $9."
-      }
+  function checkAnswer3() {
+    const answers3 = {
+      a: { correct: false, feedback: "❌ Not correct. The tip values at $48 were lower." },
+      b: { correct: false, feedback: "❌ Incorrect. You can see $3, $5, and $8 are not the only ones." },
+      c: { correct: true,  feedback: "✅ Correct! The tips were approximately $5, $7, and $9." },
+      d: { correct: false, feedback: "❌ There is a valid answer: it was $5, $7, and $9." }
     };
 
-    const selected = document.querySelector('input[name="answer"]:checked');
-    const feedback = document.getElementById("quiz-feedback");
+    const selected = document.querySelector('input[name="answer3"]:checked');
+    const feedback = document.getElementById("quiz3-feedback");
 
     if (!selected) {
       feedback.textContent = "⚠️ Please select an answer before submitting.";
@@ -1430,7 +1386,7 @@ patterns or trends — for example, whether higher bills are associated with hig
       return;
     }
 
-    const result = answers[selected.value];
+    const result = answers3[selected.value];
     feedback.textContent = result.feedback;
     feedback.className = result.correct ? "success" : "error";
   }
@@ -1468,7 +1424,7 @@ the two variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/25b5412e33b67bea9d62e8ac9ac829212b4ee3ded694c66a4268031c801f7260.png" src="_images/25b5412e33b67bea9d62e8ac9ac829212b4ee3ded694c66a4268031c801f7260.png" />
+<img alt="_images/cb132761d19854dcc665aded0bd09b747be95e49cad979f960a3f028524d1f09.png" src="_images/cb132761d19854dcc665aded0bd09b747be95e49cad979f960a3f028524d1f09.png" />
 </div>
 </div>
 </section>
@@ -1611,8 +1567,17 @@ distributed across the dataset — for example, to estimate what share of bills 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6. pandas and matplotlib</p>
+        <p class="prev-next-title">4. pandas and matplotlib</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="loops.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. Conditions and Loops</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
