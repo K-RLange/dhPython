@@ -178,3 +178,140 @@ print("Loop has ended")
 ```
 
 ## Exercises
+
+Now it is your turn! Solve the following exercises and click on the hidden code cells below to view the solutions.
+
+---
+
+### Exercise 1
+
+Create a variable called `temperature` and set it to 30.
+Use an if-else condition to print `"It's hot"` if the temperature is greater than 25, otherwise print `"It's not hot"`.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+temperature = 30
+if temperature > 25:
+    print("It's hot")
+else:
+    print("It's not hot")
+```
+
+---
+
+### Exercise 2
+
+Create a variable `score` with value 80.
+Write an if-elif-else structure that prints:
+
+* "Excellent" if score > 90
+* "Good" if score > 70
+* "Needs Improvement" otherwise
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+score = 80
+if score > 90:
+    print("Excellent")
+elif score > 70:
+    print("Good")
+else:
+    print("Needs Improvement")
+```
+
+---
+
+### Exercise 3
+
+Create a while loop that prints the numbers from 1 to 5.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+number = 1
+while number <= 5:
+    print(number)
+    number += 1
+```
+
+---
+
+### Exercise 4
+
+Use a while loop that runs indefinitely (`while True:`), but stops once a counter reaches 3 using the `break` command. Print the counter at each step.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+counter = 0
+while True:
+    if counter == 3:
+        break
+    print(counter)
+    counter += 1
+```
+
+---
+
+### Exercise 5
+
+Use a for loop to iterate over the list `[1, 2, 3, 4, 5]` and print each number multiplied by 2.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+numbers = [1, 2, 3, 4, 5]
+for number in numbers:
+    print(number * 2)
+```
+
+---
+
+### Exercise 6
+
+Use the `enumerate()` function to print the index and the corresponding element of the list `["a", "b", "c"]`.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+letters = ["a", "b", "c"]
+for index, letter in enumerate(letters):
+    print(index, letter)
+```
+
+---
+
+### Exercise 7
+
+Create a list using list comprehension that contains the squares of the numbers from 1 to 5.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+squares = [x**2 for x in range(1, 6)]
+print(squares)
+```
+

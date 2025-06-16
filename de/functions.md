@@ -21,9 +21,12 @@ kernelspec:
 Functions and Classes are Python's primary way to store code blocks for repeated executions.
 
 ## Functions
-```{note}
-## Namespaces
-```
+```{admonition} Namespaces
+Namespaces are an important concept when designing functions and classes. When you create a function, it creates a new environment, where variables can be named differently. This is called a namespace. 
+
+Thus, you can have a variable named `x` in your main code and a variable named `x` in your function. These two variables are not the same, because they are in different namespaces. However, if there is no variable `x` defined explicitly in your function, the function will search for that variable in the namespace of your main code and get it from there. We therefore recommend to use different names for variables in your functions and your main code to avoid confusion.
+````
+
 Functions are a way to assign a name to a certain code block so that it can be repeatedly executed with different starting values (inputs).
 
 Each function starts with a header that contains the key word "def" followed by the name you want to give the function. After that, there must be a pair of round brackets and the required inputs within these brackets. A double colon follows after the brackets and the corresponding function code block is intended, just like we saw for loops and conditions. The function code block usually ends with a return statement, which defines what the function gives back to the user. We can then call the function using its function name and the desired input in round brackets.

@@ -20,9 +20,12 @@ kernelspec:
 Functions and Classes are Python's primary way to store code blocks for repeated executions.
 
 ## Functions
-```{note}
-## Namespaces
-```
+````{margin} Namespaces
+When you create a function, it creates a new environment, where variables can be named differently. This is called a namespace. 
+
+This means that the variables you define within the function are not accessible outside of it. This is important to remember, because if you try to access a variable defined within a function outside of it, you will get an error.
+
+````
 Functions are a way to assign a name to a certain code block so that it can be repeatedly executed with different starting values (inputs).
 
 Each function starts with a header that contains the key word "def" followed by the name you want to give the function. After that, there must be a pair of round brackets and the required inputs within these brackets. A double colon follows after the brackets and the corresponding function code block is intended, just like we saw for loops and conditions. The function code block usually ends with a return statement, which defines what the function gives back to the user. We can then call the function using its function name and the desired input in round brackets.
@@ -128,4 +131,111 @@ print(exponential_calculator.x)
 ```
 As you can see, we call functions and variables within the class after creating an object of the class by simply using a "." after the name of our class object. 
 
+Here are exercises based on the **Functions and Classes** section of your Jupyter-Book lecture. They follow the same structure as your previous exercises and include hidden solution cells.
+
+---
+
+## Exercises
+
+Now it is your turn! Solve the following exercises and click on the hidden code cells below to view the solutions.
+
+---
+
+### Exercise 1
+
+Write a function called `add_five` that takes one number as input and returns that number plus five. Execute it with a number of your choice to see if it works.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+def add_five(x):
+    return x + 5
+
+print(add_five(10))
+```
+
+---
+
+### Exercise 2
+
+Write a function called `power_plus_two` that takes two inputs: `x` and `k`, and returns `x` to the power of `k` plus 2.
+Call the function with values `x = 3`, `k = 2`.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+def power_plus_two(x, k):
+    return x ** k + 2
+
+print(power_plus_two(3, 2))
+```
+
+---
+
+### Exercise 3
+
+Write a class called `Calculator` that takes a number `x` in the `__init__` method.
+Create two methods:
+
+* `square`: returns `x` squared.
+* `add_number`: takes one argument and returns the sum of `x` and the argument.
+
+Then create an object of `Calculator` with `x = 4`, and call both methods.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+class Calculator:
+    def __init__(self, x):
+        self.x = x
+
+    def square(self):
+        return self.x ** 2
+
+    def add_number(self, y):
+        return self.x + y
+
+calc = Calculator(4)
+print(calc.square())
+print(calc.add_number(6))
+```
+
+---
+
+### Exercise 4
+
+Extend the `Calculator` class from Exercise 3 with a method `multiply_and_add` that multiplies `x` by a number `m` and adds another number `a`.
+Call it with `m = 3` and `a = 2`.
+
+```{code-cell}
+# Your code here
+```
+
+```{code-cell}
+:tags: ["hide-cell"]
+class Calculator:
+    def __init__(self, x):
+        self.x = x
+
+    def square(self):
+        return self.x ** 2
+
+    def add_number(self, y):
+        return self.x + y
+
+    def multiply_and_add(self, m, a):
+        return self.x * m + a
+
+calc = Calculator(4)
+print(calc.multiply_and_add(3, 2))
+```
 

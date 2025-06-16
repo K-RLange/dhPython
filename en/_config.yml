@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Digital Humanities Python Tutorial
-author: Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+author: Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 logo: logo.png
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", ]
 
@@ -21,10 +21,10 @@ launch_buttons:
   thebe: true
   binderhub_url: "https://mybinder.org/"
   jupyterhub_url: "https://jupyterhub.uni-muenster.de"
-  
 
 sphinx:
   config:
+    html_show_copyright: false
     html_js_files:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     thebe_config:
@@ -44,3 +44,8 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  extra_footer: |
+    <p>
+      &copy; 2025 TU Dortmund University. Content licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank" rel="noopener">GNU GPL v3.0</a>.
+    </p>
+

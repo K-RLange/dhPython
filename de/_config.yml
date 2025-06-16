@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Digital Humanities Python Tutorial
-author: Kai-Robin Lange, Henrik Hardering, Lisa Goldschmidtböing, Henrike Weinert
+author: Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing, Henrike Weinert
 logo: logo.png
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", ]
 
