@@ -16,7 +16,7 @@ kernelspec:
   <a href="../en/data_processing.html">🇬🇧 English</a>
 </div>
 
-# 7. Data Processing
+# 7. Descriptive data analysis
 
 ## What do we use Python for?
 In ‘DaLi topic 1: Basics of data evaluation’, the most important forms of visualisation and key figures required for 
