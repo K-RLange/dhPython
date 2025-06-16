@@ -767,4 +767,167 @@ plt.ylabel("Cumulative Probability")
 plt.grid(True)
 plt.show()
 ```
- 
+
+### Exercise 4
+```{raw} html
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  /* Quiz 4 Container */
+  #quiz4-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  #quiz4-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz4-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Flex labels for Quiz 4 */
+  #quiz4-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  #quiz4-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz4-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz4-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz4-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #quiz4-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz4-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz4-container">
+  <p class="question">🧠 What percentage of the bills were at most $20?</p>
+  <form id="quiz4-form">
+    <label>
+      <input type="radio" name="answer4" value="a">
+      <pre><code>30%</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer4" value="b">
+      <pre><code>45%</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer4" value="c">
+      <pre><code>55%</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer4" value="d">
+      <pre><code>60%</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer4()">Submit Answer</button>
+    <p id="quiz4-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer4() {
+    const answers4 = {
+      a: { correct: false, feedback: "❌ Not quite. 30% is too low." },
+      b: { correct: false, feedback: "❌ No, it's greater than 45%." },
+      c: { correct: false, feedback: "❌ Closer, but still below the true value." },
+      d: { correct: true,  feedback: "✅ Correct! 60% of the bills were at most $20." }
+    };
+
+    const selected = document.querySelector('input[name="answer4"]:checked');
+    const feedback = document.getElementById("quiz4-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Please select an answer before submitting.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers4[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script>
+```
