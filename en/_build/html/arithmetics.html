@@ -18,18 +18,18 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -39,16 +39,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -149,6 +149,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -170,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -225,9 +227,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -252,14 +254,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/K-RLange/dhPython/master?urlpath=tree/python_tutorial/arithmetics.md" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -270,14 +272,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://jupyterhub.uni-muenster.de/hub/user-redirect/git-pull?repo=https%3A//github.com/K-RLange/dhPython&urlpath=tree/dhPython/python_tutorial/arithmetics.md&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -288,14 +290,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://deepnote.com/github/K-RLange/dhPython/blob/master/python_tutorial/arithmetics.md" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -454,10 +456,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -465,14 +467,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -653,42 +655,182 @@ Variables can take any name. In a practical analysis, it is suggested to use mea
 </section>
 <section id="exercise-2">
 <h3>Exercise 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
-<p>Kais Code</p>
-<div class="cell tag_thebe tag_thebe-remove-input-init docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example</span><span class="o">=</span><span class="p">[{</span>
-        <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the correct syntax for multiplying 3 with 7, storing the result in a variable and printing that variable?&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;multiple_choice&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;answers&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;x = 3 * 7</span>
-<span class="s2">print(x)&quot;&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;Correct.&quot;</span> 
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;3 * 7</span>
-<span class="s2">print(x)&quot;&quot;&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;x would not be defined here, so there is nothing to print.&quot;</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;print(3 * 7)&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;This does print the result of 3 * 7, but does not store it in a variable for later use.&quot;</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="s2">&quot;print(x = 3 * 7)&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;correct&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;feedback&quot;</span><span class="p">:</span> <span class="s2">&quot;The print function would be confused, because you are trying to assign a value to x and print it at the same time. Try to separate these two steps.&quot;</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}]</span>
-</pre></div>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  #quiz-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  #quiz-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  #quiz-form label {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #quiz-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz-form input[type="radio"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+   #quiz-form pre {
+    margin: 0.2rem 0 0;
+    background-color: transparent !important;  /* no background */
+    border: none !important;                   /* no border */
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;                                /* no padding */
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #quiz-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz-container">
+  <p class="question">🧠 What is the correct syntax for multiplying 3 with 7, storing the result in a variable, and printing that variable?</p>
+  <form id="quiz-form">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <pre><code>x = 3 * 7
+print(x)</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <pre><code>3 * 7
+print(x)</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <pre><code>print(3 * 7)</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="d">
+      <pre><code>print(x = 3 * 7)</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer()">Submit Answer</button>
+    <p id="quiz-feedback"></p>
+  </form>
 </div>
-</div>
-</div>
-</section>
+
+<script>
+  function checkAnswer() {
+    const answers = {
+      a: {
+        correct: true,
+        feedback: "✅ Correct! You assigned 3 * 7 to a variable and printed it."
+      },
+      b: {
+        correct: false,
+        feedback: "❌ x would not be defined here, so there is nothing to print."
+      },
+      c: {
+        correct: false,
+        feedback: "❌ This prints the result but doesn’t store it for reuse."
+      },
+      d: {
+        correct: false,
+        feedback: "❌ You can’t assign and print in one step like that."
+      }
+    };
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const feedback = document.getElementById("quiz-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Please select an answer before submitting.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
 </section>
 </section>
 
@@ -809,8 +951,8 @@ By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

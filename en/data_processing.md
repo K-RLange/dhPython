@@ -69,6 +69,172 @@ tips = pd.read_csv("tips.csv")
 
 skim(tips)
 ```
+### Exercise 1
+```{raw} html
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  #quiz-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  #quiz-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  #quiz-form label {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #quiz-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz-form input[type="radio"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #quiz-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz-container">
+  <p class="question">🧠 What was the maximum tip amount, in dollars, that the waiter received and recorded?</p>
+  <form id="quiz-form">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <pre><code>$6</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <pre><code>$10</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <pre><code>$12</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="d">
+      <pre><code>$20</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer()">Submit Answer</button>
+    <p id="quiz-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer() {
+    const answers = {
+      a: {
+        correct: false,
+        feedback: "❌ The maximum recorded tip was higher than $6."
+      },
+      b: {
+        correct: true,
+        feedback: "✅ Correct! The highest tip documented was $10."
+      },
+      c: {
+        correct: false,
+        feedback: "❌ Not quite. It wasn't $12."
+      },
+      d: {
+        correct: false,
+        feedback: "❌ No, the maximum tip recorded was not $20."
+      }
+    };
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const feedback = document.getElementById("quiz-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Please select an answer before submitting.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script>
+```
 
 ## Create bar chart
 Below you can see a variant for creating a bar chart. The *bar()* function from the *matplotlib* library is used to 

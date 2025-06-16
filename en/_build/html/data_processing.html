@@ -18,18 +18,18 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
@@ -39,16 +39,16 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -148,6 +148,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -169,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -224,9 +226,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -251,14 +253,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/K-RLange/dhPython/master?urlpath=tree/python_tutorial/data_processing.md" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -269,14 +271,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://jupyterhub.uni-muenster.de/hub/user-redirect/git-pull?repo=https%3A//github.com/K-RLange/dhPython&urlpath=tree/dhPython/python_tutorial/data_processing.md&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onJupyterHub"
+   title="Launch on JupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_jupyterhub.svg">
+    <img alt="JupyterHub logo" src="_static/images/logo_jupyterhub.svg">
   </span>
 <span class="btn__text-container">JupyterHub</span>
 </a>
@@ -287,14 +289,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://deepnote.com/github/K-RLange/dhPython/blob/master/python_tutorial/data_processing.md" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="_static/images/logo_colab.png">
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -453,10 +455,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -464,14 +466,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -494,7 +496,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-use-python-for">What do we use Python for?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-description-of-the-data-set-tips">Brief description of the data set Tips</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-initial-information-about-a-data-set">Get initial information about a data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-initial-information-about-a-data-set">Get initial information about a data set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bar-chart">Create bar chart</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-bar-chart">Split bar chart</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-histogram">Create histogram</a></li>
@@ -560,7 +565,7 @@ and more. It also includes categorical variables if include=’all’ is specifi
 getting a basic sense of the data distribution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">tips</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -730,8 +735,8 @@ memory usage: 13.5+ KB
 <p>You can obtain similar information by using the <em>skim()</em> function from the <em>skimpy</em> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimpy</span> <span class="kn">import</span> <span class="n">skim</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">skim</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">skim</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
@@ -752,9 +757,9 @@ memory usage: 13.5+ KB
 │ ┏━━━━━━━━━━━━━━━━┳━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┓  │
 │ ┃<span style="font-weight: bold"> column         </span>┃<span style="font-weight: bold"> NA  </span>┃<span style="font-weight: bold"> NA %   </span>┃<span style="font-weight: bold"> mean    </span>┃<span style="font-weight: bold"> sd       </span>┃<span style="font-weight: bold"> p0     </span>┃<span style="font-weight: bold"> p25     </span>┃<span style="font-weight: bold"> p50    </span>┃<span style="font-weight: bold"> p75    </span>┃<span style="font-weight: bold"> p100   </span>┃<span style="font-weight: bold"> hist    </span>┃  │
 │ ┡━━━━━━━━━━━━━━━━╇━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━╇━━━━━━━━━┩  │
-│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">total_bill    </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">  19.79</span> │ <span style="color: #008080; text-decoration-color: #008080">   8.902</span> │ <span style="color: #008080; text-decoration-color: #008080">  3.07</span> │ <span style="color: #008080; text-decoration-color: #008080">  13.35</span> │ <span style="color: #008080; text-decoration-color: #008080">  17.8</span> │ <span style="color: #008080; text-decoration-color: #008080"> 24.13</span> │ <span style="color: #008080; text-decoration-color: #008080"> 50.81</span> │ <span style="color: #008000; text-decoration-color: #008000">▂▇▅▂▁▁ </span> │  │
-│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">tip           </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">  2.998</span> │ <span style="color: #008080; text-decoration-color: #008080">   1.384</span> │ <span style="color: #008080; text-decoration-color: #008080">     1</span> │ <span style="color: #008080; text-decoration-color: #008080">      2</span> │ <span style="color: #008080; text-decoration-color: #008080">   2.9</span> │ <span style="color: #008080; text-decoration-color: #008080"> 3.562</span> │ <span style="color: #008080; text-decoration-color: #008080">    10</span> │ <span style="color: #008000; text-decoration-color: #008000"> ▇▇▃▁  </span> │  │
-│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">size          </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">   2.57</span> │ <span style="color: #008080; text-decoration-color: #008080">  0.9511</span> │ <span style="color: #008080; text-decoration-color: #008080">     1</span> │ <span style="color: #008080; text-decoration-color: #008080">      2</span> │ <span style="color: #008080; text-decoration-color: #008080">     2</span> │ <span style="color: #008080; text-decoration-color: #008080">     3</span> │ <span style="color: #008080; text-decoration-color: #008080">     6</span> │ <span style="color: #008000; text-decoration-color: #008000">  ▇▂▂  </span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">total_bill    </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">  19.79</span> │ <span style="color: #008080; text-decoration-color: #008080">   8.902</span> │ <span style="color: #008080; text-decoration-color: #008080">  3.07</span> │ <span style="color: #008080; text-decoration-color: #008080">  13.35</span> │ <span style="color: #008080; text-decoration-color: #008080">  17.8</span> │ <span style="color: #008080; text-decoration-color: #008080"> 24.13</span> │ <span style="color: #008080; text-decoration-color: #008080"> 50.81</span> │ <span style="color: #008000; text-decoration-color: #008000">▂█▄▂▁▁ </span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">tip           </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">  2.998</span> │ <span style="color: #008080; text-decoration-color: #008080">   1.384</span> │ <span style="color: #008080; text-decoration-color: #008080">     1</span> │ <span style="color: #008080; text-decoration-color: #008080">      2</span> │ <span style="color: #008080; text-decoration-color: #008080">   2.9</span> │ <span style="color: #008080; text-decoration-color: #008080"> 3.562</span> │ <span style="color: #008080; text-decoration-color: #008080">    10</span> │ <span style="color: #008000; text-decoration-color: #008000"> ██▃▁  </span> │  │
+│ │ <span style="color: #af87ff; text-decoration-color: #af87ff">size          </span> │ <span style="color: #008080; text-decoration-color: #008080">  0</span> │ <span style="color: #008080; text-decoration-color: #008080">     0</span> │ <span style="color: #008080; text-decoration-color: #008080">   2.57</span> │ <span style="color: #008080; text-decoration-color: #008080">  0.9511</span> │ <span style="color: #008080; text-decoration-color: #008080">     1</span> │ <span style="color: #008080; text-decoration-color: #008080">      2</span> │ <span style="color: #008080; text-decoration-color: #008080">     2</span> │ <span style="color: #008080; text-decoration-color: #008080">     3</span> │ <span style="color: #008080; text-decoration-color: #008080">     6</span> │ <span style="color: #008000; text-decoration-color: #008000">  █▂▂  </span> │  │
 │ └────────────────┴─────┴────────┴─────────┴──────────┴────────┴─────────┴────────┴────────┴────────┴─────────┘  │
 │ <span style="font-style: italic">                                                    string                                                    </span>  │
 │ ┏━━━━━━━━━┳━━━━━┳━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┓  │
@@ -769,6 +774,171 @@ memory usage: 13.5+ KB
 </pre>
 </div></div>
 </div>
+<section id="exercise-1">
+<h3>Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  #quiz-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  #quiz-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  #quiz-form label {
+    display: block;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #quiz-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz-form input[type="radio"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #quiz-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz-container">
+  <p class="question">🧠 What was the maximum tip amount, in dollars, that the waiter received and recorded?</p>
+  <form id="quiz-form">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <pre><code>$6</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <pre><code>$10</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <pre><code>$12</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="d">
+      <pre><code>$20</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer()">Submit Answer</button>
+    <p id="quiz-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer() {
+    const answers = {
+      a: {
+        correct: false,
+        feedback: "❌ The maximum recorded tip was higher than $6."
+      },
+      b: {
+        correct: true,
+        feedback: "✅ Correct! The highest tip documented was $10."
+      },
+      c: {
+        correct: false,
+        feedback: "❌ Not quite. It wasn't $12."
+      },
+      d: {
+        correct: false,
+        feedback: "❌ No, the maximum tip recorded was not $20."
+      }
+    };
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const feedback = document.getElementById("quiz-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Please select an answer before submitting.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script></section>
 </section>
 <section id="create-bar-chart">
 <h2>Create bar chart<a class="headerlink" href="#create-bar-chart" title="Link to this heading">#</a></h2>
@@ -781,8 +951,8 @@ corresponding category labels and values are extracted.</p>
 information easier to interpret.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">sex_counts</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
@@ -799,7 +969,7 @@ information easier to interpret.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f65d54443ba8eae8109bcd6611783f7041d4d33e4fa090ab42b3088d554616c6.png" src="_images/f65d54443ba8eae8109bcd6611783f7041d4d33e4fa090ab42b3088d554616c6.png" />
+<img alt="_images/5ca8740ebf8fbd355d28af931a04c82973c3969cbd2c7a8bafe6e4520b616a1d.png" src="_images/5ca8740ebf8fbd355d28af931a04c82973c3969cbd2c7a8bafe6e4520b616a1d.png" />
 </div>
 </div>
 </section>
@@ -813,9 +983,9 @@ result is two side-by-side bar charts showing the distribution of genders for lu
 <p>This visualization is helpful to compare how the gender distribution of guests differs between the two meal times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
 
@@ -833,18 +1003,7 @@ result is two side-by-side bar charts showing the distribution of genders for lu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
-</pre></div>
-</div>
+<img alt="_images/fc93e1f8cddf2a37d3e4c802a4a57135930512fe4e8ef2d72ec468f5ef57b424.png" src="_images/fc93e1f8cddf2a37d3e4c802a4a57135930512fe4e8ef2d72ec468f5ef57b424.png" />
 </div>
 </div>
 </section>
@@ -858,8 +1017,8 @@ ranges occur.</p>
 each interval.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
@@ -872,6 +1031,9 @@ each interval.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9b81759200f596341702efd741dc7515e19d6abd8c5960e9ef5c451d3e212aa6.png" src="_images/9b81759200f596341702efd741dc7515e19d6abd8c5960e9ef5c451d3e212aa6.png" />
 </div>
 </div>
 </section>
@@ -887,8 +1049,8 @@ The <em>plt.scatter()</em> function from the Matplotlib library is used to plot 
 patterns or trends — for example, whether higher bills are associated with higher tips.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
@@ -902,6 +1064,9 @@ patterns or trends — for example, whether higher bills are associated with hig
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ac5e15dc8b6a296f230f70656b65d6183cedaaed25a7d14f747756d4ffce228.png" src="_images/0ac5e15dc8b6a296f230f70656b65d6183cedaaed25a7d14f747756d4ffce228.png" />
 </div>
 </div>
 </section>
@@ -918,9 +1083,9 @@ the two variables.</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
@@ -935,6 +1100,9 @@ the two variables.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d1e76dfb16268e1b221ff54eedc2993127f5fbb929358295587d2f98aaceea34.png" src="_images/d1e76dfb16268e1b221ff54eedc2993127f5fbb929358295587d2f98aaceea34.png" />
 </div>
 </div>
 </section>
@@ -952,9 +1120,9 @@ particular time of day.</p>
 type of categorical visualization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">statsmodels.graphics.mosaicplot</span> <span class="kn">import</span> <span class="n">mosaic</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.mosaicplot</span><span class="w"> </span><span class="kn">import</span> <span class="n">mosaic</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">mosaic</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">])</span>
@@ -965,6 +1133,9 @@ type of categorical visualization.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6ef913996e3f35b7244a4058e4fe876f60af2460bd76ddb86b029287746608ef.png" src="_images/6ef913996e3f35b7244a4058e4fe876f60af2460bd76ddb86b029287746608ef.png" />
 </div>
 </div>
 </section>
@@ -983,9 +1154,9 @@ amounts (total_bill).
 This visualization makes it easy to compare whether bills are generally higher at dinner than at lunch.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
@@ -1001,6 +1172,9 @@ This visualization makes it easy to compare whether bills are generally higher a
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/b4476a87e18556702e73b34b3e29187c984b5de0ccf9b86370ca53ebaf74fd6b.png" src="_images/b4476a87e18556702e73b34b3e29187c984b5de0ccf9b86370ca53ebaf74fd6b.png" />
+</div>
 </div>
 </section>
 <section id="determine-distribution-function">
@@ -1013,9 +1187,9 @@ distributed across the dataset — for example, to estimate what share of bills 
 <p>The function <em>plt.step()</em> is used to draw the ECDF as a step function, and grid lines are added to improve readability.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">statsmodels.distributions.empirical_distribution</span> <span class="kn">import</span> <span class="n">ECDF</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.distributions.empirical_distribution</span><span class="w"> </span><span class="kn">import</span> <span class="n">ECDF</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
 
 <span class="n">ecdf</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">])</span>
@@ -1028,6 +1202,9 @@ distributed across the dataset — for example, to estimate what share of bills 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1ed3ccb0f7fe60f650b398a52027f56082284469447b2c9cdcfeeb8c041031c0.png" src="_images/1ed3ccb0f7fe60f650b398a52027f56082284469447b2c9cdcfeeb8c041031c0.png" />
 </div>
 </div>
 </section>
@@ -1089,7 +1266,10 @@ distributed across the dataset — for example, to estimate what share of bills 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-use-python-for">What do we use Python for?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-description-of-the-data-set-tips">Brief description of the data set Tips</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-initial-information-about-a-data-set">Get initial information about a data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-initial-information-about-a-data-set">Get initial information about a data set</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">Exercise 1</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bar-chart">Create bar chart</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-bar-chart">Split bar chart</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-histogram">Create histogram</a></li>
@@ -1145,8 +1325,8 @@ By Kai-Robin Lange, Henrik Hardering, Lisa-Marie Eckardt, Lisa Goldschmidtböing
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
