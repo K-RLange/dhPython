@@ -107,8 +107,11 @@ skim(tips)
     margin-bottom: 1.5rem;
   }
 
+  /* Make label a flex container so radio and text align */
   #quiz-form label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin: 0.75rem 0;
     padding: 0.75rem 1rem;
     border-radius: 12px;
@@ -124,9 +127,20 @@ skim(tips)
   }
 
   #quiz-form input[type="radio"] {
-    margin-right: 0.75rem;
     transform: scale(1.2);
     accent-color: var(--accent);
+  }
+
+  /* Ensure any <pre> code stays inline */
+  #quiz-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
   }
 
   #quiz-form button {

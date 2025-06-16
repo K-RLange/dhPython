@@ -812,8 +812,11 @@ memory usage: 13.5+ KB
     margin-bottom: 1.5rem;
   }
 
+  /* Make label a flex container so radio and text align */
   #quiz-form label {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin: 0.75rem 0;
     padding: 0.75rem 1rem;
     border-radius: 12px;
@@ -829,9 +832,20 @@ memory usage: 13.5+ KB
   }
 
   #quiz-form input[type="radio"] {
-    margin-right: 0.75rem;
     transform: scale(1.2);
     accent-color: var(--accent);
+  }
+
+  /* Ensure any <pre> code stays inline */
+  #quiz-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
   }
 
   #quiz-form button {
@@ -1102,7 +1116,7 @@ the two variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d1e76dfb16268e1b221ff54eedc2993127f5fbb929358295587d2f98aaceea34.png" src="_images/d1e76dfb16268e1b221ff54eedc2993127f5fbb929358295587d2f98aaceea34.png" />
+<img alt="_images/3f96396a87ba7e68b95eb332c0d1fe49fe076f431df26cf36536dfe077247d99.png" src="_images/3f96396a87ba7e68b95eb332c0d1fe49fe076f431df26cf36536dfe077247d99.png" />
 </div>
 </div>
 </section>
