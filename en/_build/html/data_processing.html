@@ -951,7 +951,7 @@ memory usage: 13.5+ KB
 <p>Below you can see a variant for creating a bar chart. The <em>bar()</em> function from the <em>matplotlib</em> library is used to
 display the frequencies of the categories ‘Female’ and ‘Male’ in the ‘sex’ column of the dataset.</p>
 <p>First, the <em>Pandas</em> library is used to load the dataset <em>tips.csv</em>. Then, the <em>value_counts()</em> function is applied to
-the’sex’ column to count how often each gender appears. These counts are stored in the variable ‘sex_counts’, and the
+the ‘sex’ column to count how often each gender appears. These counts are stored in the variable ‘sex_counts’, and the
 corresponding category labels and values are extracted.</p>
 <p>Finally, a simple vertical bar chart is created with <em>plt.bar()</em>. The chart includes a title and axis labels to make the
 information easier to interpret.</p>
@@ -1173,7 +1173,7 @@ result is two side-by-side bar charts showing the distribution of genders for lu
 <section id="create-histogram">
 <h2>Create histogram<a class="headerlink" href="#create-histogram" title="Link to this heading">#</a></h2>
 <p>The following code creates a histogram that visualizes the frequency distribution of invoice amounts in the dataset.
-The function plt.hist() from the Matplotlib library is used to display how often invoice amounts within specific value
+The function <em>plt.hist()</em> from the Matplotlib library is used to display how often invoice amounts within specific value
 ranges occur.</p>
 <p><em>edgecolor=”black”</em> adds clear borders to each bar.</p>
 <p>The x-axis represents the invoice amounts in dollars, while the y-axis shows the number of invoices that fall into
@@ -1427,7 +1427,7 @@ the two variables.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/98650df1074dcf03187f29d8547e0a94364b10e85aa9ba6713db549c974172ae.png" src="_images/98650df1074dcf03187f29d8547e0a94364b10e85aa9ba6713db549c974172ae.png" />
+<img alt="_images/85a4a0834b74761e65900153542c94e805b9d03a50930f43a62c4fcc34442ef6.png" src="_images/85a4a0834b74761e65900153542c94e805b9d03a50930f43a62c4fcc34442ef6.png" />
 </div>
 </div>
 </section>
@@ -1466,8 +1466,8 @@ type of categorical visualization.</p>
 </section>
 <section id="create-boxplot">
 <h2>Create Boxplot<a class="headerlink" href="#create-boxplot" title="Link to this heading">#</a></h2>
-<p>The following code creates a boxplot that compares the distribution of total bill amounts for the two time categories:
-Lunch and Dinner.</p>
+<p>This code uses the <em>boxplot()</em> function from the seaborn library (imported as sns) to create a box-and-whisker plot
+comparing the distribution of total bill amounts for the two time categories: Lunch and Dinner.</p>
 <p>Each box represents the spread of the data for one group and includes:</p>
 <ul class="simple">
 <li><p>the median (horizontal line inside the box),</p></li>
@@ -1504,8 +1504,8 @@ This visualization makes it easy to compare whether bills are generally higher a
 </section>
 <section id="determine-distribution-function">
 <h2>Determine distribution function<a class="headerlink" href="#determine-distribution-function" title="Link to this heading">#</a></h2>
-<p>The following code computes and visualizes the empirical cumulative distribution function (ECDF) for the
-variable total_bill.</p>
+<p>This code uses the <em>ECDF</em> class from the <em>statsmodels.distributions.empirical_distribution</em> module to compute the
+empirical cumulative distribution function of the total_bill values.</p>
 <p>An ECDF shows, for each value on the x-axis, the proportion of observations that are less than or equal to that value.
 The result is a step-shaped curve that increases from 0 to 1. This type of plot is useful to understand how values are
 distributed across the dataset — for example, to estimate what share of bills are below a certain amount.</p>

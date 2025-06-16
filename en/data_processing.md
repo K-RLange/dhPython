@@ -237,7 +237,7 @@ Below you can see a variant for creating a bar chart. The *bar()* function from 
 display the frequencies of the categories 'Female' and 'Male' in the 'sex' column of the dataset.
 
 First, the *Pandas* library is used to load the dataset *tips.csv*. Then, the *value_counts()* function is applied to 
-the'sex' column to count how often each gender appears. These counts are stored in the variable 'sex_counts', and the 
+the 'sex' column to count how often each gender appears. These counts are stored in the variable 'sex_counts', and the 
 corresponding category labels and values are extracted.
 
 Finally, a simple vertical bar chart is created with *plt.bar()*. The chart includes a title and axis labels to make the 
@@ -448,7 +448,7 @@ plt.show()
 
 ## Create histogram
 The following code creates a histogram that visualizes the frequency distribution of invoice amounts in the dataset. 
-The function plt.hist() from the Matplotlib library is used to display how often invoice amounts within specific value 
+The function *plt.hist()* from the Matplotlib library is used to display how often invoice amounts within specific value 
 ranges occur. 
 
 *edgecolor="black"* adds clear borders to each bar.
@@ -714,8 +714,8 @@ plt.show()
 ```
 
 ## Create Boxplot
-The following code creates a boxplot that compares the distribution of total bill amounts for the two time categories: 
-Lunch and Dinner.
+This code uses the *boxplot()* function from the seaborn library (imported as sns) to create a box-and-whisker plot 
+comparing the distribution of total bill amounts for the two time categories: Lunch and Dinner. 
 
 Each box represents the spread of the data for one group and includes:
 - the median (horizontal line inside the box),
@@ -744,8 +744,8 @@ plt.show()
 ```
 
 ## Determine distribution function
-The following code computes and visualizes the empirical cumulative distribution function (ECDF) for the 
-variable total_bill.
+This code uses the *ECDF* class from the *statsmodels.distributions.empirical_distribution* module to compute the 
+empirical cumulative distribution function of the total_bill values.
 
 An ECDF shows, for each value on the x-axis, the proportion of observations that are less than or equal to that value. 
 The result is a step-shaped curve that increases from 0 to 1. This type of plot is useful to understand how values are 
