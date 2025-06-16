@@ -280,8 +280,8 @@ g = sns.catplot(
     col="time",
 )
 
-g.set_titles("Time: {col_name}")
-g.set_axis_labels("Gender", "Count")
+g.set_titles("Zeit: {col_name}")
+g.set_axis_labels("Geschlecht", "Anzahl")
 plt.show()
 ```
 
@@ -635,7 +635,7 @@ plt.show()
   function checkAnswer3() {
     const answers3 = {
       a: { correct: false, feedback: "❌ Nicht korrekt. Die Trinkgelder waren niedriger." },
-      b: { correct: false, feedback: "❌ Inkorrekt. $3, $5, und $8 waren nicht die Einzigen." },
+      b: { correct: false, feedback: "❌ Inkorrekt!" },
       c: { correct: true,  feedback: "✅ Korrekt!" },
       d: { correct: false, feedback: "❌ Inkorrekt, es gibt eine korrekte Antwort." }
     };
@@ -709,7 +709,7 @@ mosaic(tips, ['sex', 'time'])
 
 plt.title("Mosaikdiagramm: Geschlecht vs. Tageszeit")
 plt.xlabel("Geschlecht")
-plt.ylabel("Anteil")
+plt.ylabel("Tageszeit")
 plt.show()
 ```
 
