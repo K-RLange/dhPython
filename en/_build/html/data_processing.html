@@ -497,6 +497,14 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-use-python-for">What do we use Python for?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-description-of-the-data-set-tips">Brief description of the data set Tips</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-initial-information-about-a-data-set">Get initial information about a data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bar-chart">Create bar chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-bar-chart">Split bar chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-histogram">Create histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-scatter-plot">Create scatter plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-scatter-plot-with-regression-line">Create scatter plot with regression line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-mosaic-plot">Create mosaic plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-boxplot">Create Boxplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-distribution-function">Determine distribution function</a></li>
 </ul>
             </nav>
         </div>
@@ -521,8 +529,8 @@ data evaluation were presented.</p>
 <p>As soon as we are dealing with the processing of real data sets (usually very extensive), software can help
 us to create certain key figures and forms of visualisation. This DaLi topic is therefore about analysing and
 visualising these data sets using software (Python or R).</p>
-<p>To get a first impression of how we can use Python in this context, we use the ‘Tips’ dataset from “DaLi Topic 1:
-Fundamentals of data analysis” that we are already familiar with.</p>
+<p>To get a first impression of how we can use Python in this context, we use the ‘Tips’ dataset from ‘DaLi Topic 1:
+Fundamentals of data analysis’ that we are already familiar with.</p>
 </section>
 <section id="brief-description-of-the-data-set-tips">
 <h2>Brief description of the data set Tips<a class="headerlink" href="#brief-description-of-the-data-set-tips" title="Link to this heading">#</a></h2>
@@ -537,15 +545,197 @@ variables were recorded:</p>
 <li><p>Time of day (time)</p></li>
 <li><p>Size of the group (size)</p></li>
 </ul>
+<p>In the following, we will first briefly explain what the following code does and then you will find the code and
+the corresponding output.</p>
 </section>
 <section id="get-initial-information-about-a-data-set">
 <h2>Get initial information about a data set<a class="headerlink" href="#get-initial-information-about-a-data-set" title="Link to this heading">#</a></h2>
-<p>To plot this time-dependent data, we can first turn the timestamp-column into a date format and then plot it.</p>
+<p>The following two functions are built into Python via the pandas library. They are useful for gaining an initial
+overview of a dataset and the characteristics of its features.</p>
+<ul class="simple">
+<li><p><em>info()</em> provides details about the data structure, such as column names, data types, and the number of non-missing
+values.</p></li>
+<li><p><em>describe(include=’all’)</em> returns summary statistics for each column — including minimum, maximum, mean, quartiles,
+and more. It also includes categorical variables if include=’all’ is specified.</p></li>
+</ul>
+<p>These functions are ideal for quickly identifying potential issues (e.g. missing values or incorrect data types) and
+getting a basic sense of the data distribution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">tips</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">tips</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 244 entries, 0 to 243
+Data columns (total 7 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   total_bill  244 non-null    float64
+ 1   tip         244 non-null    float64
+ 2   sex         244 non-null    object 
+ 3   smoker      244 non-null    object 
+ 4   day         244 non-null    object 
+ 5   time        244 non-null    object 
+ 6   size        244 non-null    int64  
+dtypes: float64(2), int64(1), object(4)
+memory usage: 13.5+ KB
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>244.000000</td>
+      <td>244.000000</td>
+      <td>244</td>
+      <td>244</td>
+      <td>244</td>
+      <td>244</td>
+      <td>244.000000</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sat</td>
+      <td>Dinner</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>157</td>
+      <td>151</td>
+      <td>87</td>
+      <td>176</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>19.785943</td>
+      <td>2.998279</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.569672</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>8.902412</td>
+      <td>1.383638</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.951100</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>3.070000</td>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>13.347500</td>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>17.795000</td>
+      <td>2.900000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>24.127500</td>
+      <td>3.562500</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>50.810000</td>
+      <td>10.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>You can obtain similar information by using the <em>skim()</em> function from the <em>skimpy</em> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skimpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">skim</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
 <span class="n">skim</span><span class="p">(</span><span class="n">tips</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -580,6 +770,274 @@ variables were recorded:</p>
 ╰────────────────────────────────────────────────────── End ──────────────────────────────────────────────────────╯
 </pre>
 </div></div>
+</div>
+</section>
+<section id="create-bar-chart">
+<h2>Create bar chart<a class="headerlink" href="#create-bar-chart" title="Link to this heading">#</a></h2>
+<p>Below you can see a variant for creating a bar chart. The <em>bar()</em> function from the <em>matplotlib</em> library is used to
+display the frequencies of the categories ‘Female’ and ‘Male’ in the ‘sex’ column of the dataset.</p>
+<p>First, the <em>Pandas</em> library is used to load the dataset <em>tips.csv</em>. Then, the <em>value_counts()</em> function is applied to
+the’sex’ column to count how often each gender appears. These counts are stored in the variable ‘sex_counts’, and the
+corresponding category labels and values are extracted.</p>
+<p>Finally, a simple vertical bar chart is created with <em>plt.bar()</em>. The chart includes a title and axis labels to make the
+information easier to interpret.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sex_counts</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">sex_counts</span><span class="o">.</span><span class="n">index</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">sex_counts</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Number of guests by gender&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Gender&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5ca8740ebf8fbd355d28af931a04c82973c3969cbd2c7a8bafe6e4520b616a1d.png" src="_images/5ca8740ebf8fbd355d28af931a04c82973c3969cbd2c7a8bafe6e4520b616a1d.png" />
+</div>
+</div>
+</section>
+<section id="split-bar-chart">
+<h2>Split bar chart<a class="headerlink" href="#split-bar-chart" title="Link to this heading">#</a></h2>
+<p>The following code creates a grouped bar chart that shows the number of guests by gender, separated by time of day
+(Lunch vs. Dinner). This is achieved using Seaborn’s <em>catplot()</em> function, which allows for the creation of multiple
+subplots based on the values of a categorical feature.</p>
+<p>The argument <em>col=”time”</em> specifies that a separate chart should be created for each value in the time column. The
+result is two side-by-side bar charts showing the distribution of genders for lunch and dinner, respectively.</p>
+<p>This visualization is helpful to compare how the gender distribution of guests differs between the two meal times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">g</span><span class="o">.</span><span class="n">set_titles</span><span class="p">(</span><span class="s2">&quot;Time: </span><span class="si">{col_name}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">set_axis_labels</span><span class="p">(</span><span class="s2">&quot;Gender&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fc93e1f8cddf2a37d3e4c802a4a57135930512fe4e8ef2d72ec468f5ef57b424.png" src="_images/fc93e1f8cddf2a37d3e4c802a4a57135930512fe4e8ef2d72ec468f5ef57b424.png" />
+</div>
+</div>
+</section>
+<section id="create-histogram">
+<h2>Create histogram<a class="headerlink" href="#create-histogram" title="Link to this heading">#</a></h2>
+<p>The following code creates a histogram that visualizes the frequency distribution of invoice amounts in the dataset.
+The function plt.hist() from the Matplotlib library is used to display how often invoice amounts within specific value
+ranges occur.</p>
+<p><em>edgecolor=”black”</em> adds clear borders to each bar.</p>
+<p>The x-axis represents the invoice amounts in dollars, while the y-axis shows the number of invoices that fall into
+each interval.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">],</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Frequency distribution of the invoice amount&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Invoice amount in $&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9b81759200f596341702efd741dc7515e19d6abd8c5960e9ef5c451d3e212aa6.png" src="_images/9b81759200f596341702efd741dc7515e19d6abd8c5960e9ef5c451d3e212aa6.png" />
+</div>
+</div>
+</section>
+<section id="create-scatter-plot">
+<h2>Create scatter plot<a class="headerlink" href="#create-scatter-plot" title="Link to this heading">#</a></h2>
+<p>The following code creates a scatter plot to visualize the relationship between the total bill and the tip amount.
+The <em>plt.scatter()</em> function from the Matplotlib library is used to plot each observation as a point, where:</p>
+<ul class="simple">
+<li><p>the x-axis represents the total bill in dollars</p></li>
+<li><p>the y-axis represents the corresponding tip amount</p></li>
+</ul>
+<p>Each point in the diagram corresponds to one row in the dataset. This type of visualization is useful for identifying
+patterns or trends — for example, whether higher bills are associated with higher tips.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">],</span>
+    <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tip vs. Total Bill&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Total Bill ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tip ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0ac5e15dc8b6a296f230f70656b65d6183cedaaed25a7d14f747756d4ffce228.png" src="_images/0ac5e15dc8b6a296f230f70656b65d6183cedaaed25a7d14f747756d4ffce228.png" />
+</div>
+</div>
+</section>
+<section id="create-scatter-plot-with-regression-line">
+<h2>Create scatter plot with regression line<a class="headerlink" href="#create-scatter-plot-with-regression-line" title="Link to this heading">#</a></h2>
+<p>The following code creates a scatter plot that shows the relationship between the total bill and the tip amount.
+In addition to the individual data points, it includes a regression line, which models the linear relationship between
+the two variables.</p>
+<p>This is done using the <em>lmplot()</em> function from the Seaborn library.</p>
+<ul class="simple">
+<li><p>The parameter x=”total_bill” defines the variable on the x-axis,</p></li>
+<li><p>y=”tip” defines the variable on the y-axis,</p></li>
+<li><p>and Seaborn automatically fits and draws a linear regression line through the data.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tip vs. Total Bill with Regression Line&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Total Bill ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Tip ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/46a6e841cbde31a1e508141d27a11499e83497f5953883363d44e5200997196a.png" src="_images/46a6e841cbde31a1e508141d27a11499e83497f5953883363d44e5200997196a.png" />
+</div>
+</div>
+</section>
+<section id="create-mosaic-plot">
+<h2>Create mosaic plot<a class="headerlink" href="#create-mosaic-plot" title="Link to this heading">#</a></h2>
+<p>The following code creates a mosaic plot to visualize the relationship between the categorical variables gender (sex)
+and time of day (time) in the dataset.</p>
+<p>A mosaic plot shows the relative frequencies of combinations of categorical values using rectangles whose areas are
+proportional to the number of observations. In this example:</p>
+<p>The x-axis is split according to the values of sex (Female / Male),
+and each section is further divided based on time (Lunch / Dinner).
+This allows you to easily see whether, for example, a higher proportion of men or women visited the restaurant at a
+particular time of day.</p>
+<p>The plot is created using the <em>mosaic()</em> function from the statsmodels library, which is specifically designed for this
+type of categorical visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.graphics.mosaicplot</span><span class="w"> </span><span class="kn">import</span> <span class="n">mosaic</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">mosaic</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mosaic Plot: Gender vs. Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Proportion&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6ef913996e3f35b7244a4058e4fe876f60af2460bd76ddb86b029287746608ef.png" src="_images/6ef913996e3f35b7244a4058e4fe876f60af2460bd76ddb86b029287746608ef.png" />
+</div>
+</div>
+</section>
+<section id="create-boxplot">
+<h2>Create Boxplot<a class="headerlink" href="#create-boxplot" title="Link to this heading">#</a></h2>
+<p>The following code creates a boxplot that compares the distribution of total bill amounts for the two time categories:
+Lunch and Dinner.</p>
+<p>Each box represents the spread of the data for one group and includes:</p>
+<ul class="simple">
+<li><p>the median (horizontal line inside the box),</p></li>
+<li><p>the interquartile range (the box itself),</p></li>
+<li><p>and potential outliers (individual dots).</p></li>
+</ul>
+<p>The x-axis shows the two time categories (time), while the y-axis displays the corresponding invoice
+amounts (total_bill).
+This visualization makes it easy to compare whether bills are generally higher at dinner than at lunch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Boxplot of Total Bill by Time&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time of Day&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Total Bill ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b4476a87e18556702e73b34b3e29187c984b5de0ccf9b86370ca53ebaf74fd6b.png" src="_images/b4476a87e18556702e73b34b3e29187c984b5de0ccf9b86370ca53ebaf74fd6b.png" />
+</div>
+</div>
+</section>
+<section id="determine-distribution-function">
+<h2>Determine distribution function<a class="headerlink" href="#determine-distribution-function" title="Link to this heading">#</a></h2>
+<p>The following code computes and visualizes the empirical cumulative distribution function (ECDF) for the
+variable total_bill.</p>
+<p>An ECDF shows, for each value on the x-axis, the proportion of observations that are less than or equal to that value.
+The result is a step-shaped curve that increases from 0 to 1. This type of plot is useful to understand how values are
+distributed across the dataset — for example, to estimate what share of bills are below a certain amount.</p>
+<p>The function <em>plt.step()</em> is used to draw the ECDF as a step function, and grid lines are added to improve readability.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.distributions.empirical_distribution</span><span class="w"> </span><span class="kn">import</span> <span class="n">ECDF</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="n">ecdf</span> <span class="o">=</span> <span class="n">ECDF</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">ecdf</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">ecdf</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Empirical CDF of Total Bill&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Total Bill ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Cumulative Probability&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1ed3ccb0f7fe60f650b398a52027f56082284469447b2c9cdcfeeb8c041031c0.png" src="_images/1ed3ccb0f7fe60f650b398a52027f56082284469447b2c9cdcfeeb8c041031c0.png" />
+</div>
 </div>
 </section>
 </section>
@@ -641,6 +1099,14 @@ variables were recorded:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-we-use-python-for">What do we use Python for?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-description-of-the-data-set-tips">Brief description of the data set Tips</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-initial-information-about-a-data-set">Get initial information about a data set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-bar-chart">Create bar chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-bar-chart">Split bar chart</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-histogram">Create histogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-scatter-plot">Create scatter plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-scatter-plot-with-regression-line">Create scatter plot with regression line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-mosaic-plot">Create mosaic plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-boxplot">Create Boxplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#determine-distribution-function">Determine distribution function</a></li>
 </ul>
   </nav></div>
 
