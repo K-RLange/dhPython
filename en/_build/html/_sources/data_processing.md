@@ -305,6 +305,177 @@ g.set_axis_labels("Gender", "Count")
 plt.show()
 ```
 
+### Exercise 2
+```{raw} html
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  #quiz-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  #quiz-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  #quiz-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #quiz-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #quiz-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz-container">
+  <p class="question">🧠 During lunch the number of female and male guests who paid was roughly equal, but at dinner male guests paid for the meal significantly more often (more than twice as many). True or false?</p>
+  <form id="quiz-form">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <pre><code>True</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <pre><code>False</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <pre><code>Cannot determine from data</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer()">Submit Answer</button>
+    <p id="quiz-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer() {
+    const answers = {
+      a: {
+        correct: true,
+        feedback: "✅ Correct! Significantly more male guests paid at dinner (over twice as many)."
+      },
+      b: {
+        correct: false,
+        feedback: "❌ Incorrect. The statement is supported by the data."
+      },
+      c: {
+        correct: false,
+        feedback: "❌ The data do allow us to conclude that male guests paid more than twice as often at dinner."
+      }
+    };
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const feedback = document.getElementById("quiz-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Please select an answer before submitting.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script>
+```
+
 ## Create histogram
 The following code creates a histogram that visualizes the frequency distribution of invoice amounts in the dataset. 
 The function plt.hist() from the Matplotlib library is used to display how often invoice amounts within specific value 
@@ -351,6 +522,185 @@ plt.title("Tip vs. Total Bill")
 plt.xlabel("Total Bill ($)")
 plt.ylabel("Tip ($)")
 plt.show()
+```
+
+### Exercise 3
+```{raw} html
+<style>
+  :root {
+    --accent: #4f46e5;
+    --accent-light: #eef2ff;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --text: #111827;
+    --gray: #6b7280;
+    --success: #16a34a;
+    --error: #dc2626;
+    --warning: #facc15;
+  }
+
+  #quiz-container {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 750px;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    color: var(--text);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  #quiz-container:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  #quiz-container p.question {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  #quiz-form label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background-color: var(--accent-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  #quiz-form label:hover {
+    background-color: #e0e7ff;
+    border-color: var(--accent);
+  }
+
+  #quiz-form input[type="radio"] {
+    transform: scale(1.2);
+    accent-color: var(--accent);
+  }
+
+  #quiz-form pre {
+    margin: 0;
+    background-color: transparent !important;
+    border: none !important;
+    display: inline;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #quiz-form button {
+    margin-top: 1.5rem;
+    background-color: var(--accent);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #quiz-form button:hover {
+    background-color: #4338ca;
+  }
+
+  #quiz-feedback {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: inline-block;
+  }
+
+  .success {
+    background-color: #dcfce7;
+    color: var(--success);
+    border: 1px solid var(--success);
+  }
+
+  .error {
+    background-color: #fee2e2;
+    color: var(--error);
+    border: 1px solid var(--error);
+  }
+
+  .warning {
+    background-color: #fef9c3;
+    color: var(--warning);
+    border: 1px solid var(--warning);
+  }
+</style>
+
+<div id="quiz-container">
+  <p class="question">🧠 What was the tip amount for a bill of approximately $48? (Approximate reading is sufficient)</p>
+  <form id="quiz-form">
+    <label>
+      <input type="radio" name="answer" value="a">
+      <pre><code>$11</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="b">
+      <pre><code>$3, $5, and $8</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="c">
+      <pre><code>$5, $7, and $9</code></pre>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="d">
+      <pre><code>None of the above</code></pre>
+    </label>
+
+    <button type="button" onclick="checkAnswer()">Submit Answer</button>
+    <p id="quiz-feedback"></p>
+  </form>
+</div>
+
+<script>
+  function checkAnswer() {
+    const answers = {
+      a: {
+        correct: false,
+        feedback: "❌ Not correct. The tip values at $48 were lower."
+      },
+      b: {
+        correct: false,
+        feedback: "❌ Incorrect. You can see $3, $5, and $8 are not the only ones."
+      },
+      c: {
+        correct: true,
+        feedback: "✅ Correct! The tips were approximately $5, $7, and $9."
+      },
+      d: {
+        correct: false,
+        feedback: "❌ There is a valid answer: it was $5, $7, and $9."
+      }
+    };
+
+    const selected = document.querySelector('input[name="answer"]:checked');
+    const feedback = document.getElementById("quiz-feedback");
+
+    if (!selected) {
+      feedback.textContent = "⚠️ Please select an answer before submitting.";
+      feedback.className = "warning";
+      return;
+    }
+
+    const result = answers[selected.value];
+    feedback.textContent = result.feedback;
+    feedback.className = result.correct ? "success" : "error";
+  }
+</script>
 ```
 
 ## Create scatter plot with regression line
