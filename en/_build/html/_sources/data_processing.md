@@ -32,13 +32,13 @@ Fundamentals of data analysis’ that we are already familiar with.
 ## Brief description of the data set Tips
 A waiter recorded information on every tip he received in a restaurant over a period of several months. Several 
 variables were recorded:
-- Bill amount in dollars (total_bill)
-- Tip in dollars (tip)
-- Gender of the bill payer (sex)
-- Smokers among the guests (smoker)
-- Day of the week (day)
-- Time of day (time)
-- Size of the group (size)
+- Bill amount in dollars (`total_bill`)
+- Tip in dollars (`tip`)
+- Gender of the bill payer (`sex`)
+- Smokers among the guests (`smoker`)
+- Day of the week (`day`)
+- Time of day (`time`)
+- Size of the group (`size`)
 
 In the following, we will first briefly explain what the following code does and then you will find the code and 
 the corresponding output.
@@ -46,10 +46,10 @@ the corresponding output.
 ## Get initial information about a data set
 The following two functions are built into Python via the pandas library. They are useful for gaining an initial 
 overview of a dataset and the characteristics of its features.
-- *info()* provides details about the data structure, such as column names, data types, and the number of non-missing 
+- `info()` provides details about the data structure, such as column names, data types, and the number of non-missing 
 values.
-- *describe(include='all')* returns summary statistics for each column — including minimum, maximum, mean, quartiles, 
-and more. It also includes categorical variables if include='all' is specified.
+- `describe(include='all')` returns summary statistics for each column — including minimum, maximum, mean, quartiles, 
+and more. It also includes categorical variables if `include='all'` is specified.
 
 These functions are ideal for quickly identifying potential issues (e.g. missing values or incorrect data types) and 
 getting a basic sense of the data distribution.
@@ -61,7 +61,7 @@ tips.info()
 tips.describe(include='all')
 ```
 
-You can obtain similar information by using the *skim()* function from the *skimpy* library.
+You can obtain similar information by using the `skim()` function from the *skimpy* library.
 ```{code-cell}
 from skimpy import skim
 import pandas as pd
@@ -233,14 +233,14 @@ skim(tips)
 ```
 
 ## Create bar chart
-Below you can see a variant for creating a bar chart. The *bar()* function from the *matplotlib* library is used to 
-display the frequencies of the categories 'Female' and 'Male' in the 'sex' column of the dataset.
+Below you can see a variant for creating a bar chart. The `bar()` function from the *matplotlib* library is used to 
+display the frequencies of the categories 'Female' and 'Male' in the `sex` column of the dataset.
 
-First, the *Pandas* library is used to load the dataset *tips.csv*. Then, the *value_counts()* function is applied to 
-the 'sex' column to count how often each gender appears. These counts are stored in the variable 'sex_counts', and the 
+First, the *Pandas* library is used to load the dataset `tips.csv`. Then, the `value_counts()` function is applied to 
+the `sex` column to count how often each gender appears. These counts are stored in the variable `sex_counts`, and the 
 corresponding category labels and values are extracted.
 
-Finally, a simple vertical bar chart is created with *plt.bar()*. The chart includes a title and axis labels to make the 
+Finally, a simple vertical bar chart is created with `plt.bar()`. The chart includes a title and axis labels to make the 
 information easier to interpret.
 ```{code-cell}
 import pandas as pd
@@ -261,10 +261,10 @@ plt.show()
 
 ## Split bar chart
 The following code creates a grouped bar chart that shows the number of guests by gender, separated by time of day 
-(Lunch vs. Dinner). This is achieved using Seaborn’s *catplot()* function, which allows for the creation of multiple 
+(Lunch vs. Dinner). This is achieved using *seaborn’s* `catplot()` function, which allows for the creation of multiple 
 subplots based on the values of a categorical feature.
 
-The argument *col="time"* specifies that a separate chart should be created for each value in the time column. The 
+The argument `col="time"` specifies that a separate chart should be created for each value in the time column. The 
 result is two side-by-side bar charts showing the distribution of genders for lunch and dinner, respectively.
 
 This visualization is helpful to compare how the gender distribution of guests differs between the two meal times.
@@ -448,10 +448,10 @@ plt.show()
 
 ## Create histogram
 The following code creates a histogram that visualizes the frequency distribution of invoice amounts in the dataset. 
-The function *plt.hist()* from the Matplotlib library is used to display how often invoice amounts within specific value 
+The function `plt.hist()` from the *Matplotlib* library is used to display how often invoice amounts within specific value 
 ranges occur. 
 
-*edgecolor="black"* adds clear borders to each bar.
+`edgecolor="black"` adds clear borders to each bar.
 
 The x-axis represents the invoice amounts in dollars, while the y-axis shows the number of invoices that fall into 
 each interval.
@@ -472,7 +472,7 @@ plt.show()
 
 ## Create scatter plot
 The following code creates a scatter plot to visualize the relationship between the total bill and the tip amount. 
-The *plt.scatter()* function from the Matplotlib library is used to plot each observation as a point, where:
+The `plt.scatter()` function from the *Matplotlib* library is used to plot each observation as a point, where:
 - the x-axis represents the total bill in dollars
 - the y-axis represents the corresponding tip amount
 
@@ -663,10 +663,10 @@ The following code creates a scatter plot that shows the relationship between th
 In addition to the individual data points, it includes a regression line, which models the linear relationship between 
 the two variables.
 
-This is done using the *lmplot()* function from the Seaborn library.
-- The parameter x="total_bill" defines the variable on the x-axis,
-- y="tip" defines the variable on the y-axis,
-- and Seaborn automatically fits and draws a linear regression line through the data.
+This is done using the `lmplot()` function from the *seaborn* library.
+- The parameter `x="total_bill"` defines the variable on the x-axis,
+- `y="tip"` defines the variable on the y-axis,
+- and *seaborn* automatically fits and draws a linear regression line through the data.
 ```{code-cell}
 import pandas as pd
 import seaborn as sns
@@ -686,8 +686,8 @@ plt.show()
 ```
 
 ## Create mosaic plot
-The following code creates a mosaic plot to visualize the relationship between the categorical variables gender (sex) 
-and time of day (time) in the dataset.
+The following code creates a mosaic plot to visualize the relationship between the categorical variables gender (`sex`) 
+and time of day (`time`) in the dataset.
 
 A mosaic plot shows the relative frequencies of combinations of categorical values using rectangles whose areas are 
 proportional to the number of observations. In this example:
@@ -697,7 +697,7 @@ and each section is further divided based on time (Lunch / Dinner).
 This allows you to easily see whether, for example, a higher proportion of men or women visited the restaurant at a 
 particular time of day.
 
-The plot is created using the *mosaic()* function from the statsmodels library, which is specifically designed for this 
+The plot is created using the `mosaic()` function from the statsmodels library, which is specifically designed for this 
 type of categorical visualization.
 ```{code-cell}
 import pandas as pd
@@ -714,7 +714,7 @@ plt.show()
 ```
 
 ## Create Boxplot
-This code uses the *boxplot()* function from the seaborn library (imported as sns) to create a box-and-whisker plot 
+This code uses the `boxplot()` function from the *seaborn* library (imported as sns) to create a box-and-whisker plot 
 comparing the distribution of total bill amounts for the two time categories: Lunch and Dinner. 
 
 Each box represents the spread of the data for one group and includes:
@@ -722,8 +722,8 @@ Each box represents the spread of the data for one group and includes:
 - the interquartile range (the box itself),
 - and potential outliers (individual dots).
 
-The x-axis shows the two time categories (time), while the y-axis displays the corresponding invoice 
-amounts (total_bill).
+The x-axis shows the two time categories (`time`), while the y-axis displays the corresponding invoice 
+amounts (`total_bill`).
 This visualization makes it easy to compare whether bills are generally higher at dinner than at lunch.
 ```{code-cell}
 import pandas as pd
@@ -744,14 +744,14 @@ plt.show()
 ```
 
 ## Determine distribution function
-This code uses the *ECDF* class from the *statsmodels.distributions.empirical_distribution* module to compute the 
-empirical cumulative distribution function of the total_bill values.
+This code uses the `ECDF()` class from the *statsmodels.distributions.empirical_distribution* module to compute the 
+empirical cumulative distribution function of the `total_bill` values.
 
 An ECDF shows, for each value on the x-axis, the proportion of observations that are less than or equal to that value. 
 The result is a step-shaped curve that increases from 0 to 1. This type of plot is useful to understand how values are 
 distributed across the dataset — for example, to estimate what share of bills are below a certain amount.
 
-The function *plt.step()* is used to draw the ECDF as a step function, and grid lines are added to improve readability.
+The function `plt.step()` is used to draw the ECDF as a step function, and grid lines are added to improve readability.
 ```{code-cell}
 import pandas as pd
 import matplotlib.pyplot as plt
