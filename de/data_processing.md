@@ -237,7 +237,7 @@ skim(tips)
 
 Unten siehst du eine Variante zur Erstellung eines Balkendiagramms. Die Funktion bar() aus der matplotlib-Bibliothek wird verwendet, um die Häufigkeiten der Kategorien „Female“ und „Male“ in der Spalte „sex“ des Datensatzes darzustellen.
 
-Zunächst wird die Pandas-Bibliothek verwendet, um den Datensatz tips.csv zu laden. Anschließend wird die Funktion value_counts() auf die Spalte „sex“ angewendet, um zu zählen, wie oft jedes Geschlecht vorkommt. Diese Zählwerte werden in der Variablen sex_counts gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.
+Zunächst wird die Pandas-Bibliothek verwendet, um den Datensatz tips.csv zu laden. Anschließend wird die Funktion value_counts() auf die Spalte „sex“ angewendet, um die absolute Häufigkeit jedes Geschlechts zu bestimmen. Diese Zählwerte werden in der Variablen sex_counts gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.
 
 Schließlich wird ein einfaches vertikales Balkendiagramm mit plt.bar() erstellt. Das Diagramm enthält einen Titel sowie Achsenbeschriftungen, um die dargestellten Informationen besser interpretieren zu können.
 
@@ -256,6 +256,21 @@ plt.title("Anzahl der Gäste nach Geschlecht")
 plt.xlabel("Geschlecht")
 plt.ylabel("Anzahl")
 plt.show()
+```
+
+Wir können mithilfe der .value_counts() Funktion auch relative Häufigkeiten bestimmen. Dafür müssen wir den Parameter normalize=True übergeben.
+```{code-cell}
+tips['sex'].value_counts(normalize=True)
+```
+
+Wir können uns auch Kontingenztabellen mithilfe der .crosstab() Funktion erstellen lassen:
+
+```{code-cell}
+# Absolute Häufigkeiten
+print(pd.crosstab(tips['sex'], tips['time']))
+
+# Alternativ für relative Häufigkeiten:
+print(pd.crosstab(tips['sex'], tips['time'], normalize='all'))
 ```
 
 ## Gruppiertes Balkendiagramm
@@ -665,7 +680,14 @@ den beiden Variablen modelliert.
 Dies wird mit der Funktion lmplot() aus der Seaborn-Bibliothek gemacht.
 - Der Parameter x="total_bill" definiert die Variable auf der x-Achse,
 - y="tip" definiert die Variable auf der y-Achse,
-- und Seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.
+- und lmplot aus seaborn passt automatisch eine lineare Regressionslinie mit der Kleinste-Quadrate-Methode an und zeichnet sie durch die Daten.
+
+````{margin}
+```{note}
+Hier zeichnet Python automatisch zur Regressionsgeraden in hellblau den "Sicherheitsbereich" ein. Dieser weist darauf hin, dass die Gerade nur eine Schätzung ist und der Zusammenhang zwischen den Merkmalen auch anders aussehen könnte. Insbesondere an den Rändern - also bei sehr kleinen und sehr großen Gesamtrechnungen - ist dieser Bereich daher auch größer, denn hier gibt es weniger Daten, das führt zu mehr Schätzunsicherheit.
+```
+````
+
 ```{code-cell}
 import pandas as pd
 import seaborn as sns
@@ -683,6 +705,34 @@ plt.xlabel("Gesamtrechnung ($)")
 plt.ylabel("Trinkgeld ($)")
 plt.show()
 ```
+
+
+### Korrelationen berechnen
+
+Der folgende Code berechnet die Korrelation zwischen der Gesamtrechnung und dem Trinkgeldbetrag. Wir betrachten zwei verschieden Möglichkeiten, Korrelationen zu messen: die Pearson-Korrelation und die Spearman-Korrelation.
+
+Dies geschieht mithilfe der Funktionen pearsonr() und spearmanr() aus dem scipy.stats-Modul. Beide nehmen die jeweiligen Spalten unseres pandas-Datensatzes als Eingabevarbiablen und berechnen die entsprechende Korrelation und auch den p-Wert, der angibt, ob es sich um eine signifikante Korrelation handelt.
+
+```{code-cell}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import pearsonr, spearmanr
+
+# Load data
+tips = pd.read_csv("tips.csv")
+
+# Pearson correlation
+pearson_corr, pearson_p = pearsonr(tips["total_bill"], tips["tip"])
+print("Pearson correlation:", pearson_corr)
+print("P-value (Pearson):", pearson_p)
+
+# Spearman correlation
+spearman_corr, spearman_p = spearmanr(tips["total_bill"], tips["tip"])
+print("Spearman correlation:", spearman_corr)
+print("P-value (Spearman):", spearman_p)
+```
+
 
 ## Mosaikdiagramm erstellen
 

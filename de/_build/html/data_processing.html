@@ -509,7 +509,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationen-berechnen">Korrelationen berechnen</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaikdiagramm-erstellen">Mosaikdiagramm erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-erstellen">Boxplot erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsfunktion-bestimmen">Verteilungsfunktion bestimmen</a><ul class="nav section-nav flex-column">
@@ -751,7 +754,7 @@ memory usage: 13.5+ KB
 │ ┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩ ┡━━━━━━━━━━━━━╇━━━━━━━┩                                                          │
 │ │ Number of rows    │ 244    │ │ string      │ 4     │                                                          │
 │ │ Number of columns │ 7      │ │ float64     │ 2     │                                                          │
-│ └───────────────────┴────────┘ │ int64       │ 1     │                                                          │
+│ └───────────────────┴────────┘ │ int32       │ 1     │                                                          │
 │                                └─────────────┴───────┘                                                          │
 │ <span style="font-style: italic">                                                    number                                                    </span>  │
 │ ┏━━━━━━━━━━━━━━━━┳━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┓  │
@@ -939,7 +942,7 @@ memory usage: 13.5+ KB
 <section id="balkendiagramm-erstellen">
 <h2>Balkendiagramm erstellen<a class="headerlink" href="#balkendiagramm-erstellen" title="Link to this heading">#</a></h2>
 <p>Unten siehst du eine Variante zur Erstellung eines Balkendiagramms. Die Funktion bar() aus der matplotlib-Bibliothek wird verwendet, um die Häufigkeiten der Kategorien „Female“ und „Male“ in der Spalte „sex“ des Datensatzes darzustellen.</p>
-<p>Zunächst wird die Pandas-Bibliothek verwendet, um den Datensatz tips.csv zu laden. Anschließend wird die Funktion value_counts() auf die Spalte „sex“ angewendet, um zu zählen, wie oft jedes Geschlecht vorkommt. Diese Zählwerte werden in der Variablen sex_counts gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.</p>
+<p>Zunächst wird die Pandas-Bibliothek verwendet, um den Datensatz tips.csv zu laden. Anschließend wird die Funktion value_counts() auf die Spalte „sex“ angewendet, um die absolute Häufigkeit jedes Geschlechts zu bestimmen. Diese Zählwerte werden in der Variablen sex_counts gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.</p>
 <p>Schließlich wird ein einfaches vertikales Balkendiagramm mit plt.bar() erstellt. Das Diagramm enthält einen Titel sowie Achsenbeschriftungen, um die dargestellten Informationen besser interpretieren zu können.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -962,6 +965,46 @@ memory usage: 13.5+ KB
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/c9ef908c7e7497b63e1aac441c7582603d17fffef18dedaf87bf8f615c0a2ee8.png" src="_images/c9ef908c7e7497b63e1aac441c7582603d17fffef18dedaf87bf8f615c0a2ee8.png" />
+</div>
+</div>
+<p>Wir können mithilfe der .value_counts() Funktion auch relative Häufigkeiten bestimmen. Dafür müssen wir den Parameter normalize=True übergeben.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sex
+Male      0.643443
+Female    0.356557
+Name: proportion, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir können uns auch Kontingenztabellen mithilfe der .crosstab() Funktion erstellen lassen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Absolute Häufigkeiten</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]))</span>
+
+<span class="c1"># Alternativ für relative Häufigkeiten:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">],</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">normalize</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time    Dinner  Lunch
+sex                  
+Female      52     35
+Male       124     33
+time      Dinner     Lunch
+sex                       
+Female  0.213115  0.143443
+Male    0.508197  0.135246
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1384,8 +1427,15 @@ den beiden Variablen modelliert.</p>
 <ul class="simple">
 <li><p>Der Parameter x=”total_bill” definiert die Variable auf der x-Achse,</p></li>
 <li><p>y=”tip” definiert die Variable auf der y-Achse,</p></li>
-<li><p>und Seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.</p></li>
+<li><p>und lmplot aus seaborn passt automatisch eine lineare Regressionslinie mit der Kleinste-Quadrate-Methode an und zeichnet sie durch die Daten.</p></li>
 </ul>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hier zeichnet Python automatisch zur Regressionsgeraden in hellblau den “Sicherheitsbereich” ein. Dieser weist darauf hin, dass die Gerade nur eine Schätzung ist und der Zusammenhang zwischen den Merkmalen auch anders aussehen könnte. Insbesondere an den Rändern - also bei sehr kleinen und sehr großen Gesamtrechnungen - ist dieser Bereich daher auch größer, denn hier gibt es weniger Daten, das führt zu mehr Schätzunsicherheit.</p>
+</div>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1407,9 +1457,45 @@ den beiden Variablen modelliert.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/506f9fefc8f55a4596d03eefb773c347b93bf7cc68903c9969bf26324e7df310.png" src="_images/506f9fefc8f55a4596d03eefb773c347b93bf7cc68903c9969bf26324e7df310.png" />
+<img alt="_images/e6ce7d33eff6f9a2942cf3e60e8f4caab8c132172cb439a84e7333182ece47e3.png" src="_images/e6ce7d33eff6f9a2942cf3e60e8f4caab8c132172cb439a84e7333182ece47e3.png" />
 </div>
 </div>
+<section id="korrelationen-berechnen">
+<h3>Korrelationen berechnen<a class="headerlink" href="#korrelationen-berechnen" title="Link to this heading">#</a></h3>
+<p>Der folgende Code berechnet die Korrelation zwischen der Gesamtrechnung und dem Trinkgeldbetrag. Wir betrachten zwei verschieden Möglichkeiten, Korrelationen zu messen: die Pearson-Korrelation und die Spearman-Korrelation.</p>
+<p>Dies geschieht mithilfe der Funktionen pearsonr() und spearmanr() aus dem scipy.stats-Modul. Beide nehmen die jeweiligen Spalten unseres pandas-Datensatzes als Eingabevarbiablen und berechnen die entsprechende Korrelation und auch den p-Wert, der angibt, ob es sich um eine signifikante Korrelation handelt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span><span class="p">,</span> <span class="n">spearmanr</span>
+
+<span class="c1"># Load data</span>
+<span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pearson correlation</span>
+<span class="n">pearson_corr</span><span class="p">,</span> <span class="n">pearson_p</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">],</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pearson correlation:&quot;</span><span class="p">,</span> <span class="n">pearson_corr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value (Pearson):&quot;</span><span class="p">,</span> <span class="n">pearson_p</span><span class="p">)</span>
+
+<span class="c1"># Spearman correlation</span>
+<span class="n">spearman_corr</span><span class="p">,</span> <span class="n">spearman_p</span> <span class="o">=</span> <span class="n">spearmanr</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">],</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Spearman correlation:&quot;</span><span class="p">,</span> <span class="n">spearman_corr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value (Spearman):&quot;</span><span class="p">,</span> <span class="n">spearman_p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pearson correlation: 0.6757341092113647
+P-value (Pearson): 6.692470646863343e-34
+Spearman correlation: 0.6789681219001009
+P-value (Spearman): 2.501158440923619e-34
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="mosaikdiagramm-erstellen">
 <h2>Mosaikdiagramm erstellen<a class="headerlink" href="#mosaikdiagramm-erstellen" title="Link to this heading">#</a></h2>
@@ -1758,7 +1844,10 @@ um die Lesbarkeit zu verbessern.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationen-berechnen">Korrelationen berechnen</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaikdiagramm-erstellen">Mosaikdiagramm erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-erstellen">Boxplot erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsfunktion-bestimmen">Verteilungsfunktion bestimmen</a><ul class="nav section-nav flex-column">

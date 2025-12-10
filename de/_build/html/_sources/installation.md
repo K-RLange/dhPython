@@ -21,70 +21,52 @@ kernelspec:
 
 ## Installation von Python
 
-Um Python auf deinem lokalen Rechner zu installieren, kannst du entweder das Installationsprogramm von der offiziellen Website herunterladen oder conda installieren, einen Versionsmanager für Python und andere Programmiersprachen (wie R).
+Um Python auf deinem lokalen Rechner zu installieren, kannst du entweder das Installationsprogramm von der offiziellen Website herunterladen oder conda installieren, einen Versionsmanager für Python und andere Programmiersprachen (wie R). Wir empfehlen dir, conda zu verwenden, da es dir eine simple Möglichkeit bietet, verschiedene Python-Versionen und Pakete zu verwalten.
 
-Für dieses Tutorial musst du **kein** Python oder eine integrierte Entwicklungsumgebung (IDE, also eine grafische Benutzeroberfläche) installieren, da der Code direkt im Browser ausgeführt werden kann.
-Möchtest du jedoch nach dem Kurs weiterhin mit Python arbeiten, empfehlen wir dir, Python und eine IDE lokal zu installieren.
-
-### 1) Mit conda (empfohlen)
-
-Um conda herunterzuladen, besuche bitte die [offizielle conda Website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
-Du kannst entweder Miniconda oder die Anaconda-Distribution installieren (empfohlen). Miniconda ist eine Minimalinstallation, während Anaconda zusätzliche vorinstallierte Funktionen bietet, die für dich nützlich sein könnten.
-
-Folge den Anweisungen auf der Website und installiere die gewünschte Version von conda.
-
-Nach der Installation kannst du jederzeit eine neue Programmierumgebung für Python erstellen. Falls du mehrere Projekte mit unterschiedlichen Paketversionen hast, kannst du für jedes eine eigene Umgebung anlegen, um Versionskonflikte zu vermeiden.
-
-Du kannst conda im Terminal aufrufen mit:
-
-```bash
-conda
-```
-
-Wenn alles korrekt installiert ist, erscheint eine Liste mit verfügbaren Befehlen. Falls du eine Fehlermeldung bekommst und Windows benutzt, musst du eventuell vorher folgenden Befehl ausführen:
-
-```bash
-activate
-```
-
-oder
-
-```bash
-conda activate
-```
-
-Zum Erstellen einer neuen Python-Umgebung gibst du im Terminal folgenden Befehl ein:
-
-```bash
-conda create --name meineumgebung python=3.11
-```
-
-In diesem Fall erstellen wir eine Umgebung namens `meineumgebung` mit Python-Version 3.11. Du kannst Namen und Version nach Belieben anpassen.
-
-Zur Aktivierung deiner Umgebung verwende:
-
-```bash
-conda activate meineumgebung
-```
-
-Danach kannst du beliebige Pakete installieren.
-
-### 2) Mit dem offiziellen Installer
+````{margin}
+#### Installation mit dem offiziellen Installer (nicht empfohlen)
 
 Um Python direkt zu installieren, besuche die [offizielle Python-Website](https://www.python.org/downloads/) und lade die gewünschte Version herunter.
 Beachte jedoch, dass die Verwendung von conda empfohlen wird, da es dir die Verwaltung von Versionen und Paketen erleichtert.
+````
+
+
+### Installation mit conda (empfohlen)
+
+Um conda herunterzuladen, besuche bitte die [offizielle conda Website](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+Du kannst entweder Miniconda oder die Anaconda-Distribution installieren (empfohlen). Miniconda ist eine Minimalinstallation, während Anaconda zusätzliche vorinstallierte Funktionen bietet, die für dich nützlich sein könnten. Unter anderem wird Anaconda Navigator mitgeliefert: eine visuelle Oberfläche für conda, welche dir die Verwaltung von Umgebungen und Paketen erleichtert.
+
+Folge den Anweisungen auf der Website und installiere die gewünschte Version von conda. Falls du dabei nicht weiterwissen solltest, kannst du dir in diesem ![YouTube Video](https://youtu.be/WUeBzT43JyY?t=52) zwischen 0:53 und 3:53 ein kurzes Tutorial ansehen, das dir bei der Installation hilft. Falls trotzdem Probleme auftreten, zögere bitte nicht, uns eine Mail zu schreiben.  
+
+````{margin}
+```{note}
+Nach der Installation kannst du jederzeit eine neue Programmierumgebung für Python erstellen. Falls du mehrere Projekte mit unterschiedlichen Paketversionen hast, kannst du für jedes eine eigene Umgebung anlegen, um Versionskonflikte zu vermeiden.
+```
+````
+
+#### Erstellen einer neuen Python-Umgebung
+
+Um die Aufgaben im DaLi-Thema 3 zu bearbeiten, kannst du dir mit conda eine Programmierumgebung für Python erstellen.
+
+Um eine Python-Umgebung zu erstellen, kannst du im Anaconda Navigator den Tab "Environments" auswählen. Wenn du diesen aufgerufen hast, kannst du unten auf den "Create"-Knopf drücken, worauf hin du gefragt wirst, ob du eine Python- oder R-Umgebung erstellen möchtest und welche Version du installieren willst. Wähle hier einfach Python und die gewünschte Version aus (z.B. 3.9).
 
 ## Installation von Paketen
 
-Python bietet zwei wichtige Paketmanager: conda und pip. Conda kommt mit der Anaconda-Distribution, pip ist bei jeder Python-Installation dabei.
+Um Python verwenden zu können, wirst du früher oder später Pakete benötigen. Python bietet zwei wichtige Paketmanager: conda und pip. Die Installation von conda haben wir weiter oben beschrieben und pip ist automatisch bei jeder Python-Installation dabei. 
 
-Diese beiden Manager sind nicht immer miteinander kompatibel. Wenn du conda nutzt, installiere Pakete möglichst über conda. Falls du beide nutzen musst, installiere zuerst möglichst viele Pakete über conda und danach den Rest mit pip.
+````{margin}
+```{note}
+Diese beiden Manager sind nicht immer miteinander kompatibel. Falls du beide nutzen musst, installiere zuerst möglichst viele Pakete über conda und danach den Rest mit pip. Die Reihenfolge der Paketinstallation ist in diesem Fall relevant. 
+```
+````
 
-Für die meisten Anwendungsfälle reicht pip aus.
+Es Pakete gibt, die entweder nur mit conda oder mit pip installiert werden können, daher kann es hilfreich sein, mit beiden umgehen zu können. Solltest du dich aber zunächst auf einen von beiden konzentrieren wollen, dann empfehlen wir pip. pip sollte etwa 95% der Anwendungsfälle abdecken.
+
+Um Pakete mit einem der beiden Paketmanager zu installieren, musst du zunächst ein Terminal öffnen. Dafür kannst du in Anaconda Navigator unter dem Tab "Environments" auf deine gerade eben erstellte Python-Umgebung klicken und dann auf den grünen Pfeil direkt rechts daneben klicken und in dem sich dann öffnenden Fenster "Open Terminal" klicken. Dadurch sollte sich ein Terminal öffnen, in das du hineintippen kannst.
 
 ### 1) Mit pip
 
-Um ein Paket mit pip zu installieren, öffne ein Terminal und tippe:
+Um ein Paket mit pip zu installieren, öffne ein Terminal, tippe den folgenden Befehl und drücke Enter:
 
 ```bash
 pip install paketname
@@ -96,15 +78,22 @@ Beispiel für das Paket `numpy`:
 pip install numpy
 ```
 
+Wenn die Installation erfolgreich war, sollte das Terminal eine Nachricht anzeigen, die so ähnlich aussieht:
+
+```bash
+Successfully installed numpy-1.21.0
+```
+
+
 ### 2) Mit conda
 
-Um ein Paket mit conda zu installieren, verwende:
+Um ein Paket mit conda zu installieren, öffne ein Terminal, tippe den folgenden Befehl und drücke Enter:
 
 ```bash
 conda install paketname
 ```
 
-Beispiel:
+Beispiel für das Paket `numpy`:
 
 ```bash
 conda install numpy
@@ -118,26 +107,29 @@ Diese IDEs können entweder manuell installiert werden oder mit dem Anaconda Nav
 
 Falls du den Navigator nicht nutzt, folge diesen Schritten:
 
-### 1) Jupyter Notebook
+### 1) Jupyter Notebook (für Dali-Thema 3 empfohlen)
 
-Jupyter Notebook ist für interaktive Notebooks konzipiert. Es besteht aus einzelnen Code-Blöcken, die nacheinander ausgeführt werden können. Ideal für Lehre und Demos, wie auch dieses Projekt.
+Jupyter Notebook ist für interaktive Notebooks konzipiert. Es besteht aus einzelnen Code-Blöcken, die nacheinander ausgeführt werden können. Es ist ideal für Lehre und Demos, wie auch dieses Projekt, aber eher ungeeignet für größere Projekte mit mehreren Dateien.
 
-Nachteil: Für größere Projekte mit mehreren Dateien ungeeignet.
-
-Wenn du Anaconda installiert hast, kannst du Jupyter starten mit:
+Wenn du Anaconda installiert hast, kannst du Jupyter im Terminal starten mit:
 
 ```bash
 jupyter notebook
 ```
 
-### 2) PyCharm
+Alternativ kannst du auch im Anaconda Navigator unter dem Tab "Home" Jupyter Notebook starten, indem du auf "Launch" klickst.
 
-PyCharm ist eine professionelle IDE für große Projekte, ähnlich wie RStudio für R. Sie bietet viele Funktionen: mehrere Dateien, integrierten Debugger, grafische Verwaltung von conda-Umgebungen u.v.m.
+### 2) PyCharm (für größere Projekte empfohlen)
 
-Nachteil: Für Anfänger eventuell überfordernd.
+PyCharm ist eine professionelle IDE für große Projekte, ähnlich wie RStudio für R. Sie bietet viele Funktionen: mehrere Dateien, integrierten Debugger, grafische Verwaltung von conda-Umgebungen und viele mehr. Ihr großer Umfang kann jedoch zu Überforderung bei Anfänger*innen führen.
 
-Zur Installation besuche die [offizielle PyCharm-Website](https://www.jetbrains.com/pycharm/download/) und wähle die gewünschte Version. Es gibt eine kostenlose Community Edition und eine kostenpflichtige Professional Edition.
+Wenn du Anaconda Navigator nutzt, kannst du PyCharm dort unter dem Tab "Home" installieren, indem du auf "Install" neben PyCharm Community oder Professional klickst. Die Community Edition ist kostenlos und die Professional Edition ist kostenpflichtig. Falls du ein Hochschul-Login hast, kannst du die Professional Edition kostenlos nutzen, wenn du dein Konto bei JetBrains, dem Herrsteller von PyCharm, mit deiner Uni-E-Mail verknüpfst.
 
-Falls du ein Hochschul-Login hast, kannst du die Professional Edition kostenlos nutzen, wenn du dein JetBrains-Konto mit deiner Uni-E-Mail verknüpfst.
+````{margin}
+```{note}
+Alternativ kannst du Pycharm über die die [offizielle PyCharm-Website](https://www.jetbrains.com/pycharm/download/) installieren.
+```
+````
 
-Ein Tutorial zur Nutzung findest du auf der [offiziellen PyCharm-Hilfeseite](https://www.jetbrains.com/help/pycharm/quick-start-guide.html).
+Ein Tutorial, um dich mit PyCharm vertraut zu machen findest du auf der [offiziellen PyCharm-Hilfeseite](https://www.jetbrains.com/help/pycharm/quick-start-guide.html).
+

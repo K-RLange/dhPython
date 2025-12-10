@@ -17,7 +17,7 @@ auf deinem Rechner installierst.
 
 Wenn du Fragen hast, zögere bitte nicht, uns eine E-Mail zu schreiben:
 - Kai-Robin Lange ([kalange@statistik.tu-dortmund.de](mailto:kalange@statistik.tu-dortmund.de))
-- Henrik Hardering ([henrik.hardering@tu-dortmund.de](mailto:henrik.hardering@tu-dortmund.de))
+- Henrike Weinert ([henrike.weinert@tu-dortmund.de](mailto:henrike.weinert@tu-dortmund.de))
 
 
 ```{attention}

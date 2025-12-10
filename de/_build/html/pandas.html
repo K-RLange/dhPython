@@ -598,7 +598,7 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>Um diese zeitabhängigen Daten zu visualisieren, können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann ein Diagramm erstellen:</p>
+<p>Um diese zeitabhängigen Daten zu visualisieren, nutzen wir die Bibliothek matplotlib. Mit dem Befehl to_datetime (aus pandas) können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann mit plot, angewandt auf price_data ein Diagramm erstellen, das durch show() aus matplotlib angezeigt wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>

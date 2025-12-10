@@ -57,8 +57,7 @@ filtered_data = price_data.loc[(price_data["timestamp"] >= start_date) & (price_
 print(filtered_data)
 ```
 
-Um diese zeitabhängigen Daten zu visualisieren, können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann ein Diagramm erstellen:
-
+Um diese zeitabhängigen Daten zu visualisieren, nutzen wir die Bibliothek matplotlib. Mit dem Befehl to_datetime (aus pandas) können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann mit plot, angewandt auf price_data ein Diagramm erstellen, das durch show() aus matplotlib angezeigt wird.
 ```{code-cell}
 import matplotlib.pyplot as plt
 price_data["timestamp"] = pd.to_datetime(price_data["timestamp"])
