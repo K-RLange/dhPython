@@ -258,6 +258,21 @@ plt.ylabel("Anzahl")
 plt.show()
 ```
 
+Wir können mithilfe der .value_counts() Funktion auch relative Häufigkeiten bestimmen. Dafür müssen wir den Parameter normalize=True übergeben.
+```{code-cell}
+tips['sex'].value_counts(normalize=True)
+```
+
+Wir können uns auch Kontingenztabellen mithilfe der .crosstab() Funktion erstellen lassen:
+
+```{code-cell}
+# Absolute Häufigkeiten
+print(pd.crosstab(tips['sex'], tips['time']))
+
+# Alternativ für relative Häufigkeiten:
+print(pd.crosstab(tips['sex'], tips['time'], normalize='all'))
+```
+
 ## Gruppiertes Balkendiagramm
 
 Der folgende Code erstellt ein gruppiertes Balkendiagramm, das die Anzahl der Gäste nach Geschlecht zeigt, getrennt nach Tageszeit (Lunch vs. Dinner). Dies wird mit der `catplot()`-Funktion von *seaborn* umgesetzt, die es ermöglicht, mehrere Diagramme basierend auf den Werten einer kategorialen Variable zu erstellen.
@@ -662,6 +677,12 @@ Der folgende Code erstellt ein Streudiagramm, das die Beziehung zwischen der Ges
 Zusätzlich zu den einzelnen Datenpunkten wird eine Regressionslinie hinzugefügt, die die lineare Beziehung zwischen
 den beiden Variablen modelliert.
 
+````{margin}
+```{note}
+Hier zeichnet Python automatisch zur Regressionsgeraden in hellblau den "Sicherheitsbereich" ein. Dieser weist darauf hin, dass die Gerade nur eine Schätzung ist und der Zusammenhang zwischen den Merkmalen auch anders aussehen könnte. Insbesondere an den Rändern - also bei sehr kleinen und sehr großen Gesamtrechnungen - ist dieser Bereich daher auch größer, denn hier gibt es weniger Daten, das führt zu mehr Schätzunsicherheit.
+```
+````
+
 Dies wird mit der Funktion `lmplot()` aus der *seaborn*-Bibliothek gemacht.
 - Der Parameter `x="total_bill"` definiert die Variable auf der x-Achse,
 - `y="tip"` definiert die Variable auf der y-Achse,
@@ -683,6 +704,34 @@ plt.xlabel("Gesamtrechnung ($)")
 plt.ylabel("Trinkgeld ($)")
 plt.show()
 ```
+
+
+### Korrelationen berechnen
+
+Der folgende Code berechnet die Korrelation zwischen der Gesamtrechnung und dem Trinkgeldbetrag. Wir betrachten zwei verschieden Möglichkeiten, Korrelationen zu messen: die Pearson-Korrelation und die Spearman-Korrelation.
+
+Dies geschieht mithilfe der Funktionen pearsonr() und spearmanr() aus dem scipy.stats-Modul. Beide nehmen die jeweiligen Spalten unseres pandas-Datensatzes als Eingabevarbiablen und berechnen die entsprechende Korrelation und auch den p-Wert, der angibt, ob es sich um eine signifikante Korrelation handelt.
+
+```{code-cell}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy.stats import pearsonr, spearmanr
+
+# Load data
+tips = pd.read_csv("tips.csv")
+
+# Pearson correlation
+pearson_corr, pearson_p = pearsonr(tips["total_bill"], tips["tip"])
+print("Pearson correlation:", pearson_corr)
+print("P-value (Pearson):", pearson_p)
+
+# Spearman correlation
+spearman_corr, spearman_p = spearmanr(tips["total_bill"], tips["tip"])
+print("Spearman correlation:", spearman_corr)
+print("P-value (Spearman):", spearman_p)
+```
+
 
 ## Mosaikdiagramm erstellen
 
