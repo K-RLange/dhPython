@@ -235,11 +235,11 @@ skim(tips)
 
 ## Balkendiagramm erstellen
 
-Unten siehst du eine Variante zur Erstellung eines Balkendiagramms. Die Funktion bar() aus der matplotlib-Bibliothek wird verwendet, um die Häufigkeiten der Kategorien „Female“ und „Male“ in der Spalte „sex“ des Datensatzes darzustellen.
+Unten siehst du eine Variante zur Erstellung eines Balkendiagramms. Die Funktion `bar()` aus der *matplotlib*-Bibliothek wird verwendet, um die Häufigkeiten der Kategorien „Female“ und „Male“ in der Spalte `sex` des Datensatzes darzustellen.
 
-Zunächst wird die Pandas-Bibliothek verwendet, um den Datensatz tips.csv zu laden. Anschließend wird die Funktion value_counts() auf die Spalte „sex“ angewendet, um die absolute Häufigkeit jedes Geschlechts zu bestimmen. Diese Zählwerte werden in der Variablen sex_counts gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.
+Zunächst wird die *Pandas*-Bibliothek verwendet, um den Datensatz `tips.csv` zu laden. Anschließend wird die Funktion `value_counts()` auf die Spalte `sex` angewendet, um zu zählen, wie oft jedes Geschlecht vorkommt. Diese Zählwerte werden in der Variablen `sex_counts` gespeichert; die zugehörigen Kategorienamen und Werte werden extrahiert.
 
-Schließlich wird ein einfaches vertikales Balkendiagramm mit plt.bar() erstellt. Das Diagramm enthält einen Titel sowie Achsenbeschriftungen, um die dargestellten Informationen besser interpretieren zu können.
+Schließlich wird ein einfaches vertikales Balkendiagramm mit `plt.bar()` erstellt. Das Diagramm enthält einen Titel sowie Achsenbeschriftungen, um die dargestellten Informationen besser interpretieren zu können.
 
 ```{code-cell}
 import pandas as pd
@@ -258,26 +258,11 @@ plt.ylabel("Anzahl")
 plt.show()
 ```
 
-Wir können mithilfe der .value_counts() Funktion auch relative Häufigkeiten bestimmen. Dafür müssen wir den Parameter normalize=True übergeben.
-```{code-cell}
-tips['sex'].value_counts(normalize=True)
-```
-
-Wir können uns auch Kontingenztabellen mithilfe der .crosstab() Funktion erstellen lassen:
-
-```{code-cell}
-# Absolute Häufigkeiten
-print(pd.crosstab(tips['sex'], tips['time']))
-
-# Alternativ für relative Häufigkeiten:
-print(pd.crosstab(tips['sex'], tips['time'], normalize='all'))
-```
-
 ## Gruppiertes Balkendiagramm
 
-Der folgende Code erstellt ein gruppiertes Balkendiagramm, das die Anzahl der Gäste nach Geschlecht zeigt, getrennt nach Tageszeit (Lunch vs. Dinner). Dies wird mit der catplot()-Funktion von Seaborn umgesetzt, die es ermöglicht, mehrere Diagramme basierend auf den Werten einer kategorialen Variable zu erstellen.
+Der folgende Code erstellt ein gruppiertes Balkendiagramm, das die Anzahl der Gäste nach Geschlecht zeigt, getrennt nach Tageszeit (Lunch vs. Dinner). Dies wird mit der `catplot()`-Funktion von *seaborn* umgesetzt, die es ermöglicht, mehrere Diagramme basierend auf den Werten einer kategorialen Variable zu erstellen.
 
-Das Argument col="time" gibt an, dass für jeden Wert in der Spalte „time“ ein eigenes Diagramm erstellt werden soll. Das Ergebnis sind zwei nebeneinander angeordnete Balkendiagramme, die die Geschlechterverteilung für Mittag- und Abendessen separat darstellen.
+Das Argument `col="time"` gibt an, dass für jeden Wert in der Spalte `time` ein eigenes Diagramm erstellt werden soll. Das Ergebnis sind zwei nebeneinander angeordnete Balkendiagramme, die die Geschlechterverteilung für Mittag- und Abendessen separat darstellen.
 
 Diese Visualisierung eignet sich gut, um zu vergleichen, wie sich die Geschlechterverteilung der Gäste zwischen den beiden Tageszeiten unterscheidet.
 
@@ -295,8 +280,8 @@ g = sns.catplot(
     col="time",
 )
 
-g.set_titles("Time: {col_name}")
-g.set_axis_labels("Gender", "Count")
+g.set_titles("Zeit: {col_name}")
+g.set_axis_labels("Geschlecht", "Anzahl")
 plt.show()
 ```
 
@@ -463,9 +448,9 @@ plt.show()
 ## Histogramm erstellen
 
 Der folgende Code erstellt ein Histogramm, das die Häufigkeitsverteilung der Rechnungsbeträge im Datensatz visualisiert.
-Die Funktion plt.hist() aus der Matplotlib-Bibliothek wird verwendet, um darzustellen, wie oft Rechnungsbeträge in bestimmten Wertebereichen auftreten.
+Die Funktion `plt.hist()` aus der *matplotlib*-Bibliothek wird verwendet, um darzustellen, wie oft Rechnungsbeträge in bestimmten Wertebereichen auftreten.
 
-edgecolor="black" fügt jedem Balken klare Umrandungen hinzu.
+`edgecolor="black"` fügt jedem Balken klare Umrandungen hinzu.
 
 Die x-Achse zeigt die Rechnungsbeträge in Dollar, während die y-Achse die Anzahl der Rechnungen in jedem Intervall angibt.
 
@@ -487,7 +472,7 @@ plt.show()
 ## Streudiagramm erstellen
 
 Der folgende Code erstellt ein Streudiagramm, um die Beziehung zwischen dem Gesamtbetrag der Rechnung und der Trinkgeldhöhe zu visualisieren.
-Die Funktion plt.scatter() aus der Matplotlib-Bibliothek wird verwendet, um jede Beobachtung als Punkt zu zeichnen, wobei:
+Die Funktion `plt.scatter()` aus der *matplotlib*-Bibliothek wird verwendet, um jede Beobachtung als Punkt zu zeichnen, wobei:
 - die x-Achse den Gesamtbetrag der Rechnung in Dollar darstellt
 - die y-Achse den entsprechenden Trinkgeldbetrag zeigt
 Jeder Punkt im Diagramm entspricht einer Zeile im Datensatz. Diese Art der Visualisierung ist nützlich, um Muster oder Trends zu erkennen – beispielsweise, ob höhere Rechnungen mit höheren Trinkgeldern verbunden sind.
@@ -650,7 +635,7 @@ plt.show()
   function checkAnswer3() {
     const answers3 = {
       a: { correct: false, feedback: "❌ Nicht korrekt. Die Trinkgelder waren niedriger." },
-      b: { correct: false, feedback: "❌ Inkorrekt. $3, $5, und $8 waren nicht die Einzigen." },
+      b: { correct: false, feedback: "❌ Inkorrekt!" },
       c: { correct: true,  feedback: "✅ Korrekt!" },
       d: { correct: false, feedback: "❌ Inkorrekt, es gibt eine korrekte Antwort." }
     };
@@ -677,17 +662,10 @@ Der folgende Code erstellt ein Streudiagramm, das die Beziehung zwischen der Ges
 Zusätzlich zu den einzelnen Datenpunkten wird eine Regressionslinie hinzugefügt, die die lineare Beziehung zwischen
 den beiden Variablen modelliert.
 
-Dies wird mit der Funktion lmplot() aus der Seaborn-Bibliothek gemacht.
-- Der Parameter x="total_bill" definiert die Variable auf der x-Achse,
-- y="tip" definiert die Variable auf der y-Achse,
-- und lmplot aus seaborn passt automatisch eine lineare Regressionslinie mit der Kleinste-Quadrate-Methode an und zeichnet sie durch die Daten.
-
-````{margin}
-```{note}
-Hier zeichnet Python automatisch zur Regressionsgeraden in hellblau den "Sicherheitsbereich" ein. Dieser weist darauf hin, dass die Gerade nur eine Schätzung ist und der Zusammenhang zwischen den Merkmalen auch anders aussehen könnte. Insbesondere an den Rändern - also bei sehr kleinen und sehr großen Gesamtrechnungen - ist dieser Bereich daher auch größer, denn hier gibt es weniger Daten, das führt zu mehr Schätzunsicherheit.
-```
-````
-
+Dies wird mit der Funktion `lmplot()` aus der *seaborn*-Bibliothek gemacht.
+- Der Parameter `x="total_bill"` definiert die Variable auf der x-Achse,
+- `y="tip"` definiert die Variable auf der y-Achse,
+- und seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.
 ```{code-cell}
 import pandas as pd
 import seaborn as sns
@@ -706,48 +684,20 @@ plt.ylabel("Trinkgeld ($)")
 plt.show()
 ```
 
-
-### Korrelationen berechnen
-
-Der folgende Code berechnet die Korrelation zwischen der Gesamtrechnung und dem Trinkgeldbetrag. Wir betrachten zwei verschieden Möglichkeiten, Korrelationen zu messen: die Pearson-Korrelation und die Spearman-Korrelation.
-
-Dies geschieht mithilfe der Funktionen pearsonr() und spearmanr() aus dem scipy.stats-Modul. Beide nehmen die jeweiligen Spalten unseres pandas-Datensatzes als Eingabevarbiablen und berechnen die entsprechende Korrelation und auch den p-Wert, der angibt, ob es sich um eine signifikante Korrelation handelt.
-
-```{code-cell}
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from scipy.stats import pearsonr, spearmanr
-
-# Load data
-tips = pd.read_csv("tips.csv")
-
-# Pearson correlation
-pearson_corr, pearson_p = pearsonr(tips["total_bill"], tips["tip"])
-print("Pearson correlation:", pearson_corr)
-print("P-value (Pearson):", pearson_p)
-
-# Spearman correlation
-spearman_corr, spearman_p = spearmanr(tips["total_bill"], tips["tip"])
-print("Spearman correlation:", spearman_corr)
-print("P-value (Spearman):", spearman_p)
-```
-
-
 ## Mosaikdiagramm erstellen
 
-Der folgende Code erstellt ein Mosaikdiagramm, um die Beziehung zwischen den kategorialen Variablen Geschlecht (sex)
-und Tageszeit (time) im Datensatz zu visualisieren.
+Der folgende Code erstellt ein Mosaikdiagramm, um die Beziehung zwischen den kategorialen Variablen Geschlecht (`sex`)
+und Tageszeit (`time`) im Datensatz zu visualisieren.
 
 Ein Mosaikdiagramm zeigt die relativen Häufigkeiten von Kombinationen kategorialer Werte durch Rechtecke, deren Flächen
 proportional zur Anzahl der Beobachtungen sind. In diesem Beispiel:
 
-Die x-Achse ist aufgeteilt nach den Werten von sex (weiblich / männlich),
-und jeder Abschnitt ist weiter unterteilt nach time (Mittagessen / Abendessen).
+Die x-Achse ist aufgeteilt nach den Werten von `sex` (weiblich / männlich),
+und jeder Abschnitt ist weiter unterteilt nach `time` (Mittagessen / Abendessen).
 So kann man leicht erkennen, ob zum Beispiel ein höherer Anteil von Männern oder Frauen zu einer bestimmten Tageszeit
 das Restaurant besucht hat.
 
-Das Diagramm wird mit der Funktion mosaic() aus der Bibliothek statsmodels erstellt, die speziell für diese
+Das Diagramm wird mit der Funktion `mosaic()` aus der Bibliothek *statsmodels* erstellt, die speziell für diese
 Art der kategorialen Visualisierung gedacht ist.
 ```{code-cell}
 import pandas as pd
@@ -759,13 +709,13 @@ mosaic(tips, ['sex', 'time'])
 
 plt.title("Mosaikdiagramm: Geschlecht vs. Tageszeit")
 plt.xlabel("Geschlecht")
-plt.ylabel("Anteil")
+plt.ylabel("Tageszeit")
 plt.show()
 ```
 
 ## Boxplot erstellen
 
-Dieser Code verwendet die Funktion boxplot() aus der seaborn-Bibliothek (importiert als sns), um ein Box-and-Whisker-Diagramm
+Dieser Code verwendet die Funktion `boxplot()` aus der *seaborn*-Bibliothek (importiert als sns), um ein Box-and-Whisker-Diagramm
 zu erstellen, das die Verteilung der Gesamtrechnungen für die beiden Zeitkategorien Mittagessen und Abendessen vergleicht.
 
 Jede Box repräsentiert die Streuung der Daten für eine Gruppe und enthält:
@@ -773,7 +723,7 @@ Jede Box repräsentiert die Streuung der Daten für eine Gruppe und enthält:
 - die Interquartilsdifferenz (die Box selbst),
 - und mögliche Ausreißer (einzelne Punkte).
 
-Die x-Achse zeigt die beiden Zeitkategorien (time), während die y-Achse die entsprechenden Rechnungsbeträge (total_bill)
+Die x-Achse zeigt die beiden Zeitkategorien (`time`), während die y-Achse die entsprechenden Rechnungsbeträge (`total_bill`)
 anzeigt.
 Diese Visualisierung erleichtert den Vergleich, ob die Rechnungen abends tendenziell höher sind als mittags.
 
@@ -796,15 +746,15 @@ plt.show()
 ```
 ## Verteilungsfunktion bestimmen
 
-Dieser Code verwendet die Klasse ECDF aus dem Modul statsmodels.distributions.empirical_distribution, um die
-empirische Verteilungsfunktion der Werte von total_bill zu berechnen.
+Dieser Code verwendet die Klasse `ECDF()` aus dem Modul *statsmodels.distributions.empirical_distribution*, um die
+empirische Verteilungsfunktion der Werte von `total_bill` zu berechnen.
 
 Eine ECDF zeigt für jeden Wert auf der x-Achse den Anteil der Beobachtungen, die kleiner oder gleich diesem Wert sind.
 Das Ergebnis ist eine treppenförmige Kurve, die von 0 bis 1 ansteigt.
 Diese Art von Diagramm ist nützlich, um zu verstehen, wie Werte im Datensatz verteilt sind – zum Beispiel, um abzuschätzen,
 welcher Anteil der Rechnungen unter einem bestimmten Betrag liegt.
 
-Die Funktion plt.step() wird verwendet, um die ECDF als Stufenfunktion zu zeichnen, und Rasterlinien werden hinzugefügt,
+Die Funktion `plt.step()` wird verwendet, um die ECDF als Stufenfunktion zu zeichnen, und Rasterlinien werden hinzugefügt,
 um die Lesbarkeit zu verbessern.
 
 ```{code-cell}
