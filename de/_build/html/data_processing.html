@@ -1428,11 +1428,12 @@ den beiden Variablen modelliert.</p>
 <p>Hier zeichnet Python automatisch zur Regressionsgeraden in hellblau den “Sicherheitsbereich” ein. Dieser weist darauf hin, dass die Gerade nur eine Schätzung ist und der Zusammenhang zwischen den Merkmalen auch anders aussehen könnte. Insbesondere an den Rändern - also bei sehr kleinen und sehr großen Gesamtrechnungen - ist dieser Bereich daher auch größer, denn hier gibt es weniger Daten, das führt zu mehr Schätzunsicherheit.</p>
 </div>
 </aside>
-<p>Dies wird mit der Funktion <code class="docutils literal notranslate"><span class="pre">lmplot()</span></code> aus der <em>seaborn</em>-Bibliothek gemacht.</p>
+<p>Dafür benutzen wir die LinearRegression Klasse aus der <em>sklearn</em>-Bibliothek, um ein lineares Regressionsmodell zu erstellen und zu trainieren.</p>
 <ul class="simple">
-<li><p>Der Parameter <code class="docutils literal notranslate"><span class="pre">x=&quot;total_bill&quot;</span></code> definiert die Variable auf der x-Achse,</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y=&quot;tip&quot;</span></code> definiert die Variable auf der y-Achse,</p></li>
-<li><p>und seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.</p></li>
+<li><p>Zuerst wird der Datensatz geladen und die Designmatrix <code class="docutils literal notranslate"><span class="pre">X</span></code> (Gesamtrechnung) sowie die Zielvariable <code class="docutils literal notranslate"><span class="pre">y</span></code> (Trinkgeld) definiert.</p></li>
+<li><p>Dann wird das Modell initialisiert und mit den Daten trainiert.</p></li>
+<li><p>Anschließend werden die Regressionsparameter (Achsenabschnitt und Steigung) ausgegeben.</p></li>
+<li><p>Schließlich wird die Regressionslinie berechnet und zusammen mit den Originaldaten in einem Streudiagramm dargestellt.</p></li>
 </ul>
 <div class="cell tag_remove_input docutils container">
 </div>

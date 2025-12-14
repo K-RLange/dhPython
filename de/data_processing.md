@@ -683,10 +683,11 @@ Hier zeichnet Python automatisch zur Regressionsgeraden in hellblau den "Sicherh
 ```
 ````
 
-Dies wird mit der Funktion `lmplot()` aus der *seaborn*-Bibliothek gemacht.
-- Der Parameter `x="total_bill"` definiert die Variable auf der x-Achse,
-- `y="tip"` definiert die Variable auf der y-Achse,
-- und seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.
+Dafür benutzen wir die LinearRegression Klasse aus der *sklearn*-Bibliothek, um ein lineares Regressionsmodell zu erstellen und zu trainieren.
+- Zuerst wird der Datensatz geladen und die Designmatrix `X` (Gesamtrechnung) sowie die Zielvariable `y` (Trinkgeld) definiert.
+- Dann wird das Modell initialisiert und mit den Daten trainiert.
+- Anschließend werden die Regressionsparameter (Achsenabschnitt und Steigung) ausgegeben.
+- Schließlich wird die Regressionslinie berechnet und zusammen mit den Originaldaten in einem Streudiagramm dargestellt.
 
 ```{code-cell}
 :tags: ["remove_input"]
