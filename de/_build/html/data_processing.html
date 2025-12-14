@@ -509,10 +509,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationen-berechnen">Korrelationen berechnen</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationen-berechnen">Korrelationen berechnen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaikdiagramm-erstellen">Mosaikdiagramm erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-erstellen">Boxplot erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsfunktion-bestimmen">Verteilungsfunktion bestimmen</a><ul class="nav section-nav flex-column">
@@ -1436,32 +1434,61 @@ den beiden Variablen modelliert.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">y=&quot;tip&quot;</span></code> definiert die Variable auf der y-Achse,</p></li>
 <li><p>und seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.</p></li>
 </ul>
+<div class="cell tag_remove_input docutils container">
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># Datensatz laden und definieren unserer Deisgnmatrix X und Zielvariable y</span>
 <span class="n">tips</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;tips.csv&quot;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;tip&quot;</span><span class="p">]</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span>
-    <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span>
-    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span>
-<span class="p">)</span>
+<span class="c1"># Lineares Regressionsmodell initialisieren und trainieren</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
+<span class="c1"># Regressionsparameter ausgeben</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Achsenabschnitt (β0):&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Steigung (β1):&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Wertebereich für Regressionslinie erzeugen</span>
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">y_plot</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_plot</span><span class="p">)</span>
+
+<span class="c1"># Streudiagramm der Originaldaten</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">)</span>
+
+<span class="c1"># Regressionslinie einzeichnen</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_plot</span><span class="p">,</span> <span class="n">y_plot</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Regressionslinie&quot;</span><span class="p">)</span>
+
+<span class="c1"># Diagrammtitel und Achsenbeschriftungen setzen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Trinkgeld vs. Gesamtrechnung mit Regressionslinie&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Gesamtrechnung ($)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Trinkgeld ($)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;x&quot;</span> <span class="o">+</span> <span class="s2">&quot; + &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Plot anzeigen</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/25bb39e50a37a3b517bb6d279587da2ae00e0f8dafa7de7b4c573b1f7c1dcf09.png" src="_images/25bb39e50a37a3b517bb6d279587da2ae00e0f8dafa7de7b4c573b1f7c1dcf09.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Achsenabschnitt (β0): 0.9202696135546731
+Steigung (β1): 0.10502451738435337
+</pre></div>
+</div>
+<img alt="_images/905f6953f399d04bae32bee203105044cdea77e1548cb2f010001901824bd904.png" src="_images/905f6953f399d04bae32bee203105044cdea77e1548cb2f010001901824bd904.png" />
 </div>
 </div>
+</section>
 <section id="korrelationen-berechnen">
-<h3>Korrelationen berechnen<a class="headerlink" href="#korrelationen-berechnen" title="Link to this heading">#</a></h3>
+<h2>Korrelationen berechnen<a class="headerlink" href="#korrelationen-berechnen" title="Link to this heading">#</a></h2>
 <p>Der folgende Code berechnet die Korrelation zwischen der Gesamtrechnung und dem Trinkgeldbetrag. Wir betrachten zwei verschieden Möglichkeiten, Korrelationen zu messen: die Pearson-Korrelation und die Spearman-Korrelation.</p>
 <p>Dies geschieht mithilfe der Funktionen pearsonr() und spearmanr() aus dem scipy.stats-Modul. Beide nehmen die jeweiligen Spalten unseres pandas-Datensatzes als Eingabevarbiablen und berechnen die entsprechende Korrelation und auch den p-Wert, der angibt, ob es sich um eine signifikante Korrelation handelt.</p>
 <div class="cell docutils container">
@@ -1495,7 +1522,6 @@ P-value (Spearman): 2.501158440923619e-34
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="mosaikdiagramm-erstellen">
 <h2>Mosaikdiagramm erstellen<a class="headerlink" href="#mosaikdiagramm-erstellen" title="Link to this heading">#</a></h2>
@@ -1844,10 +1870,8 @@ um die Lesbarkeit zu verbessern.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-3">Übung 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationen-berechnen">Korrelationen berechnen</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#streudiagramm-mit-regressionslinie-erstellen">Streudiagramm mit Regressionslinie erstellen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#korrelationen-berechnen">Korrelationen berechnen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mosaikdiagramm-erstellen">Mosaikdiagramm erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot-erstellen">Boxplot erstellen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verteilungsfunktion-bestimmen">Verteilungsfunktion bestimmen</a><ul class="nav section-nav flex-column">

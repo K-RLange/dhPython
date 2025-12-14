@@ -300,7 +300,7 @@ g.set_axis_labels("Geschlecht", "Anzahl")
 plt.show()
 ```
 
-#### Übung 2
+### Übung 2
 
 ```{raw} html
 <style>
@@ -687,26 +687,55 @@ Dies wird mit der Funktion `lmplot()` aus der *seaborn*-Bibliothek gemacht.
 - Der Parameter `x="total_bill"` definiert die Variable auf der x-Achse,
 - `y="tip"` definiert die Variable auf der y-Achse,
 - und seaborn passt automatisch eine lineare Regressionslinie an und zeichnet sie durch die Daten.
+
+```{code-cell}
+:tags: ["remove_input"]
+import warnings
+warnings.filterwarnings("ignore")
+```
+
 ```{code-cell}
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+import numpy as np
+import seaborn as sns
+
+# Datensatz laden und definieren unserer Deisgnmatrix X und Zielvariable y
 tips = pd.read_csv("tips.csv")
+X = tips[["total_bill"]]
+y = tips["tip"]
 
-sns.lmplot(
-    data=tips,
-    x="total_bill",
-    y="tip"
-)
+# Lineares Regressionsmodell initialisieren und trainieren
+model = LinearRegression()
+model.fit(X, y)
 
+# Regressionsparameter ausgeben
+print("Achsenabschnitt (β0):", model.intercept_)
+print("Steigung (β1):", model.coef_[0])
+
+# Wertebereich für Regressionslinie erzeugen
+X_plot = np.linspace(X.min(), X.max(), 100).reshape(-1, 1)
+y_plot = model.predict(X_plot)
+
+# Streudiagramm der Originaldaten
+sns.scatterplot(data=tips, x="total_bill", y="tip")
+
+# Regressionslinie einzeichnen
+plt.plot(X_plot, y_plot, label="Regressionslinie")
+
+# Diagrammtitel und Achsenbeschriftungen setzen
 plt.title("Trinkgeld vs. Gesamtrechnung mit Regressionslinie")
 plt.xlabel("Gesamtrechnung ($)")
-plt.ylabel("Trinkgeld ($)")
+plt.ylabel(str(round(model.coef_[0], 3)) + "x" + " + " + str(round(model.intercept_, 3)))
+plt.legend()
+
+# Plot anzeigen
 plt.show()
 ```
 
 
-### Korrelationen berechnen
+## Korrelationen berechnen
 
 Der folgende Code berechnet die Korrelation zwischen der Gesamtrechnung und dem Trinkgeldbetrag. Wir betrachten zwei verschieden Möglichkeiten, Korrelationen zu messen: die Pearson-Korrelation und die Spearman-Korrelation.
 

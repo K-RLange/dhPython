@@ -28,7 +28,7 @@ print(2 + 3)
 Um ein Objekt in der Konsole auszugeben, kannst du den Befehl print(...) verwenden, wobei du „...“ durch das Objekt ersetzt, das du anzeigen möchtest. In diesem Fall ist es das Ergebnis von 2 + 3.
 
 Weitere mathematische Operationen können wie folgt durchgeführt werden:
-```
+```{code-cell}
 print(3 * 4)  # Multiplikation
 print(3 - 2)  # Subtraktion
 print(10 / 2)  # Division
