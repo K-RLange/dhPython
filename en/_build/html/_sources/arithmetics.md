@@ -26,7 +26,7 @@ The following cell shows you how to add two numbers in Python:
 ```{code-cell}
 print(2 + 3)
 ```
-To show any object within Python in your console, you can use the print(...) command, in which you can replace "..." with the object that you want to display. In this case, it is the answer of 2+2.
+To show any object within Python in your console, you can use the print(...) command, in which you can replace "..." with the object that you want to display. In this case, it is the answer of 2+3.
 
 Other numeric calculations can be performed like this:
 ```{code-cell}

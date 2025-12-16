@@ -51,7 +51,7 @@ filtered_data = price_data.loc[(price_data["timestamp"] >= start_date) & (price_
 print(filtered_data)
 ```
 
-To plot this time-dependent data, we can first turn the timestamp-column into a date format and then plot it.
+To visualize these time-dependent data, we use the matplotlib library. With the to_datetime command (from pandas), we first convert the column containing the timestamps into a date format and then, using plot applied to price_data, create a chart that is displayed with show() from matplotlib.
 ```{code-cell}
 import matplotlib.pyplot as plt
 price_data["timestamp"] = pd.to_datetime(price_data["timestamp"])

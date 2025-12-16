@@ -232,7 +232,7 @@ skim(tips)
 </script>
 ```
 
-## Create bar chart
+## Bar chart
 Below you can see a variant for creating a bar chart. The `bar()` function from the *matplotlib* library is used to 
 display the frequencies of the categories 'Female' and 'Male' in the `sex` column of the dataset.
 
@@ -258,6 +258,22 @@ plt.xlabel("Gender")
 plt.ylabel("Number")
 plt.show()
 ```
+
+
+We can also determine relative frequencies using the `.value_counts()` function. To do this, we need to pass the parameter `normalize=True`.
+```{code-cell}
+tips['sex'].value_counts(normalize=True)
+```
+
+We can also create contingency tables using the `.crosstab()` function:
+```{code-cell}
+# Absolute frequency
+print(pd.crosstab(tips['sex'], tips['time']))
+
+# Relative frequency
+print(pd.crosstab(tips['sex'], tips['time'], normalize='all'))
+```
+
 
 ## Split bar chart
 The following code creates a grouped bar chart that shows the number of guests by gender, separated by time of day 
@@ -659,30 +675,92 @@ plt.show()
 ```
 
 ## Create scatter plot with regression line
-The following code creates a scatter plot that shows the relationship between the total bill and the tip amount. 
-In addition to the individual data points, it includes a regression line, which models the linear relationship between 
-the two variables.
 
-This is done using the `lmplot()` function from the *seaborn* library.
-- The parameter `x="total_bill"` defines the variable on the x-axis,
-- `y="tip"` defines the variable on the y-axis,
-- and *seaborn* automatically fits and draws a linear regression line through the data.
+The following code creates a scatter plot that shows the relationship between the total bill and the tip amount. In addition to the individual data points, a regression line is added that models the linear relationship between the two variables.
+
+````{margin}
+```{note}
+Here, Python automatically draws a light-blue “confidence band” around the regression line. This indicates that the line is only an estimate and that the relationship between the variables could also look different. In particular, at the edges—that is, for very small and very large total bills—this band is wider, because there are fewer data points there, which leads to greater estimation uncertainty.
+```
+````
+
+For this, we use the `LinearRegression` class from the *sklearn* library to create and train a linear regression model.
+
+* First, the dataset is loaded and the design matrix `X` (total bill) as well as the target variable `y` (tip) are defined.
+* Then, the model is initialized and trained on the data.
+* Next, the regression parameters (intercept and slope) are output.
+* Finally, the regression line is computed and displayed together with the original data in a scatter plot.
+
 ```{code-cell}
+:tags: ["remove_input"]
+import warnings
+warnings.filterwarnings("ignore")
+```
+```{code-cell}
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+import numpy as np
+import seaborn as sns
+
+# Load the dataset and define the design matrix X and the target variable y
+tips = pd.read_csv("tips.csv")
+X = tips[["total_bill"]]
+y = tips["tip"]
+
+# Initialize and train the linear regression model
+model = LinearRegression()
+model.fit(X, y)
+
+# Output the regression parameters
+print("Intercept (β0):", model.intercept_)
+print("Slope (β1):", model.coef_[0])
+
+# Create the value range for the regression line
+X_plot = np.linspace(X.min(), X.max(), 100).reshape(-1, 1)
+y_plot = model.predict(X_plot)
+
+# Scatter plot of the original data
+sns.scatterplot(data=tips, x="total_bill", y="tip")
+
+# Draw the regression line
+plt.plot(X_plot, y_plot, label="Regression line")
+
+# Set the chart title and axis labels
+plt.title("Tip vs. Total Bill with Regression Line")
+plt.xlabel("Total Bill ($)")
+plt.ylabel(str(round(model.coef_[0], 3)) + "x" + " + " + str(round(model.intercept_, 3)))
+plt.legend()
+
+# Display the plot
+plt.show()
+```
+
+## Calculating correlations
+
+The following code calculates the correlation between the total bill and the tip amount. We consider two different ways of measuring correlation: the Pearson correlation and the Spearman correlation.
+
+This is done using the `pearsonr()` and `spearmanr()` functions from the `scipy.stats` module. Both functions take the respective columns of our pandas dataset as input variables and compute the corresponding correlation as well as the p-value, which indicates whether the correlation is statistically significant.
+
+```{code-cell}
+
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from scipy.stats import pearsonr, spearmanr
+
+# Load data
 tips = pd.read_csv("tips.csv")
 
-sns.lmplot(
-    data=tips,
-    x="total_bill",
-    y="tip"
-)
+# Pearson correlation
+pearson_corr, pearson_p = pearsonr(tips["total_bill"], tips["tip"])
+print("Pearson correlation:", pearson_corr)
+print("P-value (Pearson):", pearson_p)
 
-plt.title("Tip vs. Total Bill with Regression Line")
-plt.xlabel("Total Bill ($)")
-plt.ylabel("Tip ($)")
-plt.show()
+# Spearman correlation
+spearman_corr, spearman_p = spearmanr(tips["total_bill"], tips["tip"])
+print("Spearman correlation:", spearman_corr)
+print("P-value (Spearman):", spearman_p)
 ```
 
 ## Create mosaic plot
