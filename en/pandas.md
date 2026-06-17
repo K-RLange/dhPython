@@ -24,6 +24,7 @@ Let's look at it in action:
 import pandas as pd
 import seaborn
 import matplotlib
+print(matplotlib.__version)
 names = ["Alice", "Bob", "Charlie"]
 ages = [25, 30, 35]
 hobby = ["Completing Python tutorials", "sports", "Completing Python tutorials"]
