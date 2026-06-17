@@ -751,12 +751,12 @@ from scipy.stats import pearsonr, spearmanr
 # Load data
 tips = pd.read_csv("tips.csv")
 
-# Pearson correlation
+# Pearson Korrelation
 pearson_corr, pearson_p = pearsonr(tips["total_bill"], tips["tip"])
 print("Pearson correlation:", pearson_corr)
 print("P-value (Pearson):", pearson_p)
 
-# Spearman correlation
+# Spearman Korrelation
 spearman_corr, spearman_p = spearmanr(tips["total_bill"], tips["tip"])
 print("Spearman correlation:", spearman_corr)
 print("P-value (Spearman):", spearman_p)
