@@ -22,6 +22,8 @@ Remember the library we installed in the last chapter? That library is called pa
 Let's look at it in action:
 ```{code-cell}
 import pandas as pd
+import seaborn
+import matplotlib
 names = ["Alice", "Bob", "Charlie"]
 ages = [25, 30, 35]
 hobby = ["Completing Python tutorials", "sports", "Completing Python tutorials"]
