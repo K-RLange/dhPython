@@ -29,6 +29,7 @@ sphinx:
     - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
     thebe_config:
       use_thebe_lite: false
+      path_to_docs: en
       auto-execute-page: true
       thebe-init: true
       exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"]

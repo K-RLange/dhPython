@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -56,13 +56,15 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script defer="defer" src="_static/refresh.js?v=9bea9b76"></script>
-    <script>const thebe_selector = ".thebe,.cell"
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script defer="defer" src="_static/sphinx-thebe-lite.js?v=2a71eeb1"></script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const thebe_selector = ".thebe,.cell"
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
@@ -193,7 +195,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="modules.html">3. Module</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. pandas und matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_processing.html">5. Deskriptive Datenanalyse</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="loops.html">6. Bedingungen und Schleifen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="functions.html">7. Funktionen und Klassen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">8. Installation von Python, einer IDE und Paketen</a></li>
@@ -251,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/K-RLange/dhPython/master?urlpath=tree/python_tutorial/pandas.md" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/K-RLange/dhPython/master?urlpath=tree/de/pandas.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -269,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://jupyterhub.uni-muenster.de/hub/user-redirect/git-pull?repo=https%3A//github.com/K-RLange/dhPython&urlpath=tree/dhPython/python_tutorial/pandas.md&branch=master" target="_blank"
+      <li><a href="https://jupyterhub.uni-muenster.de/hub/user-redirect/git-pull?repo=https%3A//github.com/K-RLange/dhPython&urlpath=tree/dhPython/de/pandas.md&branch=master" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onJupyterHub"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -287,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://deepnote.com/github/K-RLange/dhPython/blob/master/python_tutorial/pandas.md" target="_blank"
+      <li><a href="https://deepnote.com/github/K-RLange/dhPython/blob/master/de/pandas.md" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -506,7 +507,7 @@ document.write(`
 <p>Schauen wir sie uns in Aktion an:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
 <span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">]</span>
 <span class="n">hobby</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Python-Tutorials abschließen&quot;</span><span class="p">,</span> <span class="s2">&quot;Sport&quot;</span><span class="p">,</span> <span class="s2">&quot;Python-Tutorials abschließen&quot;</span><span class="p">]</span>
@@ -602,7 +603,7 @@ dtype: int64
 <p>Um diese zeitabhängigen Daten zu visualisieren, nutzen wir die Bibliothek matplotlib. Mit dem Befehl to_datetime (aus pandas) können wir zunächst die Spalte mit den Zeitstempeln in ein Datumsformat umwandeln und dann mit plot, angewandt auf price_data ein Diagramm erstellen, das durch show() aus matplotlib angezeigt wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">price_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">price_data</span><span class="p">[</span><span class="s2">&quot;timestamp&quot;</span><span class="p">])</span>
 <span class="n">price_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;difference&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -617,19 +618,20 @@ dtype: int64
 
         <script type="text/x-thebe-config">
         {
-            "rootPath": "./",
-            "requestKernel": true,
-            "useJupyterLite": true,
-            "useBinder": false,
-            "kernelOptions": {
-                "path": "/"
+            requestKernel: true,
+            binderOptions: {
+                repo: "K-RLange/dhPython",
+                ref: "master",
             },
-            "codeMirrorConfig": {
-                "theme": "default",
-                "mode": "python"
+            codeMirrorConfig: {
+                theme: "default",
+                mode: "python"
             },
-            "mountRestartButton": false,
-            "mountRestartallButton": false
+            kernelOptions: {
+                name: "python3",
+                path: "de/."
+            },
+            predefinedOutput: true
         }
         </script>
         <script>kernelName = 'python3'</script>

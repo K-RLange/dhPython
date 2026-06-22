@@ -21,7 +21,7 @@ Wenn du Fragen hast, zögere bitte nicht, uns eine E-Mail zu schreiben:
 
 
 ```{attention}
-Um den Python-Code in diesem Kurs zu bearbeiten und auszuführen, findest du dieses Symbol ![live code symbol](code_symbol.PNG) oben auf jeder Seite, die Python-Code enthält. Du kannst darauf klicken und dann „Live code“ auswählen, um den Code selbst zu bearbeiten und auszuführen. Probiere ruhig verschiedene Dinge aus und experimentiere mit dem Code. Du kannst hier nichts kaputt machen, und niemand (auch wir nicht) kann deinen Code sehen – also fühl dich frei, zu experimentieren.
+Um den Python-Code in diesem Kurs zu bearbeiten und auszuführen, findest du dieses Symbol ![live code symbol](code_symbol.PNG) oben auf jeder Seite, die Python-Code enthält. Du kannst darauf klicken und dann „Live code“ auswählen, um den Code selbst zu bearbeiten und auszuführen. Beim ersten Mal kann es einige Minuten dauern, bis die Live-Code-Umgebung geladen ist. Das ist normal. Du kannst deinen Code ausführen, sobald „ready“ angezeigt wird. Probiere ruhig verschiedene Dinge aus und experimentiere mit dem Code. Du kannst hier nichts kaputt machen, und niemand (auch wir nicht) kann deinen Code sehen – also fühl dich frei, zu experimentieren.
 ```
 
 
